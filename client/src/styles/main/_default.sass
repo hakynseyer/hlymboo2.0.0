@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500')
+::selection
+  color: map-get($col-white, m1)
+  background: map-get($col-purple, m1)
+body
+  padding: 0px
+  margin: 0px
+  font-family: 'Roboto', sans-serif
+  background-color: map-get($col-white, m1)
+  color: map-get($col-gray, m1)
+  user-select: none
+
+section
+  margin-top: map-get($var-header, height)
+
+main
+  display: flex
+  flex-wrap: wrap
+
+h2
+  margin: 0px
+
+button
+  font-family: 'Roboto', sans-serif
+  border: none
+  outline: none
+
+input
+  border: none
+  outline: none
+  font-family: 'Roboto', sans-serif
+  font-weight: 500
+  padding: 0
+  &:focus
+    outline: none
+    border: none
+
+select
+  border: none
+  outline: none
+  font-family: 'Roboto', sans-serif
+  font-weight: 500
+
+option
+  font-size: 15px
+  font-family: 'Roboto', sans-serif
+  font-weight: 300
+  outline: none
+  border: none
+  // background-color: map-get($col-purple, p1)
+  &:checked
+    color: map-get($col-white, m1)
+    background: map-get($col-purple, m1)
+
+input[type="checkbox"]
+  display: none
+
+textarea
+  font-family: 'Roboto', sans-serif
+  font-weight: 500
+  border: none
+  outline: none
+  resize: none
+
+table
+  border-collapse: collapse

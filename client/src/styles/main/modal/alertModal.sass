@@ -1,0 +1,21 @@
+.modal__body
+
+  +ele('alert')
+    width: 50%
+    padding: 20px
+    border-radius: 5px
+    background-color: map-get($col-purple, m1)
+    color: map-get($col-white, m1)
+
+    +ele('head')
+      padding-bottom: 10px
+      border-bottom: solid 2px map-get($col-purple, p1)
+
+    +ele('body')
+      padding: 20px
+      text-align: justify
+      font-weight: 300
+
+    +ele('footer')
+      font-size: 15px
+      text-align: right

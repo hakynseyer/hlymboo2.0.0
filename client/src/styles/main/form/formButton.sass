@@ -1,0 +1,36 @@
+.form
+
+  +ele('button')
+    width: 90px
+    padding: 10px
+    display: flex
+    justify-content: center
+    border-radius: 3px
+    font-size: 14px
+    overflow: hidden
+    background-color: transparent
+    color: map-get($col-purple, m1)
+    cursor: pointer
+    &:hover
+      // background-color: $hc-morado_MB
+
+    +mod('marginRight')
+      margin-right: 10px
+
+
+@each $name, $color in $colorsM1
+  .form__button__color--#{$name}
+    background-color: $color
+    color: lighten($color, 45%)
+
+.move-right-enter-active
+  animation: move-right 500ms
+
+.move-right-leave-active
+  animation: move-right 500ms reverse
+
+@keyframes move-right
+  from
+    transform: translateX(200%)
+  to
+    transform: translateX(0%)

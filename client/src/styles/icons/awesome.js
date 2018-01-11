@@ -1,0 +1,6 @@
+import 'vue-awesome/icons/info-circle'
+import 'vue-awesome/icons/sort-desc'
+import 'vue-awesome/icons/trash-o'
+import 'vue-awesome/icons/times-circle'
+import 'vue-awesome/icons/asterisk'
+import 'vue-awesome/icons/check'

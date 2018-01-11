@@ -1,0 +1,81 @@
+.modal
+  z-index: map-get($var-zindex, modal)
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background-color: rgba(darken(map-get($col-gray, m1), 10), .9)
+
+  +ele('exit')
+    z-index: map-get($var-zindex, modal)
+    position: absolute
+    top: 0
+    right: 0
+    margin: 20px 20px 0px 0px
+
+    +ele('icon')
+      color: map-get($col-white, m1)
+      cursor: pointer
+      &:hover
+        color: map-get($col-red, m1)
+
+  +ele('head')
+    width: 100%
+    display: flex
+    align-items: center
+    overflow: hidden
+
+    +mod('color-white')
+      color: map-get($col-white, m1)
+
+    +mod('center')
+      position: absolute
+      top: 0px
+      left: 0px
+
+    +ele('titles')
+      display: flex
+      justify-content: flex-start
+      width: 100%
+      padding: 20px 30px 0px 30px
+      box-sizing: border-box
+
+      +ele('main')
+        display: flex
+        align-items: center
+        width: 50%
+        font-size: 30px
+        margin: 0px
+        padding: 0px
+        margin-bottom: 10px
+        text-align: center
+        text-transform: capitalize
+        overflow: hidden
+
+      +ele('secondary')
+        display: inline-block
+        font-size: 16px
+        font-weight: 500
+        width: 50%
+        text-align: center
+        text-transform: capitalize
+
+  +ele('body')
+    position: relative
+    width: 100%
+    height: 100%
+    padding: 0px 20px
+    box-sizing: border-box
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+    +ele('timer')
+      position: absolute
+      bottom: 0
+      right: 0
+      font-weight: 500
+      margin: 0px 30px 30px 0px
+      color: map-get($col-white, m1)
