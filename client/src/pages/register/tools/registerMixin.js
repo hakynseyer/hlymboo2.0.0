@@ -112,7 +112,10 @@ const checksData = {
       if (typeof (nameCompare) !== 'undefined') nameCompareComponent.repeatPassword = nameCompare
 
       let err = valHS.checkEqual(this.form.passwords.repeatPassword.value, {name: nameCompareComponent.repeatPassword, data: this.form.passwords.password.value})
-      if (err !== null) this.form.passwords.repeatPassword.error[0] = err
+      if (err !== null) {
+        this.form.passwords.repeatPassword.error[0] = err
+        this.$busForm.$emit('formMixins_successIcon', {id: 'repeatPasswordInput', state: false})
+      } else this.$busForm.$emit('formMixins_successIcon', {id: 'repeatPasswordInput', state: true})
     },
     checkQuestion1 (nameCompare) {
       let checkBasicMain = ['security', 'question1Select', 'question1', 4, 100]
@@ -246,7 +249,7 @@ const cleanerData = {
       let cleanerSign = ['sign', 'sign']
       if (cleaner) {
         this.resetMainData('booleanFalse', ...cleanerSign)
-        this.$busForm.$emit('hsFormCheck_cleanAll', {id: 'signCheck', value: this.lang.hsFormCheck.sign.config.checkChosen})
+        this.$busForm.$emit('hsCheckbox_cleanAll', {id: 'signCheck', value: this.lang.hsCheckbox.sign.config.checkChosen})
       }
       if (errors) this.resetMainErrors(...cleanerSign)
     },

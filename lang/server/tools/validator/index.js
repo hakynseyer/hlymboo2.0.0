@@ -1,6 +1,6 @@
 const validator = {
-  es: require('./validatorLang_es'),
-  en: require('./validatorLang_en')
+  es: require('./lang/validatorLang_es'),
+  en: require('./lang/validatorLang_en')
 }
 
 const validatorLang = (lang) => {
@@ -8,10 +8,10 @@ const validatorLang = (lang) => {
 
   switch (lang) {
     case 'es':
-      langData = validator.es
+      langData = validator.es()
       break
     case 'en':
-      langData = validator.en
+      langData = validator.en()
       break
   }
 

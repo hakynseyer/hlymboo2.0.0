@@ -19,11 +19,11 @@ export default new Vuex.Store({
   mutations: {
     saveToken (state, token) {
       state.token = token
-      if (token) state.iniciarSesion = true
-      else state.iniciarSesion = false
+      if (token) state.login = true
+      else state.login = false
     },
-    saveUser (state, user) {
-      state.user = user
+    saveHyzher (state, hyzher) {
+      state.hyzher = hyzher
     },
     saveLang (state, lang) {
       state.lang = lang
@@ -33,8 +33,8 @@ export default new Vuex.Store({
     saveToken ({commit}, token) {
       commit('saveToken', token)
     },
-    saveUser ({commit}, user) {
-      commit('saveUser', user)
+    saveHyzher ({commit}, hyzher) {
+      commit('saveHyzher', hyzher)
     },
     saveLang ({commit}, lang) {
       commit('saveLang', lang)

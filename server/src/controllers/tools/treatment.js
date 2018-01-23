@@ -1,4 +1,4 @@
-module.exports = {
+const treat = {
   treatTrim (data) {
     if (data !== null) return data.trim()
     return data
@@ -24,15 +24,25 @@ module.exports = {
     return data
   },
 
-  /*
-  * [D] Defined Functions
-  */
+  treatReplaceSpaces (data) {
+    if (data !== null) return data.replace(/_/g, ' ')
+  }
+}
+
+const treatMethods = {
   treatTrimSizeCharacters (data, size) {
-    const a = this.treatTrim(data)
-    const b = this.treatSize(a, size)
-    const c = this.treatCharacters(b)
+    const a = treat.treatTrim(data)
+    const b = treat.treatSize(a, size)
+    const c = treat.treatCharacters(b)
 
     return c
-  }
+  },
+  treatTrimReplaceSpaces (data) {
+    const a = treat.treatTrim(data)
+    const b = treat.treatReplaceSpaces(a)
 
+    return b
+  }
 }
+
+module.exports = {treat, treatMethods}

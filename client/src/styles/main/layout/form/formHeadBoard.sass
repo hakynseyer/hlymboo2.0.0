@@ -1,0 +1,71 @@
+.form
+  +ele('head-board')
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    border-bottom: dashed 2px lighten(map-get($colorsHS, gray), 10%)
+
+    +ele('help')
+      width: 10%
+
+      +ele('icon')
+        cursor: pointer
+
+      +ele('message')
+        z-index: map-get($var-z-index, form-Headboard)
+        position: absolute
+        top: 0
+        right: 0
+        display: flex
+        flex-wrap: wrap
+        width: 50%
+        padding: 10px
+        font-size: 14px
+        font-weight: 300
+        border: dashed 2px lighten(map-get($colorsHS, gray), 10%)
+        box-sizing: border-box
+        background-color: map-get($colorsHS, white)
+        overflow: hidden
+
+        +ele('list')
+          width: 100%
+          display: inline-block
+          margin-bottom: 5px
+          animation: move .5s
+          &:nth-child(even)
+            animation: move .75s
+          &:last-child
+            margin-bottom: 0px
+          &:before
+            content: '\254'
+            font-size: 20px
+            font-weight: 500
+            margin-right: 10px
+
+    +ele('title')
+      width: 75%
+      font-size: 18px
+      padding-bottom: 5px
+      text-transform: uppercase
+
+    +ele('space-right')
+      width: 30px
+      height: 30px
+      display: flex
+      justify-content: center
+      align-items: center
+      overflow: hidden
+
+      +ele('button')
+        background-color: transparent
+        cursor: pointer
+
+        +ele('icon')
+          color: map-get($colorsHS, gray)
+
+@keyframes move
+  from
+    transform: translate(-100%)
+  to
+    transform: translate(0%)

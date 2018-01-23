@@ -67,11 +67,11 @@ const hsFormHeadboardData = {
   }
 }
 
-const hsFormInputData = {
+const hsInputData = {
   data () {
     return {
       lang: {
-        hsFormInput: {
+        hsInput: {
           name: {
             config: {
               id: 'nameInput',
@@ -157,47 +157,47 @@ const hsFormInputData = {
     }
   },
   methods: {
-    dataLink_hsFormInput (dataLink) {
-      this.lang.hsFormInput.name.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_name_titleInput)
-      this.lang.hsFormInput.name.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_name_headBoard)
-      this.lang.hsFormInput.name.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_name_hiddenMessage)
+    dataLink_hsInput (dataLink) {
+      this.lang.hsInput.name.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_name_titleInput)
+      this.lang.hsInput.name.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_name_headBoard)
+      this.lang.hsInput.name.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_name_hiddenMessage)
 
-      this.lang.hsFormInput.surnames.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_surnames_titleInput)
-      this.lang.hsFormInput.surnames.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_surnames_headBoard)
-      this.lang.hsFormInput.surnames.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_surnames_hiddenMessage)
+      this.lang.hsInput.surnames.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_surnames_titleInput)
+      this.lang.hsInput.surnames.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_surnames_headBoard)
+      this.lang.hsInput.surnames.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_surnames_hiddenMessage)
 
-      this.lang.hsFormInput.alias.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_alias_titleInput)
-      this.lang.hsFormInput.alias.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_alias_headBoard)
-      this.lang.hsFormInput.alias.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_alias_hiddenMessage)
+      this.lang.hsInput.alias.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_alias_titleInput)
+      this.lang.hsInput.alias.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_alias_headBoard)
+      this.lang.hsInput.alias.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_alias_hiddenMessage)
 
-      this.lang.hsFormInput.email.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_email_titleInput)
-      this.lang.hsFormInput.email.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_email_headBoard)
-      this.lang.hsFormInput.email.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_email_hiddenMessage)
+      this.lang.hsInput.email.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_email_titleInput)
+      this.lang.hsInput.email.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_email_headBoard)
+      this.lang.hsInput.email.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_email_hiddenMessage)
 
-      this.lang.hsFormInput.password.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_password_titleInput)
-      this.lang.hsFormInput.password.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_password_headBoard)
-      this.lang.hsFormInput.password.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_password_hiddenMessage)
+      this.lang.hsInput.password.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_password_titleInput)
+      this.lang.hsInput.password.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_password_headBoard)
+      this.lang.hsInput.password.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_password_hiddenMessage)
 
-      this.lang.hsFormInput.repeatPassword.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_repeatPassword_titleInput)
-      this.lang.hsFormInput.repeatPassword.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_repeatPassword_headBoard)
-      this.lang.hsFormInput.repeatPassword.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_repeatPassword_hiddenMessage)
+      this.lang.hsInput.repeatPassword.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_repeatPassword_titleInput)
+      this.lang.hsInput.repeatPassword.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_repeatPassword_headBoard)
+      this.lang.hsInput.repeatPassword.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_repeatPassword_hiddenMessage)
 
-      this.lang.hsFormInput.answer1.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_answer1_titleInput)
-      this.lang.hsFormInput.answer1.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_answer1_headBoard)
-      this.lang.hsFormInput.answer1.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_answer1_hiddenMessage)
+      this.lang.hsInput.answer1.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_answer1_titleInput)
+      this.lang.hsInput.answer1.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_answer1_headBoard)
+      this.lang.hsInput.answer1.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_answer1_hiddenMessage)
 
-      this.lang.hsFormInput.answer2.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_answer2_titleInput)
-      this.lang.hsFormInput.answer2.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_answer2_headBoard)
-      this.lang.hsFormInput.answer2.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_answer2_hiddenMessage)
+      this.lang.hsInput.answer2.config.titleInput = _treatment.dataTreatmentSimple(dataLink.hsFI_answer2_titleInput)
+      this.lang.hsInput.answer2.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFI_answer2_headBoard)
+      this.lang.hsInput.answer2.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFI_answer2_hiddenMessage)
     }
   }
 }
 
-const hsFormSelectData = {
+const hsSelectData = {
   data () {
     return {
       lang: {
-        hsFormSelect: {
+        hsSelect: {
           question1: {
             config: {
               id: 'question1Select',
@@ -225,27 +225,27 @@ const hsFormSelectData = {
     }
   },
   methods: {
-    dataLink_hsFormSelect (dataLink) {
-      this.lang.hsFormSelect.question1.config.optionDataDefault = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_optionDataDefault)
-      this.lang.hsFormSelect.question1.config.optionData = _treatment.dataTreatmentArray(dataLink.hsFS_question1_optionData)
-      this.lang.hsFormSelect.question1.config.titleSelect = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_titleSelect)
-      this.lang.hsFormSelect.question1.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_headBoard)
-      this.lang.hsFormSelect.question1.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_hiddenMessage)
+    dataLink_hsSelect (dataLink) {
+      this.lang.hsSelect.question1.config.optionDataDefault = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_optionDataDefault)
+      this.lang.hsSelect.question1.config.optionData = _treatment.dataTreatmentArray(dataLink.hsFS_question1_optionData)
+      this.lang.hsSelect.question1.config.titleSelect = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_titleSelect)
+      this.lang.hsSelect.question1.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_headBoard)
+      this.lang.hsSelect.question1.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFS_question1_hiddenMessage)
 
-      this.lang.hsFormSelect.question2.config.optionDataDefault = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_optionDataDefault)
-      this.lang.hsFormSelect.question2.config.optionData = _treatment.dataTreatmentArray(dataLink.hsFS_question2_optionData)
-      this.lang.hsFormSelect.question2.config.titleSelect = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_titleSelect)
-      this.lang.hsFormSelect.question2.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_headBoard)
-      this.lang.hsFormSelect.question2.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_hiddenMessage)
+      this.lang.hsSelect.question2.config.optionDataDefault = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_optionDataDefault)
+      this.lang.hsSelect.question2.config.optionData = _treatment.dataTreatmentArray(dataLink.hsFS_question2_optionData)
+      this.lang.hsSelect.question2.config.titleSelect = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_titleSelect)
+      this.lang.hsSelect.question2.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_headBoard)
+      this.lang.hsSelect.question2.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFS_question2_hiddenMessage)
     }
   }
 }
 
-const hsFormCheckData = {
+const hsCheckboxData = {
   data () {
     return {
       lang: {
-        hsFormCheck: {
+        hsCheckbox: {
           sign: {
             config: {
               id: 'signCheck',
@@ -262,12 +262,12 @@ const hsFormCheckData = {
     }
   },
   methods: {
-    dataLink_hsFormCheck (dataLink) {
-      this.lang.hsFormCheck.sign.config.checkChosen = _treatment.dataTreatmentSimple(dataLink.hsFC_checkChosen)
-      this.lang.hsFormCheck.sign.config.checkList = _treatment.dataTreatmentArray(dataLink.hsFC_checkList)
-      this.lang.hsFormCheck.sign.config.titleCheck = _treatment.dataTreatmentSimple(dataLink.hsFC_titleCheck)
-      this.lang.hsFormCheck.sign.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFC_headBoard)
-      this.lang.hsFormCheck.sign.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFC_hiddenMessage)
+    dataLink_hsCheckbox (dataLink) {
+      this.lang.hsCheckbox.sign.config.checkChosen = _treatment.dataTreatmentSimple(dataLink.hsFC_checkChosen)
+      this.lang.hsCheckbox.sign.config.checkList = _treatment.dataTreatmentArray(dataLink.hsFC_checkList)
+      this.lang.hsCheckbox.sign.config.titleCheck = _treatment.dataTreatmentSimple(dataLink.hsFC_titleCheck)
+      this.lang.hsCheckbox.sign.config.headBoard = _treatment.dataTreatmentSimple(dataLink.hsFC_headBoard)
+      this.lang.hsCheckbox.sign.config.hiddenMessage = _treatment.dataTreatmentSimple(dataLink.hsFC_hiddenMessage)
     }
   }
 }
@@ -294,7 +294,7 @@ const hsAlertModalData = {
             }
           },
           configAlertModal: {
-            type: 'centered',
+            type: null,
             body: {
               head: null,
               body: null,
@@ -311,8 +311,11 @@ const hsAlertModalData = {
       this.lang.hsAlertModal.configModal.head.title = _treatment.dataTreatmentSimple(dataLink.hsAM_title)
       this.lang.hsAlertModal.configModal.head.subtitle = _treatment.dataTreatmentSimple(dataLink.hsAM_subtitle)
 
+      this.lang.hsAlertModal.configModal.timer.time = dataLink.hsAM_time
       this.lang.hsAlertModal.configModal.timer.redirect.name = _treatment.dataTreatmentSimple(dataLink.hsAM_name)
+      this.lang.hsAlertModal.configModal.timer.redirect.route = _treatment.dataTreatmentSimple(dataLink.hsAM_route)
 
+      this.lang.hsAlertModal.configAlertModal.type = _treatment.dataTreatmentSimple(dataLink.hsAM_type)
       this.lang.hsAlertModal.configAlertModal.body.head = _treatment.dataTreatmentSimple(dataLink.hsAM_head)
       this.lang.hsAlertModal.configAlertModal.body.body = dataLink.hsAM_body
       this.lang.hsAlertModal.configAlertModal.body.footer = _treatment.dataTreatmentSimple(dataLink.hsAM_footer)
@@ -320,4 +323,29 @@ const hsAlertModalData = {
   }
 }
 
-export {formData, hsFormHeadboardData, hsFormInputData, hsFormSelectData, hsFormCheckData, hsAlertModalData}
+const h2ActivationMessageData = {
+  data () {
+    return {
+      lang: {
+        h2ActivationMessage: {
+          h2Message: null
+        }
+      }
+    }
+  },
+  methods: {
+    dataLink_h2ActivationMessage (dataLink) {
+      this.lang.h2ActivationMessage.h2Message = _treatment.dataTreatmentSimple(dataLink.h2AM_h2Message)
+    }
+  }
+}
+
+export {
+  formData,
+  hsFormHeadboardData,
+  hsInputData,
+  hsSelectData,
+  hsCheckboxData,
+  hsAlertModalData,
+  h2ActivationMessageData
+}

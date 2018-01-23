@@ -1,0 +1,40 @@
+select
+  border: none
+  outline: none
+  font-family: 'Roboto', sans-serif
+  font-weight: 500
+  width: 100%
+  position: relative
+  font-size: 16px
+  appearance: none
+  height: 0px
+  color: map-get($colorsHS, gray)
+  text-indent: 10px
+  background-color: transparent
+  transition: all 100ms ease-in-out
+
+option
+  font-size: 15px
+  font-family: 'Roboto', sans-serif
+  font-weight: 300
+  outline: none
+  border: none
+  &:checked
+    color: map-get($colorsHS, white)
+    background: map-get($colorsHS, purple)
+
+.select
+  +mod('active')
+    height: 30px
+
+  +ele('arrow')
+    position: absolute
+    right: 0
+    margin-right: 10px
+    // color: $hc-morado_FB
+    pointer-events: none
+
+  +ele('container')
+    width: 100%
+    position: relative
+

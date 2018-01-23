@@ -4,7 +4,7 @@
       v-show="showModal"
       class="modal")
       div(
-        v-if="configModal.disableExit"
+        v-if="!configModal.disableExit"
         class="modal__exit"
         @click="closeModal")
         icon(

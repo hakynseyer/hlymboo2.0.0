@@ -14,21 +14,26 @@ form(
     h2(class="form__head__title") {{lang.form.head.title}}
     div(class="form__head__buttons")
       button(
-        class="form__button form__button--marginRight form__button__color--red"
+        class="button__lighten-color--gray button__hover-darken-color--red button--margin-right"
         type="button"
         @click="formCleaner") {{lang.form.head.buttons.cleaner}}
       transition(name="move-right")
         button(
           v-if="showButtonReady"
-          class="form__button form__button__color--blue"
+          class="button__lighten-color--gray button__hover-darken-color--blue"
           type="button"
           :disabled="buttons.isDisabledReady"
-          @click="formReady") {{lang.form.head.buttons.ready}}
+          @click="formReady")
+          span(v-if="!buttons.isDisabledReady") {{lang.form.head.buttons.ready}}
+          icon(
+              v-else
+              name="cog"
+              scale="1.5"
+              spin)
 
-  hs-form-error(
+  hs-error(
     simple=true
-    :errors="errorServer"
-  )
+    :errors="errorServer")
 
   div(class="form__box")
     div(class="form__box__head-board")
@@ -46,29 +51,29 @@ form(
               class="form__head-board__space-right__button__icon")
 
     div(class="form__box__body")
-      hs-form-input(
-        :configInput="lang.hsFormInput.name.config"
+      hs-input(
+        :configInput="lang.hsInput.name.config"
         :reactiveDataInput="form.personal.name.value"
         :errorInput="form.personal.name.error"
         @inputData="updateName"
         @inputTouch="checkName")
 
-      hs-form-input(
-        :configInput="lang.hsFormInput.surnames.config"
+      hs-input(
+        :configInput="lang.hsInput.surnames.config"
         :reactiveDataInput="form.personal.surnames.value"
         :errorInput="form.personal.surnames.error"
         @inputData="updateSurnames"
         @inputTouch="checkSurnames")
 
-      hs-form-input(
-        :configInput="lang.hsFormInput.alias.config"
+      hs-input(
+        :configInput="lang.hsInput.alias.config"
         :reactiveDataInput="form.personal.alias.value"
         :errorInput="form.personal.alias.error"
         @inputData="updateAlias"
         @inputTouch="checkAlias")
 
-      hs-form-input(
-        :configInput="lang.hsFormInput.email.config"
+      hs-input(
+        :configInput="lang.hsInput.email.config"
         :reactiveDataInput="form.personal.email.value"
         :errorInput="form.personal.email.error"
         @inputData="updateEmail"
@@ -90,18 +95,18 @@ form(
               class="form__head-board__space-right__button__icon")
 
     div(class="form__box__body")
-      hs-form-input(
-        :configInput="lang.hsFormInput.password.config"
+      hs-input(
+        :configInput="lang.hsInput.password.config"
         :reactiveDataInput="form.passwords.password.value"
         :errorInput="form.passwords.password.error"
         @inputData="updatePassword"
         @inputTouch="checkPassword")
-      hs-form-input(
-        :configInput="lang.hsFormInput.repeatPassword.config"
+      hs-input(
+        :configInput="lang.hsInput.repeatPassword.config"
         :reactiveDataInput="form.passwords.repeatPassword.value"
         :errorInput="form.passwords.repeatPassword.error"
         @inputData="updateRepeatPassword"
-        @inputTouch="checkRepeatPassword(lang.hsFormInput.password.config.titleInput)")
+        @inputTouch="checkRepeatPassword(lang.hsInput.password.config.titleInput)")
 
   div(class="form__box")
     div(class="form__box__head-board")
@@ -119,29 +124,29 @@ form(
               class="form__head-board__space-right__button__icon")
 
     div(class="form__box__body")
-      hs-form-select(
-        :configSelect="lang.hsFormSelect.question1.config"
+      hs-select(
+        :configSelect="lang.hsSelect.question1.config"
         :reactiveDataSelect="form.security.question1.value"
         :errorSelect="form.security.question1.error"
         @selectData="updateQuestion1"
-        @selectTouch="checkQuestion1(lang.hsFormSelect.question2.config.titleSelect)")
+        @selectTouch="checkQuestion1(lang.hsSelect.question2.config.titleSelect)")
 
-      hs-form-input(
-        :configInput="lang.hsFormInput.answer1.config"
+      hs-input(
+        :configInput="lang.hsInput.answer1.config"
         :reactiveDataInput="form.security.answer1.value"
         :errorInput="form.security.answer1.error"
         @inputData="updateAnswer1"
         @inputTouch="checkAnswer1")
 
-      hs-form-select(
-        :configSelect="lang.hsFormSelect.question2.config"
+      hs-select(
+        :configSelect="lang.hsSelect.question2.config"
         :reactiveDataSelect="form.security.question2.value"
         :errorSelect="form.security.question2.error"
         @selectData="updateQuestion2"
-        @selectTouch="checkQuestion2(lang.hsFormSelect.question1.config.titleSelect)")
+        @selectTouch="checkQuestion2(lang.hsSelect.question1.config.titleSelect)")
 
-      hs-form-input(
-        :configInput="lang.hsFormInput.answer2.config"
+      hs-input(
+        :configInput="lang.hsInput.answer2.config"
         :reactiveDataInput="form.security.answer2.value"
         :errorInput="form.security.answer2.error"
         @inputData="updateAnswer2"
@@ -163,10 +168,10 @@ form(
               class="form__head-board__space-right__button__icon")
 
     div(class="form__box__body")
-      hs-form-check(
-        :configCheck="lang.hsFormCheck.sign.config"
+      hs-checkbox(
+        :configCheck="lang.hsCheckbox.sign.config"
         :errorCheck="form.sign.sign.error"
-        @checkData="updateSign(lang.hsFormCheck.sign.config.checkChosen, ...arguments)"
+        @checkData="updateSign(lang.hsCheckbox.sign.config.checkChosen, ...arguments)"
         @checkTouch="checkSign")
 </template>
 
@@ -175,13 +180,13 @@ import {boards} from '../../../../lang/client'
 import {date} from '../tools/customizedTools'
 
 import hsAlertModal from '@/components/main/modal/hsAlertModal'
-import hsFormError from '@/components/main/form/hsFormError'
+import hsError from '@/components/main/error/hsError'
 
 import hsFormHeadboard from '@/components/main/form/hsFormHeadboard'
 
-import hsFormInput from '@/components/main/form/hsFormInput'
-import hsFormSelect from '@/components/main/form/hsFormSelect'
-import hsFormCheck from '@/components/main/form/hsFormCheck'
+import hsInput from '@/components/main/input/hsInput'
+import hsSelect from '@/components/main/select/hsSelect'
+import hsCheckbox from '@/components/main/checkbox/hsCheckbox'
 
 import {newConstructor} from './tools/registerMixin'
 
@@ -193,13 +198,13 @@ Vue.prototype.$busForm = new Vue()
 export default {
   components: {
     hsAlertModal,
-    hsFormError,
+    hsError,
 
     hsFormHeadboard,
 
-    hsFormInput,
-    hsFormSelect,
-    hsFormCheck
+    hsInput,
+    hsSelect,
+    hsCheckbox
   },
 
   beforeRouteEnter (to, from, next) {
@@ -211,8 +216,8 @@ export default {
   mixins: [boards('register', 'new'), newConstructor],
 
   created () {
-    this.form.security.question1.value = this.lang.hsFormSelect.question1.config.optionDataDefault
-    this.form.security.question2.value = this.lang.hsFormSelect.question2.config.optionDataDefault
+    this.form.security.question1.value = this.lang.hsSelect.question1.config.optionDataDefault
+    this.form.security.question2.value = this.lang.hsSelect.question2.config.optionDataDefault
   },
 
   data () {
@@ -346,21 +351,21 @@ export default {
             },
             password: {
               value: this.form.passwords.password.value,
-              title: this.lang.hsFormInput.password.config.titleInput
+              title: this.lang.hsInput.password.config.titleInput
             },
             repeatPassword: {
               value: this.form.passwords.repeatPassword.value
             },
             question1: {
               value: this.form.security.question1.value,
-              title: this.lang.hsFormSelect.question1.config.titleSelect
+              title: this.lang.hsSelect.question1.config.titleSelect
             },
             answer1: {
               value: this.form.security.answer1.value
             },
             question2: {
               value: this.form.security.question2.value,
-              title: this.lang.hsFormSelect.question2.config.titleSelect
+              title: this.lang.hsSelect.question2.config.titleSelect
             },
             answer2: {
               value: this.form.security.answer2.value
@@ -388,13 +393,14 @@ export default {
                 break
             }
 
-            this.buttons.isDisabledReady = false
             // [?] Monitorear si a lo largo de la aplicacion es necesario agregar estas lineas para tener un mejor control de validacion (SI ES NECESARIO, DEBERÁ SER AGREGADO A TODOS LOS BOARDS)
               // this.validatePersonalErrors()
               // this.validatePasswordsErrors()
               // this.validateSecurityErrors()
               // this.validateSignErrors()
           } else console.error(error)
+
+          this.buttons.isDisabledReady = false
         }
       }
     }

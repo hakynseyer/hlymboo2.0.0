@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     state: {
       type: DataTypes.INTEGER,
-      defaultValue: '-1',
+      defaultValue: -1,
       allowNull: false
     },
     activation: {
@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function (model) {
     User.belongsTo(model.UserRank, {
       as: 'userRank',
-      foreignKey: {name: 'UserRank', allowNull: false, defaultValue: '1'},
+      foreignKey: {name: 'UserRank', allowNull: false, defaultValue: 1},
       onDelete: 'RESTRICT'
     })
   }

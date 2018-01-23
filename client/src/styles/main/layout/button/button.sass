@@ -1,0 +1,52 @@
+button
+  font-family: 'Roboto', sans-serif
+  border: none
+  outline: none
+  width: 90px
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 3px
+  font-size: 13px
+  background-color: transparent
+  color: map-get($colorsHS, gray)
+  cursor: pointer
+  overflow: hidden
+
+.button
+  +mod('margin-right')
+    margin-right: 10px
+
+@each $name, $color in $colorsHS
+  .button__darken-color--#{$name}
+    background-color: darken($color, 5%)
+    color: lighten($color, 45%)
+  .button__lighten-color--#{$name}
+    background-color: lighten($color, 45%)
+    color: darken($color, 5%)
+
+  .button__hover-darken-color--#{$name}
+    transition: all 100ms ease-in-out
+    &:hover
+      background-color: darken($color, 5%)
+      color: lighten($color, 45%)
+  .button__hover-lighten-color--#{$name}
+    transition: all 100ms ease-in-out
+    &:hover
+      background-color: lighten($color, 45%)
+      color: darken($color, 45%)
+
+
+.move-right-enter-active
+  animation: move-right 500ms
+
+.move-right-leave-active
+  animation: move-right 500ms reverse
+
+@keyframes move-right
+  from
+    transform: translateX(200%)
+  to
+    transform: translateX(0%)
+

@@ -1,4 +1,4 @@
-import {formData, hsFormHeadboardData, hsFormInputData, hsFormSelectData, hsFormCheckData, hsAlertModalData} from '../data'
+import {formData, hsFormHeadboardData, hsInputData, hsSelectData, hsCheckboxData, hsAlertModalData} from '../data'
 
 /*
   *[D] Form
@@ -71,9 +71,9 @@ const hsFormHeadboardLink = {
 }
 
 /*
-  *[D] hsFormInput
+  *[D] hsInput
 */
-var hsFormInput = {
+var hsInput = {
   name: {
     config: {
       titleInput: 'Nombre',
@@ -131,49 +131,49 @@ var hsFormInput = {
     }
   }
 }
-const hsFormInputLink = {
-  mixins: [hsFormInputData],
+const hsInputLink = {
+  mixins: [hsInputData],
   created () {
-    this.dataLink_hsFormInput({
-      'hsFI_name_titleInput': hsFormInput.name.config.titleInput,
-      'hsFI_name_headBoard': hsFormInput.name.config.headBoard,
-      'hsFI_name_hiddenMessage': hsFormInput.name.config.hiddenMessage,
+    this.dataLink_hsInput({
+      'hsFI_name_titleInput': hsInput.name.config.titleInput,
+      'hsFI_name_headBoard': hsInput.name.config.headBoard,
+      'hsFI_name_hiddenMessage': hsInput.name.config.hiddenMessage,
 
-      'hsFI_surnames_titleInput': hsFormInput.surnames.config.titleInput,
-      'hsFI_surnames_headBoard': hsFormInput.surnames.config.headBoard,
-      'hsFI_surnames_hiddenMessage': hsFormInput.surnames.config.hiddenMessage,
+      'hsFI_surnames_titleInput': hsInput.surnames.config.titleInput,
+      'hsFI_surnames_headBoard': hsInput.surnames.config.headBoard,
+      'hsFI_surnames_hiddenMessage': hsInput.surnames.config.hiddenMessage,
 
-      'hsFI_alias_titleInput': hsFormInput.alias.config.titleInput,
-      'hsFI_alias_headBoard': hsFormInput.alias.config.headBoard,
-      'hsFI_alias_hiddenMessage': hsFormInput.alias.config.hiddenMessage,
+      'hsFI_alias_titleInput': hsInput.alias.config.titleInput,
+      'hsFI_alias_headBoard': hsInput.alias.config.headBoard,
+      'hsFI_alias_hiddenMessage': hsInput.alias.config.hiddenMessage,
 
-      'hsFI_email_titleInput': hsFormInput.email.config.titleInput,
-      'hsFI_email_headBoard': hsFormInput.email.config.headBoard,
-      'hsFI_email_hiddenMessage': hsFormInput.email.config.hiddenMessage,
+      'hsFI_email_titleInput': hsInput.email.config.titleInput,
+      'hsFI_email_headBoard': hsInput.email.config.headBoard,
+      'hsFI_email_hiddenMessage': hsInput.email.config.hiddenMessage,
 
-      'hsFI_password_titleInput': hsFormInput.password.config.titleInput,
-      'hsFI_password_headBoard': hsFormInput.password.config.headBoard,
-      'hsFI_password_hiddenMessage': hsFormInput.password.config.hiddenMessage,
+      'hsFI_password_titleInput': hsInput.password.config.titleInput,
+      'hsFI_password_headBoard': hsInput.password.config.headBoard,
+      'hsFI_password_hiddenMessage': hsInput.password.config.hiddenMessage,
 
-      'hsFI_repeatPassword_titleInput': hsFormInput.repeatPassword.config.titleInput,
-      'hsFI_repeatPassword_headBoard': hsFormInput.repeatPassword.config.headBoard,
-      'hsFI_repeatPassword_hiddenMessage': hsFormInput.repeatPassword.config.hiddenMessage,
+      'hsFI_repeatPassword_titleInput': hsInput.repeatPassword.config.titleInput,
+      'hsFI_repeatPassword_headBoard': hsInput.repeatPassword.config.headBoard,
+      'hsFI_repeatPassword_hiddenMessage': hsInput.repeatPassword.config.hiddenMessage,
 
-      'hsFI_answer1_titleInput': hsFormInput.answer1.config.titleInput,
-      'hsFI_answer1_headBoard': hsFormInput.answer1.config.headBoard,
-      'hsFI_answer1_hiddenMessage': hsFormInput.answer1.config.hiddenMessage,
+      'hsFI_answer1_titleInput': hsInput.answer1.config.titleInput,
+      'hsFI_answer1_headBoard': hsInput.answer1.config.headBoard,
+      'hsFI_answer1_hiddenMessage': hsInput.answer1.config.hiddenMessage,
 
-      'hsFI_answer2_titleInput': hsFormInput.answer2.config.titleInput,
-      'hsFI_answer2_headBoard': hsFormInput.answer2.config.headBoard,
-      'hsFI_answer2_hiddenMessage': hsFormInput.answer2.config.hiddenMessage,
+      'hsFI_answer2_titleInput': hsInput.answer2.config.titleInput,
+      'hsFI_answer2_headBoard': hsInput.answer2.config.headBoard,
+      'hsFI_answer2_hiddenMessage': hsInput.answer2.config.hiddenMessage,
     })
   }
 }
 
 /*
-  *[D] hsFormSelect
+  *[D] hsSelect
 */
-var hsFormSelect = {
+var hsSelect = {
   question1: {
     config: {
       titleSelect: 'Pregunta Seguridad 1',
@@ -211,26 +211,29 @@ var hsFormSelect = {
     }
   }
 }
-const hsFormSelectLink = {
-  mixins: [hsFormSelectData],
+const hsSelectLink = {
+  mixins: [hsSelectData],
   created () {
-    this.dataLink_hsFormSelect({
-      'hsFS_question1_optionDataDefault': hsFormSelect.question1.config.optionDataDefault,
-      'hsFS_question1_optionData': hsFormSelect.question1.config.optionData,
-      'hsFS_question1_titleSelect': hsFormSelect.question1.config.titleSelect,
-      'hsFS_question1_headBoard': hsFormSelect.question1.config.headBoard,
-      'hsFS_question1_hiddenMessage': hsFormSelect.question1.config.hiddenMessage,
+    this.dataLink_hsSelect({
+      'hsFS_question1_optionDataDefault': hsSelect.question1.config.optionDataDefault,
+      'hsFS_question1_optionData': hsSelect.question1.config.optionData,
+      'hsFS_question1_titleSelect': hsSelect.question1.config.titleSelect,
+      'hsFS_question1_headBoard': hsSelect.question1.config.headBoard,
+      'hsFS_question1_hiddenMessage': hsSelect.question1.config.hiddenMessage,
 
-      'hsFS_question2_optionDataDefault': hsFormSelect.question2.config.optionDataDefault,
-      'hsFS_question2_optionData': hsFormSelect.question2.config.optionData,
-      'hsFS_question2_titleSelect': hsFormSelect.question2.config.titleSelect,
-      'hsFS_question2_headBoard': hsFormSelect.question2.config.headBoard,
-      'hsFS_question2_hiddenMessage': hsFormSelect.question2.config.hiddenMessage,
+      'hsFS_question2_optionDataDefault': hsSelect.question2.config.optionDataDefault,
+      'hsFS_question2_optionData': hsSelect.question2.config.optionData,
+      'hsFS_question2_titleSelect': hsSelect.question2.config.titleSelect,
+      'hsFS_question2_headBoard': hsSelect.question2.config.headBoard,
+      'hsFS_question2_hiddenMessage': hsSelect.question2.config.hiddenMessage,
     })
   }
 }
 
-var hsFormCheck = {
+/*
+  *[D] hsCheckbox
+*/
+var hsCheckbox = {
   sign: {
     config: {
       titleCheck: 'Aceptar Términos y Condiciones',
@@ -244,19 +247,22 @@ var hsFormCheck = {
     }
   }
 }
-const hsFormCheckLink = {
-  mixins: [hsFormCheckData],
+const hsCheckboxLink = {
+  mixins: [hsCheckboxData],
   created () {
-    this.dataLink_hsFormCheck({
-      'hsFC_checkChosen': hsFormCheck.sign.config.checkChosen,
-      'hsFC_checkList': hsFormCheck.sign.config.checkList,
-      'hsFC_titleCheck': hsFormCheck.sign.config.titleCheck,
-      'hsFC_headBoard': hsFormCheck.sign.config.headBoard,
-      'hsFC_hiddenMessage': hsFormCheck.sign.config.hiddenMessage
+    this.dataLink_hsCheckbox({
+      'hsFC_checkChosen': hsCheckbox.sign.config.checkChosen,
+      'hsFC_checkList': hsCheckbox.sign.config.checkList,
+      'hsFC_titleCheck': hsCheckbox.sign.config.titleCheck,
+      'hsFC_headBoard': hsCheckbox.sign.config.headBoard,
+      'hsFC_hiddenMessage': hsCheckbox.sign.config.hiddenMessage
     })
   }
 }
 
+/*
+  *[D] hsAlertModal
+*/
 // [I] Elemento html [body]
 var hsAlertModal = {
   configModal: {
@@ -266,12 +272,15 @@ var hsAlertModal = {
       subtitle: 'USUARIO: #####'
     },
     timer: {
+      time: 30,
       redirect: {
-        name: 'Login de ingreso',
+        name: 'Login Hlymboo Hyzher',
+        route: 'login'
       }
     }
   },
   configAlertModal: {
+    type: 'normal',
     body: {
       head: 'Revisa tu Correo Electrónico',
       body: `<p>Muchas gracias <b>#####</b> por registrarte en Hlymboo, y sobre todo gracias por creer en este proyecto.</p><p>Para finalizar la creación de tu ingreso, deberás de seguir las instrucciones que se te enviaron a tu correo electrónico, esto con la finalidad de terminar el proceso de tu activacion de rango Hyzher... Muchas gracias.</p>`,
@@ -286,7 +295,10 @@ const hsAlertModalLink = {
       'hsAM_headAlign': hsAlertModal.configModal.head.headAlign,
       'hsAM_title': hsAlertModal.configModal.head.title,
       'hsAM_subtitle': hsAlertModal.configModal.head.subtitle,
+      'hsAM_time': hsAlertModal.configModal.timer.time,
       'hsAM_name': hsAlertModal.configModal.timer.redirect.name,
+      'hsAM_route': hsAlertModal.configModal.timer.redirect.route,
+      'hsAM_type': hsAlertModal.configAlertModal.type,
       'hsAM_head': hsAlertModal.configAlertModal.body.head,
       'hsAM_body': hsAlertModal.configAlertModal.body.body,
       'hsAM_footer': hsAlertModal.configAlertModal.body.footer
@@ -298,5 +310,5 @@ const hsAlertModalLink = {
  * [D] Export language
 */
 export const newLang_es = {
-  mixins: [formLink, hsFormHeadboardLink, hsFormInputLink, hsFormSelectLink, hsFormCheckLink, hsAlertModalLink]
+  mixins: [formLink, hsFormHeadboardLink, hsInputLink, hsSelectLink, hsCheckboxLink, hsAlertModalLink]
 }

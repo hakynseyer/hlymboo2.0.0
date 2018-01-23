@@ -1,10 +1,6 @@
-// [i] App
-import {appLang} from './app'
-
-const app = appLang()
-
 // [i] Boards
 import {registerModule} from './boards/register'
+import {loginModule} from './boards/login'
 
 const boards = (board, module) => {
   let langData = {}
@@ -13,6 +9,9 @@ const boards = (board, module) => {
     case 'register':
       langData = registerModule(module)
       break
+    case 'login':
+      langData = loginModule(module)
+      break
   }
 
   return langData
@@ -20,6 +19,9 @@ const boards = (board, module) => {
 
 // [i] Components
 import {hsModalLang} from './components/hsModal'
+import {hsHeaderLeftLang} from './components/hsHeaderLeft'
+import {hsHeaderRightLang} from './components/hsHeaderRight'
+import {hsMenuHyzherLang} from './components/hsMenuHyzher'
 
 const components = (component) => {
   let langData = {}
@@ -27,6 +29,15 @@ const components = (component) => {
   switch (component) {
     case 'hsModal':
       langData = hsModalLang()
+      break
+    case 'hsHeaderLeft':
+      langData = hsHeaderLeftLang()
+      break
+    case 'hsHeaderRight':
+      langData = hsHeaderRightLang()
+      break
+    case 'hsMenuHyzher':
+      langData = hsMenuHyzherLang()
       break
   }
 

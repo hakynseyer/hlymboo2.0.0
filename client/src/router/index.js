@@ -5,6 +5,11 @@ import home from '@/pages/home'
 
 import register from '@/pages/register'
 import registerNew from '@/pages/register/new'
+import registerActivation from '@/pages/register/activation'
+
+import login from '@/pages/login'
+
+import image from '@/pages/image'
 
 Vue.use(Router)
 
@@ -26,8 +31,24 @@ export default new Router({
           path: '/register/new',
           name: 'registerNew',
           component: registerNew
+        },
+        {
+          path: '/register/activation/:code/:alias',
+          name: 'registerActivation',
+          component: registerActivation,
+          props: true
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/image',
+      name: 'image',
+      component: image
     },
     {
       path: '*',

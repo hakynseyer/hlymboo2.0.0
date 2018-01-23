@@ -1,0 +1,24 @@
+input
+  border: none
+  outline: none
+  font-family: 'Roboto', sans-serif
+  font-weight: 500
+  padding: 0
+  width: 100%
+  display: inline-block
+  font-size: 16px
+  height: 0px
+  color: map-get($colorsHS, gray)
+  text-indent: 10px
+  background-color: transparent
+  transition: all 100ms ease-in-out
+  &:focus
+    outline: none
+    border: none
+
+input[type="password"]
+  font-size: 18px
+
+.input
+  +mod('active')
+    height: 30px

@@ -13,6 +13,18 @@ const time = {
   }
 }
 
+const text = {
+  clearSpaces (data) {
+    return data.replace(/ /g, '_')
+  },
+  masterKey (size) {
+    let key = ''
+    const characters = '0HJK19LQW8mn0bzlE2RTv9cxYUIO31PkjhgfdsB4NM87ap2SDFG5oi6uyt3rew6qZXC75VA4'
+    for (let c = 0; c < size; c++) key += characters.charAt(Math.floor(Math.random() * characters.length))
+    return key
+  }
+}
+
 const email = {
   sendEmail (msg) {
     const nodemailer = require('nodemailer')
@@ -32,4 +44,4 @@ const email = {
   }
 }
 
-module.exports = {time, email}
+module.exports = {time, text, email}

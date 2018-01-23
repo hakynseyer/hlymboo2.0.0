@@ -1,0 +1,140 @@
+.menu-hyzher
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+  +ele('head')
+    width: 100%
+    padding: 5px
+    margin-bottom: 10px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    +ele('profile')
+      width: 60%
+      display: flex
+      justify-content: space-around
+      align-items: center
+      cursor: pointer
+      &:hover
+        .menu-hyzher__head__profile__icon
+          transform: rotateY(180deg)
+
+      +ele('icon')
+        width: 30%
+        transition: all 500ms ease-in-out
+
+
+      +ele('hyzher')
+        width: 65%
+        font-size: 15px
+        font-weight: 300
+        text-transform: capitalize
+        text-align: center
+
+    +ele('logout')
+      width: 30%
+      font-size: 13px
+      text-align: center
+      cursor: pointer
+      padding: 5px
+      transition: all 250ms ease-in-out
+      &:hover
+        background-color: lighten(map-get($colorsHS, gray), 50)
+
+  +ele('ranks')
+    width: 100%
+    padding: 5px
+    margin-bottom: 20px
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+    +ele('rank')
+      width: 35px
+      height: 35px
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 5px
+      font-size: 13px
+      background-color: map-get($colorsHS, gray)
+      color: map-get($colorsHS, white)
+      cursor: pointer
+      transition: all 200ms ease-in-out
+
+      $background-Hyzher: lighten(map-get($colorsHS, purple), 5)
+
+      +mod('Hyzher')
+        &:hover
+          background-color: $background-Hyzher
+
+      +mod('Hyzher-active')
+        background-color: $background-Hyzher
+
+      $background-Ryzher: lighten(map-get($colorsHS, red), 5)
+
+      +mod('Ryzher')
+        &:hover
+          background-color: $background-Ryzher
+
+      +mod('Ryzher-active')
+        background-color: $background-Ryzher
+
+      $background-Thryzher: lighten(map-get($colorsHS, green), 5)
+
+      +mod('Thryzher')
+        &:hover
+          background-color: $background-Thryzher
+
+      +mod('Thryzher-active')
+        background-color: $background-Thryzher
+
+
+  +ele('boards')
+    width: 70%
+    position: relative
+    border: dotted 1px map-get($colorsHS, gray)
+    border-radius: 5px
+    padding: 10px 0px 0px 10px
+
+    +ele('head')
+      position: absolute
+      top: -10px
+      left: 10px
+      background-color: map-get($colorsHS, white)
+      border: dotted 1px map-get($colorsHS, gray)
+      border-radius: 5px
+      width: 50%
+      height: 20px
+      font-size: 13px
+      line-height: 1.5
+      text-align: center
+      overflow: hidden
+
+    & > ul
+      max-height: 170px
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-around
+      padding: 0px 10px
+      // border: solid 1px red
+      overflow: hidden
+
+    +ele('element')
+      width: 30px
+      height: 30px
+      overflow: hidden
+      border: solid 2px map-get($colorsHS, gray)
+      // box-sizing: border-box
+      border-radius: 5px
+      margin-right: 10px
+      margin-bottom: 10px
+      cursor: pointer
+      display: flex
+      justify-content: center
+      align-items: center
+
+      +ele('icon')
+        color: map-get($colorsHS, gray)

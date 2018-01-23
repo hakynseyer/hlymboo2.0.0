@@ -1,12 +1,16 @@
 // [i] Boards
 const {registerModule} = require('./boards/register')
+const {loginModule} = require('./boards/login')
 
-const boards = (lang, board, module) => {
+const boards = (lang, board, module, pack) => {
   let langData
 
   switch (board) {
     case 'register':
-      langData = registerModule(lang, module)
+      langData = registerModule(lang, module, pack)
+      break
+    case 'login':
+      langData = loginModule(lang, module, pack)
       break
   }
 
