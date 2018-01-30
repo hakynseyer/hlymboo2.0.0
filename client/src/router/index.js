@@ -10,6 +10,8 @@ import registerActivation from '@/pages/register/activation'
 import login from '@/pages/login'
 
 import image from '@/pages/image'
+import imageUploadBasic from '@/pages/image/uploadBasic'
+import imageAdd from '@/pages/image/add'
 
 Vue.use(Router)
 
@@ -48,7 +50,19 @@ export default new Router({
     {
       path: '/image',
       name: 'image',
-      component: image
+      component: image,
+      children: [
+        {
+          path: '/image/upload_basic',
+          name: 'imageUploadBasic',
+          component: imageUploadBasic
+        },
+        {
+          path: '/image/add',
+          name: 'imageAdd',
+          component: imageAdd
+        }
+      ]
     },
     {
       path: '*',

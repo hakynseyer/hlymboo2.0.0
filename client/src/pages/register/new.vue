@@ -10,26 +10,10 @@ form(
     :configModal="lang.hsAlertModal.configModal"
     :configAlertModal="lang.hsAlertModal.configAlertModal")
 
-  div(class="form__head")
-    h2(class="form__head__title") {{lang.form.head.title}}
-    div(class="form__head__buttons")
-      button(
-        class="button__lighten-color--gray button__hover-darken-color--red button--margin-right"
-        type="button"
-        @click="formCleaner") {{lang.form.head.buttons.cleaner}}
-      transition(name="move-right")
-        button(
-          v-if="showButtonReady"
-          class="button__lighten-color--gray button__hover-darken-color--blue"
-          type="button"
-          :disabled="buttons.isDisabledReady"
-          @click="formReady")
-          span(v-if="!buttons.isDisabledReady") {{lang.form.head.buttons.ready}}
-          icon(
-              v-else
-              name="cog"
-              scale="1.5"
-              spin)
+  hs-form-head(
+    :configFormHead="lang.hsFormHead"
+    @cleanerAction="formCleaner"
+    @readyAction="formReady")
 
   hs-error(
     simple=true
@@ -38,18 +22,8 @@ form(
   div(class="form__box")
     div(class="form__box__head-board")
       hs-form-Headboard(
-        :title="lang.hsFormHeadboard.personal.title"
-        :message="lang.hsFormHeadboard.personal.message")
-        button(
-          slot="hsHeadboardButton"
-          type="button"
-          class="form__head-board__space-right__button"
-          @click="formCleanerPersonal")
-            icon(
-              name="trash-o"
-              scale="1.5"
-              class="form__head-board__space-right__button__icon")
-
+        :configHeadboard="lang.hsFormHeadboard.personal"
+        @buttonAction="formCleanerPersonal")
     div(class="form__box__body")
       hs-input(
         :configInput="lang.hsInput.name.config"
@@ -82,18 +56,8 @@ form(
   div(class="form__box")
     div(class="form__box__head-board")
       hs-form-Headboard(
-        :title="lang.hsFormHeadboard.passwords.title"
-        :message="lang.hsFormHeadboard.passwords.message")
-        button(
-          slot="hsHeadboardButton"
-          type="button"
-          class="form__head-board__space-right__button"
-          @click="formCleanerPasswords")
-            icon(
-              name="trash-o"
-              scale="1.5"
-              class="form__head-board__space-right__button__icon")
-
+        :configHeadboard="lang.hsFormHeadboard.passwords"
+        @buttonAction="formCleanerPasswords")
     div(class="form__box__body")
       hs-input(
         :configInput="lang.hsInput.password.config"
@@ -111,18 +75,8 @@ form(
   div(class="form__box")
     div(class="form__box__head-board")
       hs-form-Headboard(
-        :title="lang.hsFormHeadboard.security.title"
-        :message="lang.hsFormHeadboard.security.message")
-        button(
-          slot="hsHeadboardButton"
-          type="button"
-          class="form__head-board__space-right__button"
-          @click="formCleanerSecurity")
-            icon(
-              name="trash-o"
-              scale="1.5"
-              class="form__head-board__space-right__button__icon")
-
+        :configHeadboard="lang.hsFormHeadboard.security"
+        @buttonAction="formCleanerSecurity")
     div(class="form__box__body")
       hs-select(
         :configSelect="lang.hsSelect.question1.config"
@@ -155,18 +109,8 @@ form(
   div(class="form__box")
     div(class="form__box__head-board")
       hs-form-Headboard(
-        :title="lang.hsFormHeadboard.sign.title"
-        :message="lang.hsFormHeadboard.sign.message")
-        button(
-          slot="hsHeadboardButton"
-          type="button"
-          class="form__head-board__space-right__button"
-          @click="formCleanerSign")
-            icon(
-              name="trash-o"
-              scale="1.5"
-              class="form__head-board__space-right__button__icon")
-
+        :configHeadboard="lang.hsFormHeadboard.security"
+        @buttonAction="formCleanerSign")
     div(class="form__box__body")
       hs-checkbox(
         :configCheck="lang.hsCheckbox.sign.config"
@@ -178,6 +122,8 @@ form(
 <script>
 import {boards} from '../../../../lang/client'
 import {date} from '../tools/customizedTools'
+
+import hsFormHead from '@/components/main/form/hsFormHead'
 
 import hsAlertModal from '@/components/main/modal/hsAlertModal'
 import hsError from '@/components/main/error/hsError'
@@ -197,6 +143,8 @@ Vue.prototype.$busForm = new Vue()
 
 export default {
   components: {
+    hsFormHead,
+
     hsAlertModal,
     hsError,
 
@@ -223,9 +171,6 @@ export default {
   data () {
     return {
       errorServer: null,
-      buttons: {
-        isDisabledReady: false
-      },
       form: {
         personal: {
           status: false,
@@ -287,40 +232,9 @@ export default {
     }
   },
 
-  computed: {
-    checkErroresReady () {
-      let res = false
-
-      if (this.form.personal.name.error.length || this.form.personal.surnames.error.length || this.form.personal.alias.error.length || this.form.personal.email.error.length) res = true
-
-      if (this.form.passwords.password.error.length || this.form.passwords.repeatPassword.error.length) res = true
-
-      if (this.form.security.question1.error.length || this.form.security.answer1.error.length || this.form.security.question2.error.length || this.form.security.answer2.error.length) res = true
-
-      if (this.form.sign.sign.error.length) res = true
-
-      return res
-    },
-    showButtonReady () {
-      let res = false
-
-      if (!this.checkErroresReady) {
-        const Personal = this.form.personal.name.value !== null && this.form.personal.surnames.value !== null && this.form.personal.alias.value !== null && this.form.personal.email.value !== null
-
-        const Passwords = this.form.passwords.password.value !== null && this.form.passwords.repeatPassword.value !== null
-
-        const Security = this.form.security.question1.value !== null && this.form.security.answer1.value !== null && this.form.security.question2.value !== null && this.form.security.answer2.value !== null
-
-        if (Personal && Passwords && Security) res = true
-      }
-
-      return res
-    }
-  },
-
   methods: {
     async formReady () {
-      this.buttons.isDisabledReady = false
+      this.$busForm.$emit('hsFormHead_disabledButtonReady', false)
 
       this.formCleanerPersonal(false, true)
       this.formCleanerPasswords(false, true)
@@ -334,7 +248,7 @@ export default {
 
       if (!this.form.personal.status && !this.form.passwords.status && !this.form.security.status && !this.form.sign.status) {
         try {
-          this.buttons.isDisabledReady = true
+          this.$busForm.$emit('hsFormHead_disabledButtonReady', true)
 
           const response = await serverRegisterRequest.newUser({
             name: {
@@ -381,26 +295,21 @@ export default {
 
           this.$busForm.$emit('hsModal_showModal', true)
 
-          this.buttons.isDisabledReady = false
+          this.$busForm.$emit('hsFormHead_disabledButtonReady', false)
         } catch (error) {
           if (typeof (error.response) !== 'undefined') {
             switch (error.response.status) {
               case 422:
                 this.addErrorToBoard(error.response.data.errors)
+                this.showButtonReadyMain(this.lang.hsFormHead.showReady)
                 break
               case 400:
                 this.errorServer = error.response.data.errors
                 break
             }
-
-            // [?] Monitorear si a lo largo de la aplicacion es necesario agregar estas lineas para tener un mejor control de validacion (SI ES NECESARIO, DEBERÁ SER AGREGADO A TODOS LOS BOARDS)
-              // this.validatePersonalErrors()
-              // this.validatePasswordsErrors()
-              // this.validateSecurityErrors()
-              // this.validateSignErrors()
           } else console.error(error)
 
-          this.buttons.isDisabledReady = false
+          this.$busForm.$emit('hsFormHead_disabledButtonReady', false)
         }
       }
     }

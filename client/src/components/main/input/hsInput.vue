@@ -9,24 +9,9 @@
       :class="{'label--active': activeInput, 'label--error': validateErrors}"
       class="label"
       @click="stateInput()") {{configInput.titleInput}}
-    span(
-      class="label__status"
-      @mousedown="enableHiddenMessage"
-      @mouseup="disableHiddenMessage")
-      icon(
-        v-if="!successIcon"
-        name="asterisk"
-        scale="1.5"
-        class="label__status__icon")
-      icon(
-        v-else
-        name="check"
-        scale="1.5"
-        class="label__status__icon")
-    transition(name="skid-left")
-      span(
-        v-show="showHiddenMessage.status"
-        class="label__status__msg") {{configInput.hiddenMessage}}
+
+    hidden-message-inputs(:hiddenMessage="configInput.hiddenMessage")
+
     input(
       :ref="configInput.id"
       :id="configInput.titleInput"
@@ -41,12 +26,13 @@
 </template>
 
 <script>
-import hsError from '@/components/main/error/hsError'
+import hiddenMessageInputs from '@/components/main/_support/hiddenMessageInputs'
 
-import {hiddenMessage} from '../_mixins/formMixins'
+import hsError from '@/components/main/error/hsError'
 
 export default {
   components: {
+    hiddenMessageInputs,
     hsError
   },
 
@@ -55,8 +41,6 @@ export default {
     'reactiveDataInput',
     'errorInput'
   ],
-
-  mixins: [hiddenMessage],
 
   mounted () {
     this.$busForm.$on('hsInput_activeInput', (data) => {

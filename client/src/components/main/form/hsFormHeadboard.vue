@@ -1,7 +1,7 @@
 <template lang="pug">
   div(class="form__head-board")
     div(
-      v-if="!hideHelp"
+      v-if="!configHeadboard.hideHelp"
       @click="showMessage = !showMessage"
       class="form__head-board__help")
       icon(
@@ -13,34 +13,49 @@
         v-show="showMessage"
         class="form__head-board__help__message")
         span(
-          v-for="msg in message"
+          v-for="msg in configHeadboard.message"
           class="form__head-board__help__message__list") {{msg}}
     div(
-      v-text="title"
+      v-text="configHeadboard.title"
       class="form__head-board__title")
 
     div(class="form__head-board__space-right")
       slot(name="hsHeadboardButton")
+      button(
+          type="button"
+          class="form__head-board__space-right__button"
+          @click="buttonAction")
+            icon(
+              :name="configHeadboard.buttonIcon"
+              scale="1.5"
+              class="form__head-board__space-right__button__icon")
 </template>
 
 <script>
 export default {
   props: [
-    'hideHelp',
-    'message',
-    'title'
+    'configHeadboard'
   ],
+
   mounted () {
-    this.$busForm.$on('hsFormHeadBoard_showMessage' + this.title, value => {
+    this.$busForm.$on('hsFormHeadBoard_showMessage' + this.configHeadboard.title, value => {
       if (this.showMessage) this.showMessage = value
     })
   },
+
   beforeDestroy () {
-    this.$busForm.$off('hsFormHeadBoard_showMessage' + this.title)
+    this.$busForm.$off('hsFormHeadBoard_showMessage' + this.configHeadboard.title)
   },
+
   data () {
     return {
       showMessage: false
+    }
+  },
+
+  methods: {
+    buttonAction () {
+      this.$emit('buttonAction', true)
     }
   }
 }

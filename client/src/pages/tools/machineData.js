@@ -1,5 +1,65 @@
 import {valHS} from '../tools/validator'
 
+const mainMachineData = {
+  data () {
+    return {
+      buttonReady: false
+    }
+  },
+  watch: {
+    buttonReady (value) {
+      if (value) this.$busForm.$emit('hsFormHead_showButtonReady', true)
+      else this.$busForm.$emit('hsFormHead_showButtonReady', false)
+    },
+
+    form: {
+      handler () {
+        this.showButtonReadyMain(this.lang.hsFormHead.showReady)
+      },
+      deep: true
+    }
+  },
+  methods: {
+    showButtonReadyMain (elements) {
+      let headBoard = Object.keys(elements)
+
+      let checkError = new Promise((resolve, reject) => {
+        headBoard.forEach(hb => {
+          elements[hb].forEach(comp => {
+            if (this.form[hb][comp].error.length) reject(new Error('There is fields with errors'))
+          })
+        })
+        resolve()
+      })
+
+      checkError
+        .then(() => {
+          let checkEmpty = new Promise((resolve, reject) => {
+            headBoard.forEach(hb => {
+              elements[hb].forEach(comp => {
+                if (this.form[hb][comp].value === null) reject(new Error('There is fields empty'))
+              })
+            })
+            resolve()
+          })
+
+          checkEmpty
+            .then(() => {
+              this.buttonReady = true
+            })
+            .catch(errors => {
+              // console.error(errors)
+              this.buttonReady = false
+            })
+        })
+        .catch(errors => {
+          // console.error(errors)
+          this.buttonReady = false
+        })
+    }
+  }
+}
+
 const updateMachineData = {
   methods: {
     updateMain (headBoard, component, value) {
@@ -125,4 +185,4 @@ const serverMachineData = {
   }
 }
 
-export {updateMachineData, checkMachineData, resetMachineData, serverMachineData}
+export {mainMachineData, updateMachineData, checkMachineData, resetMachineData, serverMachineData}

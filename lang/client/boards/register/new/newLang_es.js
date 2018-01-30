@@ -1,24 +1,29 @@
-import {formData, hsFormHeadboardData, hsInputData, hsSelectData, hsCheckboxData, hsAlertModalData} from '../data'
+import {hsFormHeadData, hsFormHeadboardData, hsInputData, hsSelectData, hsCheckboxData, hsAlertModalData} from '../data'
 
 /*
-  *[D] Form
+  *[D] hsFormHead
 */
-var form = {
-  head: {
-    title: 'Nuevo Hyzher',
-    buttons: {
-      cleaner: 'Limpiador',
-      ready: 'Enviar'
-    }
+var hsFormHead = {
+  title: 'Nuevo Hyzher',
+  buttons: {
+    cleaner: 'Limpiador',
+    ready: 'Enviar'
+  },
+  showReady: {
+    'personal': ['name', 'surnames', 'alias', 'email'],
+    'passwords': ['password', 'repeatPassword'],
+    'security': ['question1', 'answer1', 'question2', 'answer2'],
+    'sign': ['sign']
   }
 }
-const formLink = {
-  mixins: [formData],
+const hsFormHeadLink = {
+  mixins: [hsFormHeadData],
   created () {
-    this.dataLink_form({
-      'f_title': form.head.title,
-      'f_cleaner': form.head.buttons.cleaner,
-      'f_ready': form.head.buttons.ready,
+    this.dataLink_hsFormHead({
+      'hsFH_title': hsFormHead.title,
+      'hsFH_buttons_cleaner': hsFormHead.buttons.cleaner,
+      'hsFH_buttons_ready': hsFormHead.buttons.ready,
+      'hsFH_showReady': hsFormHead.showReady
     })
   }
 }
@@ -310,5 +315,5 @@ const hsAlertModalLink = {
  * [D] Export language
 */
 export const newLang_es = {
-  mixins: [formLink, hsFormHeadboardLink, hsInputLink, hsSelectLink, hsCheckboxLink, hsAlertModalLink]
+  mixins: [hsFormHeadLink, hsFormHeadboardLink, hsInputLink, hsSelectLink, hsCheckboxLink, hsAlertModalLink]
 }

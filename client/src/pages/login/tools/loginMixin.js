@@ -1,4 +1,4 @@
-import {updateMachineData, checkMachineData, resetMachineData, serverMachineData} from '../../tools/machineData'
+import {mainMachineData, updateMachineData, checkMachineData, resetMachineData, serverMachineData} from '../../tools/machineData'
 import {valHS} from '../../tools/validator'
 
 const updatesData = {
@@ -64,6 +64,6 @@ const cleanerData = {
 }
 
 export const loginConstructor = {
-  mixins: [updateMachineData, checkMachineData, resetMachineData, serverMachineData],
+  mixins: [mainMachineData, updateMachineData, checkMachineData, resetMachineData, serverMachineData],
   methods: Object.assign(updatesData.basic, checksData.basic, validateData.basic, cleanerData.basic)
 }

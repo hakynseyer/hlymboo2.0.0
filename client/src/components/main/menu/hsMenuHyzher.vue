@@ -33,11 +33,11 @@
     div(class="menu-hyzher__boards")
       span(class="menu-hyzher__boards__head") {{selectedRank.rank}}
       transition-group(name="boards-transition" tag="ul")
-        router-link(
+        div(
           v-for="board in selectedRank.boards"
           :key="board.page"
-          :to="{name: board.route}"
-          class="menu-hyzher__boards__element")
+          class="menu-hyzher__boards__element"
+          @click="sendBoard(board.route)")
           icon(
             :name="board.icon"
             scale="1.5"
@@ -46,6 +46,9 @@
 
 <script>
 import {components} from '../../../../../lang/client'
+
+import Vue from 'vue'
+Vue.prototype.$busForm = new Vue()
 
 export default {
   created () {
@@ -87,6 +90,11 @@ export default {
           this.selectedRank = rank
         }
       }
+    },
+
+    sendBoard (route) {
+      this.$router.push({name: route})
+      this.$busForm.$emit('hsBoardMenu_pocket', false)
     },
 
     logout () {

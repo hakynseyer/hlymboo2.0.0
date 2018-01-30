@@ -1,6 +1,7 @@
 // [i] Boards
 import {registerModule} from './boards/register'
 import {loginModule} from './boards/login'
+import {imageModule} from './boards/image'
 
 const boards = (board, module) => {
   let langData = {}
@@ -11,6 +12,9 @@ const boards = (board, module) => {
       break
     case 'login':
       langData = loginModule(module)
+      break
+    case 'image':
+      langData = imageModule(module)
       break
   }
 

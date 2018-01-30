@@ -1,26 +1,28 @@
 import {_treatment} from '../../_treatment'
 
-const formData = {
+const hsFormHeadData = {
   data () {
     return {
       lang: {
-        form: {
-          head: {
-            title: null,
-            buttons: {
-              cleaner: null,
-              ready: null
-            }
-          }
+        hsFormHead: {
+          title: null,
+          buttons: {
+            cleaner: null,
+            ready: null
+          },
+          showReady: {}
         }
       }
     }
   },
   methods: {
-    dataLink_form (dataLink) {
-      this.lang.form.head.title = _treatment.dataTreatmentSimple(dataLink.f_title)
-      this.lang.form.head.buttons.cleaner = _treatment.dataTreatmentSimple(dataLink.f_cleaner)
-      this.lang.form.head.buttons.ready = _treatment.dataTreatmentSimple(dataLink.f_ready)
+    dataLink_hsFormHead (dataLink) {
+      this.lang.hsFormHead.title = _treatment.dataTreatmentSimple(dataLink.hsFH_title)
+
+      this.lang.hsFormHead.buttons.cleaner = _treatment.dataTreatmentSimple(dataLink.hsFH_buttons_cleaner)
+      this.lang.hsFormHead.buttons.ready = _treatment.dataTreatmentSimple(dataLink.hsFH_buttons_ready)
+
+      this.lang.hsFormHead.showReady = dataLink.hsFH_showReady
     }
   }
 }
@@ -90,7 +92,7 @@ const hsInputData = {
 }
 
 export {
-  formData,
+  hsFormHeadData,
   hsFormHeadboardData,
   hsInputData
 }

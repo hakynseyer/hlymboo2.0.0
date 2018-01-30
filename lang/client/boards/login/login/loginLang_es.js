@@ -1,24 +1,26 @@
-import {formData, hsFormHeadboardData, hsInputData} from '../data'
+import {hsFormHeadData, hsFormHeadboardData, hsInputData} from '../data'
 
 /*
-  *[D] Form
+  *[D] hsFormHead
 */
-var form = {
-  head: {
-    title: 'Hlymboo Hyzher',
-    buttons: {
-      cleaner: 'Limpiador',
-      ready: 'Enviar'
-    }
+var hsFormHead = {
+  title: 'Hlymboo Hyzher',
+  buttons: {
+    cleaner: 'Limpiador',
+    ready: 'Enviar'
+  },
+  showReady: {
+    'hyzher': ['email', 'password']
   }
 }
-const formLink = {
-  mixins: [formData],
+const hsFormHeadLink = {
+  mixins: [hsFormHeadData],
   created () {
-    this.dataLink_form({
-      'f_title': form.head.title,
-      'f_cleaner': form.head.buttons.cleaner,
-      'f_ready': form.head.buttons.ready,
+    this.dataLink_hsFormHead({
+      'hsFH_title': hsFormHead.title,
+      'hsFH_buttons_cleaner': hsFormHead.buttons.cleaner,
+      'hsFH_buttons_ready': hsFormHead.buttons.ready,
+      'hsFH_showReady': hsFormHead.showReady
     })
   }
 }
@@ -28,7 +30,7 @@ const formLink = {
 */
 var hsFormHeadboard = {
   hyzher: {
-    title: 'Ingresar a Hlymboo Hyzher',
+    title: 'Hlymboo Hyzher',
     message: [
       'Solo hyzhers registrados podrán acceder a Hlymboo Hyzher',
       'Los huespedes registrados deberán seguir las instrucciones enviados a su correo electronico, esto con el fin de activar su cuenta Hyzher',
@@ -84,5 +86,5 @@ const hsInputLink = {
  * [D] Export language
 */
 export const loginLang_es = {
-  mixins: [formLink, hsFormHeadboardLink, hsInputLink]
+  mixins: [hsFormHeadLink, hsFormHeadboardLink, hsInputLink]
 }

@@ -10,7 +10,7 @@ const hsMenuHyzherData = {
             {
               'rank': 'Hyzher',
               'boards': [
-                {'page': 'image', 'icon': 'camera', route: 'image'}
+                {'page': 'image', 'icon': 'picture-o', route: 'image'}
               ]
             }
           ]

@@ -7,24 +7,8 @@
       :class="{'label--active' : activeCheck, 'label--error': validateErrors}"
       class="label"
       @click="stateCheck()") {{configCheck.titleCheck}}
-    span(
-      class="label__status"
-      @mousedown="enableHiddenMessage"
-      @mouseup="disableHiddenMessage")
-      icon(
-        v-if="!successIcon"
-        name="asterisk"
-        scale="1.5"
-        class="label__status__icon")
-      icon(
-        v-else
-        name="check"
-        scale="1.5"
-        class="label__status__icon")
-    transition(name="skid-left")
-      span(
-        v-show="showHiddenMessage.status"
-        class="label__status__msg") {{configCheck.hiddenMessage}}
+
+    hidden-message-inputs(:hiddenMessage="configCheck.hiddenMessage")
 
     div(
       v-for="checkElement in configCheck.checkList"
@@ -48,12 +32,13 @@
 </template>
 
 <script>
-import hsError from '@/components/main/error/hsError'
+import hiddenMessageInputs from '@/components/main/_support/hiddenMessageInputs'
 
-import {hiddenMessage} from '../_mixins/formMixins'
+import hsError from '@/components/main/error/hsError'
 
 export default {
   components: {
+    hiddenMessageInputs,
     hsError
   },
 
@@ -61,8 +46,6 @@ export default {
     'configCheck',
     'errorCheck'
   ],
-
-  mixins: [hiddenMessage],
 
   created () {
     if (this.configCheck.checkList.length) this.activeCheck = true

@@ -1,0 +1,180 @@
+.board-menu
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-end
+
+  +ele('main')
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    padding: 30px 10px
+
+    +ele('element')
+      position: relative
+      width: 250px
+      height: 270px
+      margin-bottom: 30px
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      align-items: center
+      overflow: hidden
+      border: solid 5px lighten(map-get($colorsHS, gray), 15)
+      border-radius: 10px
+      background-color: lighten(map-get($colorsHS, gray), 100)
+      cursor: pointer
+      transition: all 200ms ease-in-out
+
+      &:hover
+        background-color: lighten(map-get($colorsHS, gray), 50)
+        .board-menu__main__element__text__children__circle
+          transform: translateX(0%)
+
+      +mod('hover-move')
+        &:hover
+          .board-menu__main__element__icon
+            transform: translateX(-20px) scale(7)
+
+      +ele('icon')
+        transform: scale(7)
+        color: darken(map-get($colorsHS, gray), 2)
+        transition: all 300ms ease-in-out
+
+      +ele('text')
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: flex-end
+
+        +ele('title')
+          width: 100%
+          padding: 5px 10px
+          box-sizing: border-box
+          font-size: 15px
+          text-transform: uppercase
+          text-align: center
+          color: darken(map-get($colorsHS, gray), 2)
+
+        +ele('children')
+          width: 100%
+          display: flex
+          justify-content: flex-end
+          padding: 10px
+
+          +ele('circle')
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            display: flex
+            justify-content: center
+            align-items: center
+            background-color: darken(map-get($colorsHS, gray), 2)
+            transform: translateX(200%)
+            transition: all 300ms ease-in-out
+
+            +ele('number')
+              color: lighten(map-get($colorsHS, gray), 50)
+              &:before
+                content: '+'
+                margin-right: 2px
+
+
+        +ele('description')
+          width: 100%
+          height: 60px
+          display: flex
+          align-items: center
+          padding: 0px 10px
+          box-sizing: border-box
+          margin-bottom: 10px
+          font-size: 13px
+          text-align: justify
+          color: darken(map-get($colorsHS, gray), 2)
+          overflow: hidden
+
+  +ele('pocket')
+    height: 50px
+    display: flex
+    // flex-wrap: wrap
+    justify-content: space-between
+    padding: 5px
+    background-color: lighten(map-get($colorsHS, gray), 60)
+    border-radius: 5px
+    overflow: hidden
+
+    +ele('information')
+      width: 68%
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      align-items: center
+      background-color: lighten(map-get($colorsHS, gray), 50)
+
+      +ele('title')
+        width: 40%
+        height: 100%
+        margin: 0px 10px
+        font-size: 13px
+        border-style: none dotted none dotted
+        border-width: 2px
+        border-color: map-get($colorsHS, gray)
+        text-transform: uppercase
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        overflow: hidden
+
+      +ele('dates')
+        width: 25%
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+        overflow: hidden
+
+        +ele('title')
+          width: 100%
+          font-size: 13px
+          text-align: center
+
+        +ele('date')
+          width: 100%
+          font-size: 13px
+          font-weight: 300
+          text-align: center
+
+    +ele('elements')
+      // width: 30%
+      height: 100%
+      padding: 0px 5px
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      align-items: center
+      background-color: lighten(map-get($colorsHS, gray), 50)
+      overflow: hidden
+
+      +ele('element')
+        width: 40px
+        height: 40px
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 5px
+        overflow: hidden
+        cursor: pointer
+        transition: all 100ms ease-in-out
+        &:hover
+          background-color: map-get($colorsHS, gray)
+          color: lighten(map-get($colorsHS, gray), 50)
+
+        +ele('icon')
+          transform: scale(1.5)

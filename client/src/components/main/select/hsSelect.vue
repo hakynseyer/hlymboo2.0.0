@@ -7,24 +7,8 @@
       :class="{'label--active' : activeSelect, 'label--error': validateErrors}"
       class="label"
       @click="stateSelect()") {{configSelect.titleSelect}}
-    span(
-      class="label__status"
-      @mousedown="enableHiddenMessage"
-      @mouseup="disableHiddenMessage")
-      icon(
-        v-if="!successIcon"
-        name="asterisk"
-        scale="1.5"
-        class="label__status__icon")
-      icon(
-        v-else
-        name="check"
-        scale="1.5"
-        class="label__status__icon")
-    transition(name="skid-left")
-      span(
-        v-show="showHiddenMessage.status"
-        class="label__status__msg") {{configSelect.hiddenMessage}}
+
+    hidden-message-inputs(:hiddenMessage="configSelect.hiddenMessage")
 
     template(v-if="configSelect.typeSelect === 'Array'")
       div(class="select__container")
@@ -46,7 +30,7 @@
           class="select__arrow")
 
     template(v-if="configSelect.typeSelect === 'Customized'")
-      div(class="select__contenedor")
+      div(class="select__container")
         select(
           :ref="configSelect.id"
           :value="reactiveDataSelect"
@@ -65,12 +49,13 @@
 </template>
 
 <script>
-import hsError from '@/components/main/error/hsError'
+import hiddenMessageInputs from '@/components/main/_support/hiddenMessageInputs'
 
-import {hiddenMessage} from '../_mixins/formMixins'
+import hsError from '@/components/main/error/hsError'
 
 export default {
   components: {
+    hiddenMessageInputs,
     hsError
   },
 
@@ -79,8 +64,6 @@ export default {
     'reactiveDataSelect',
     'errorSelect'
   ],
-
-  mixins: [hiddenMessage],
 
   created () {
     if (this.reactiveDataSelect !== null) this.activeSelect = true
