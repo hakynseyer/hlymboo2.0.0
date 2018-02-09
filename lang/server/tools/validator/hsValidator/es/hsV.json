@@ -1,0 +1,42 @@
+{
+  "valEmpty": {
+    "res": "<b> Vacio </b> <p> Este campo no puede estar vacio </p>"
+  },
+  "valMin": {
+    "res": "<b> Longitud mínima </b> <p> Solo se permiten ##### caracteres como mínimo, a ti te faltan ????? caracteres </p>"
+  },
+  "valMax": {
+    "res": "<b> Longitud máxima </b> <p> Solo se permiten ##### caracteres como máximo, a ti te sobran ????? caracteres </p>"
+  },
+  "valEqual": {
+    "res": "<b> Datos desiguales </b> <p> No coincide con el campo ##### </p>"
+  },
+  "valUnequal": {
+    "res": "<b> Datos iguales </b> <p> No puede coincidir con el campo ##### </p>",
+    "resArray": "<b> Datos iguales </b> <p> No se pueden tener datos duplicados entre tus campos </p>"
+  },
+  "valType": {
+    "text": {
+      "res": "<b> Tipo de dato </b> <p> El valor ingresado debe de contener valores de tipo texto</p>"
+    },
+    "number": {
+      "res": "<b> Tipo de dato </b> <p> El valor ingresado debe de contener valores numéricos</p>"
+    },
+    "email": {
+      "res": "<b> Tipo de dato </b> <p> El valor ingresado debe de contener un email correctamente escrita</p>"
+    },
+    "password": {
+      "resSpecial": "<b> Tipo de dato </b> <p> El valor ingresado debe de contener al menos ##### caracteres especiales</p>",
+      "resLetter": "<b> Tipo de dato </b> <p> El valor ingresado debe de contener al menos ##### letras</p>",
+      "resNumber": "<b> Tipo de dato </b> <p> El valor ingresado debe de contener al menos ##### números</p>"
+    },
+    "boolean": {
+      "resMain": "<b> Tipo de dato </b> <p> El valor ingresado es invalido para nuestro sistema... asegurate de ingresar lo que se te pide </p>",
+      "resTrue": "<b> Tipo de dato </b> <p> El valor ingresado ha sido negado por nuestro sistema </p>",
+      "resFalse": "<b> Tipo de dato </b> <p> El valor ingresado ha sido negado por nuestro sistema </p>"
+    }
+  },
+  "valBigger": {
+    "res": "<b> Valor invalido </b> <p> El dato ingresado es invalido para nuestro sistema </p>"
+  }
+}

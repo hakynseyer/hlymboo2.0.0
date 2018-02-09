@@ -1,0 +1,13 @@
+{
+  "HS": "hsFormHead",
+  "title": "Subir Imagen",
+  "buttons": {
+    "cleaner": "Limpiador",
+    "ready": "Enviar"
+  },
+  "showReady": {
+    "picture": ["image"],
+    "basic": ["title", "copyright"],
+    "organization": ["chest"]
+  }
+}

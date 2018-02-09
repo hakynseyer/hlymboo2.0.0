@@ -1,0 +1,17 @@
+{
+  "HS": "hsCheckbox",
+  "sign": {
+    "config": {
+      "id": "signCheck",
+      "updateErrors": false,
+      "checkChosen": "Aceptar los términos y condiciones de Hlymboo",
+      "checkList": [
+        "Aceptar los términos y condiciones de Hlymboo",
+        "Otro término"
+      ],
+      "titleCheck": "Aceptar Términos y Condiciones",
+      "headboard": "Firma",
+      "hiddenMessage": "Videojuegos de los 90\"s"
+    }
+  }
+}

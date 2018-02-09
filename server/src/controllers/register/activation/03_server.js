@@ -23,7 +23,7 @@ module.exports = {
 
       if (!valCodes) return res.status(403).send({errors: true})
       else {
-        let langData = boards(req.serverLang, 'register', 'activation', 'email')
+        let langData = boards(req.serverLang, 'Register', 'activation', 'email')
 
         const masterKey = text.masterKey(9)
 
@@ -54,7 +54,7 @@ module.exports = {
         res.send({hyzher: alias.value, mode: 'success'})
       }
     } catch (error) {
-      let langData = boards(req.serverLang, 'register', 'activation', 'server')
+      let langData = boards(req.serverLang, 'Register', 'activation', 'server')
 
       console.error(error)
       res.status(400).send({'errors': langData.regActivationServer.defaultErrorUser})

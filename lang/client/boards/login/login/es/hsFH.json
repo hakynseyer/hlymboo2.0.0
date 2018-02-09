@@ -1,0 +1,11 @@
+{
+  "HS": "hsFormHead",
+  "title": "Hlymboo Hyzher",
+  "buttons": {
+    "cleaner": "Limpiador",
+    "ready": "Enviar"
+  },
+  "showReady": {
+    "hyzher": ["email", "password"]
+  }
+}

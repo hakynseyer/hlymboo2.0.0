@@ -1,21 +1,15 @@
-import store from '../../../../client/src/store/store'
+import {storeLang} from '../../_fixData/storeLang'
 
-import {validatorLang_es} from './lang/validatorLang_es'
-import {validatorLang_en} from './lang/validatorLang_en'
+import {hsValidatorLang_es} from './hsValidator/hsValidatorLang_es'
+import {hsValidatorLang_en} from './hsValidator/hsValidatorLang_en'
 
-const validatorLang = () => {
-  let langData = {}
-
-  switch (store.state.lang) {
-    case 'es':
-      langData = validatorLang_es()
-      break
-    case 'en':
-      langData = validatorLang_en()
-      break
-  }
+const Validator = () => {
+  let langData = storeLang(
+    {lang: 'es', module: hsValidatorLang_es},
+    {lang: 'en', module: hsValidatorLang_en}
+  )
 
   return langData
 }
 
-export {validatorLang}
+export {Validator}

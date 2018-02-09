@@ -1,0 +1,6 @@
+{
+  "logLoginServer": {
+    "noPassword": "<b> Servidor </b> <p> Se te ha negado el acceso debido a que alguno de tus datos ingresados no concuerda con los de nuestro núcleo informatico </p>",
+    "defaultErrorUser": "<b> Servidor </b> <p> Algunos fragmentos de datos han fallado en nuestros servidores </p>"
+  }
+}

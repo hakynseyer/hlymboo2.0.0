@@ -1,0 +1,13 @@
+{
+  "HS": "hsInput",
+  "title": {
+    "config": {
+      "id": "titleInput",
+      "hideInput": false,
+      "typeInput": "text",
+      "titleInput": "Titulo",
+      "headboard": "Basicos",
+      "hiddenMessage": "Viendo la tv SP"
+    }
+  }
+}

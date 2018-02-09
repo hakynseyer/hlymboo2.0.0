@@ -16,7 +16,7 @@ function jwtSession (Hyzher) {
 
 module.exports = {
   async loginUser (req, res) {
-    let langData = boards(req.serverLang, 'login', 'login', 'server')
+    let langData = boards(req.serverLang, 'Login', 'login', 'server')
     const {body} = req
 
     try {

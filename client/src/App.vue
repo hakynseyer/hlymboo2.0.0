@@ -6,9 +6,9 @@
 
 
 <script>
-import hsHeaderMain from '@/components/main/header/hsHeaderMain'
+import hsHeaderMain from '@/components/header/hsHeaderMain'
 
-import hsSection from '@/components/main/section/hsSection'
+import hsSection from '@/components/section/hsSection'
 
 export default {
   components: {
@@ -19,6 +19,6 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "./styles/main/__main.sass"
+  @import "./styles/__main.sass"
 </style>
 

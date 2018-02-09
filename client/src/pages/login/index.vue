@@ -39,13 +39,13 @@ form(
 <script>
 import {boards} from '../../../../lang/client'
 
-import hsFormHead from '@/components/main/form/hsFormHead'
+import hsFormHead from '@/components/form/hsFormHead'
 
-import hsError from '@/components/main/error/hsError'
+import hsError from '@/components/error/hsError'
 
-import hsFormHeadboard from '@/components/main/form/hsFormHeadboard'
+import hsFormHeadboard from '@/components/form/hsFormHeadboard'
 
-import hsInput from '@/components/main/input/hsInput'
+import hsInput from '@/components/input/hsInput'
 
 import {loginConstructor} from './tools/loginMixin'
 

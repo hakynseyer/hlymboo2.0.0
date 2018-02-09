@@ -1,0 +1,83 @@
+{
+  "HS": "hsInput",
+  "name": {
+    "config": {
+      "id": "nameInput",
+      "hideInput": false,
+      "typeInput": "text",
+      "titleInput": "Nombre",
+      "headboard": "Personal",
+      "hiddenMessage": "Son las 10:45 p.m"
+    }
+  },
+  "surnames": {
+    "config": {
+      "id": "surnamesInput",
+      "hideInput": false,
+      "typeInput": "text",
+      "titleInput": "Apellidos",
+      "headboard": "Personal",
+      "hiddenMessage": "No hay trabajo"
+    }
+  },
+  "alias": {
+    "config": {
+      "id": "aliasInput",
+      "hideInput": false,
+      "typeInput": "text",
+      "titleInput": "Alias",
+      "headboard": "Personal",
+      "hiddenMessage": "La soledad de mi cuarto"
+    }
+  },
+  "email": {
+    "config": {
+      "id": "emailInput",
+      "hideInput": false,
+      "typeInput": "email",
+      "titleInput": "Email",
+      "headboard": "Personal",
+      "hiddenMessage": "Un Hakyn Seyer triste"
+    }
+  },
+  "password": {
+    "config": {
+      "id": "passwordInput",
+      "hideInput": false,
+      "typeInput": "password",
+      "titleInput": "Contraseña",
+      "headboard": "Contraseñas",
+      "hiddenMessage": "+12 horas programado"
+    }
+  },
+  "repeatPassword": {
+    "config": {
+      "id": "repeatPasswordInput",
+      "hideInput": false,
+      "typeInput": "password",
+      "titleInput": "Repetir Contraseña",
+      "headboard": "Contraseñas",
+      "hiddenMessage": "Un gran maestro Youtu..."
+    }
+  },
+  "answer1": {
+    "config": {
+      "id": "answer1Input",
+      "hideInput": false,
+      "typeInput": "text",
+      "titleInput": "Respuesta Seguridad 1",
+      "headboard": "Seguridad",
+      "hiddenMessage": "Juego de cartas"
+    }
+  },
+  "answer2": {
+    "config": {
+      "id": "answer2Input",
+      "hideInput": false,
+      "typeInput": "text",
+      "titleInput": "Respuesta Seguridad 2",
+      "headboard": "Seguridad",
+      "hiddenMessage": "Hambre de torta de jamón"
+    }
+  }
+}

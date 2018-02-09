@@ -1,50 +1,58 @@
 import {tools} from '../../../../lang/client'
 
+const hsValidatorLang = tools('Validator').hsValidator
+
 export const valHS = {
   checkEmpty (data) {
     let res = null
 
-    if (data === null || data.length <= 0) res = tools('validator').validator.checkEmpty.res
+    if (data === null || data.length <= 0) res = hsValidatorLang.checkEmpty.res
 
     return res
   },
+
   checkMin (data, min) {
     let res = null
 
-    if (data.length < min) res = tools('validator').validator.checkMin.res.replace('#####', min).replace('?????', min - data.length)
+    if (data.length < min) res = hsValidatorLang.checkMin.res.replace('#####', min).replace('?????', min - data.length)
 
     return res
   },
+
   checkMax (data, max) {
     let res = null
 
-    if (data.length > max) res = tools('validator').validator.checkMax.res.replace('#####', max).replace('?????', data.length - max)
+    if (data.length > max) res = hsValidatorLang.checkMax.res.replace('#####', max).replace('?????', data.length - max)
 
     return res
   },
+
   checkEmail (data) {
     let res = null
 
     const valEMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    if (!valEMail.test(data)) res = tools('validator').validator.checkEmail.res
+    if (!valEMail.test(data)) res = hsValidatorLang.checkEmail.res
 
     return res
   },
+
   checkEqual (data, compare) {
     let res = null
 
-    if (data !== compare.data) res = tools('validator').validator.checkEqual.res.replace('#####', compare.name)
+    if (data !== compare.data) res = hsValidatorLang.checkEqual.res.replace('#####', compare.name)
 
     return res
   },
+
   checkUnequal (data, compare) {
     let res = null
 
-    if (data === compare.data) res = tools('validator').validator.checkUnequal.res.replace('#####', compare.name)
+    if (data === compare.data) res = hsValidatorLang.checkUnequal.res.replace('#####', compare.name)
 
     return res
   },
+
   checkType (data, option) {
     let res = null
 
@@ -53,12 +61,12 @@ export const valHS = {
 
         break
       case 'boolean':
-        if (typeof (data.value) !== 'boolean') res = tools('validator').validator.checkType.boolean.resMain
+        if (typeof (data.value) !== 'boolean') res = hsValidatorLang.checkType.boolean.resMain
         if (typeof (data.response) !== 'undefined') {
           if (data.response) {
-            if (!data.value) res = tools('validator').validator.checkType.boolean.resTrue
+            if (!data.value) res = hsValidatorLang.checkType.boolean.resTrue
           } else if (!data.response) {
-            if (data.value) res = tools('validator').validator.checkType.boolean.resFalse
+            if (data.value) res = hsValidatorLang.checkType.boolean.resFalse
           }
         }
         break

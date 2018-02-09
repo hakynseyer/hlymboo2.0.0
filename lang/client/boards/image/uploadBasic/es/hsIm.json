@@ -1,0 +1,12 @@
+{
+  "HS": "hsImage",
+  "image": {
+    "config": {
+      "id": "imageImage",
+      "defaultImage": "HakynSeyer_Hpan503",
+      "titleImage": "Subir Imagen",
+      "headboard": "Imagen",
+      "hiddenMessage": "Haciendo componente"
+    }
+  }
+}

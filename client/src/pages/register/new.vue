@@ -7,8 +7,8 @@ form(
   //- pre {{$data.form}}
 
   hs-alert-modal(
-    :configModal="lang.hsAlertModal.configModal"
-    :configAlertModal="lang.hsAlertModal.configAlertModal")
+    :configModal="lang.hsAlertModal.register.configModal"
+    :configAlertModal="lang.hsAlertModal.register.configAlertModal")
 
   hs-form-head(
     :configFormHead="lang.hsFormHead"
@@ -109,7 +109,7 @@ form(
   div(class="form__box")
     div(class="form__box__head-board")
       hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.security"
+        :configHeadboard="lang.hsFormHeadboard.sign"
         @buttonAction="formCleanerSign")
     div(class="form__box__body")
       hs-checkbox(
@@ -123,16 +123,16 @@ form(
 import {boards} from '../../../../lang/client'
 import {date} from '../tools/customizedTools'
 
-import hsFormHead from '@/components/main/form/hsFormHead'
+import hsFormHead from '@/components/form/hsFormHead'
 
-import hsAlertModal from '@/components/main/modal/hsAlertModal'
-import hsError from '@/components/main/error/hsError'
+import hsAlertModal from '@/components/modal/hsAlertModal'
+import hsError from '@/components/error/hsError'
 
-import hsFormHeadboard from '@/components/main/form/hsFormHeadboard'
+import hsFormHeadboard from '@/components/form/hsFormHeadboard'
 
-import hsInput from '@/components/main/input/hsInput'
-import hsSelect from '@/components/main/select/hsSelect'
-import hsCheckbox from '@/components/main/checkbox/hsCheckbox'
+import hsInput from '@/components/input/hsInput'
+import hsSelect from '@/components/select/hsSelect'
+import hsCheckbox from '@/components/checkbox/hsCheckbox'
 
 import {newConstructor} from './tools/registerMixin'
 
@@ -289,11 +289,11 @@ export default {
             }
           })
 
-          this.lang.hsAlertModal.configModal.head.subtitle = this.lang.hsAlertModal.configModal.head.subtitle.replace('#####', response.data.alias)
-          this.lang.hsAlertModal.configAlertModal.body.body = this.lang.hsAlertModal.configAlertModal.body.body.replace('#####', response.data.alias)
-          this.lang.hsAlertModal.configAlertModal.body.footer = this.lang.hsAlertModal.configAlertModal.body.footer.replace('#####', response.data.name + ' ' + response.data.surnames).replace('?????', date.fixDate()(response.data.createdAt, 'longDate'))
+          this.lang.hsAlertModal.register.configModal.head.subtitle = this.lang.hsAlertModal.register.configModal.head.subtitle.replace('#####', response.data.alias)
+          this.lang.hsAlertModal.register.configAlertModal.body.body = this.lang.hsAlertModal.register.configAlertModal.body.body.replace('#####', response.data.alias)
+          this.lang.hsAlertModal.register.configAlertModal.body.footer = this.lang.hsAlertModal.register.configAlertModal.body.footer.replace('#####', response.data.name + ' ' + response.data.surnames).replace('?????', date.fixDate()(response.data.createdAt, 'longDate'))
 
-          this.$busForm.$emit('hsModal_showModal', true)
+          this.$busForm.$emit('hsModal_showModal', {id: 'registerAlertModal', state: true})
 
           this.$busForm.$emit('hsFormHead_disabledButtonReady', false)
         } catch (error) {

@@ -9,7 +9,7 @@ const bcrypt = Promise.promisifyAll(require('bcryptjs'))
 
 module.exports = {
   async newUser (req, res) {
-    let langData = boards(req.serverLang, 'register', 'new', 'email')
+    let langData = boards(req.serverLang, 'Register', 'new', 'email')
 
     const salt = bcrypt.genSaltSync(9)
     req.body.password.value = bcrypt.hashSync(req.body.password.value, salt)
@@ -44,7 +44,7 @@ module.exports = {
       })
       res.send(_User.toJSON())
     } catch (error) {
-      let langData = boards(req.serverLang, 'register', 'new', 'server')
+      let langData = boards(req.serverLang, 'Register', 'new', 'server')
 
       console.error(error)
       res.status(400).send({'errors': langData.regNewServer.createUser})

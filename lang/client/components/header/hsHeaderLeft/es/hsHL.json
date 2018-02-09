@@ -1,0 +1,12 @@
+{
+  "links": {
+    "logout": [
+      {"name": "Ingresar", "page": "login"},
+      {"name": "Registrate", "page": "register"}
+    ],
+    "login": [],
+    "allways": [
+      {"name": "Gracias", "page": "home"}
+    ]
+  }
+}

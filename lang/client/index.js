@@ -22,26 +22,22 @@ const boards = (board, module) => {
 }
 
 // [i] Components
-import {hsModalLang} from './components/hsModal'
-import {hsHeaderLeftLang} from './components/hsHeaderLeft'
-import {hsHeaderRightLang} from './components/hsHeaderRight'
-import {hsMenuHyzherLang} from './components/hsMenuHyzher'
+import {Header} from './components/header'
+import {Modal} from './components/modal'
+import {Menu} from './components/menu'
 
-const components = (component) => {
+const components = (resource, component) => {
   let langData = {}
 
-  switch (component) {
-    case 'hsModal':
-      langData = hsModalLang()
+  switch (resource) {
+    case 'Header':
+      langData = Header(component)
       break
-    case 'hsHeaderLeft':
-      langData = hsHeaderLeftLang()
+    case 'Modal':
+      langData = Modal(component)
       break
-    case 'hsHeaderRight':
-      langData = hsHeaderRightLang()
-      break
-    case 'hsMenuHyzher':
-      langData = hsMenuHyzherLang()
+    case 'Menu':
+      langData = Menu(component)
       break
   }
 
@@ -49,15 +45,15 @@ const components = (component) => {
 }
 
 // [i] Tools
-import {validatorLang} from './tools/validator'
+import {Validator} from './tools/validator'
 import {fixDateLang} from './tools/fixDate'
 
 const tools = (tool) => {
   let langData = {}
 
   switch (tool) {
-    case 'validator':
-      langData = validatorLang()
+    case 'Validator':
+      langData = Validator()
       break
     case 'fixDate':
       langData = fixDateLang()

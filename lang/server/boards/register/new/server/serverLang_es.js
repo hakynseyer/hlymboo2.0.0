@@ -1,11 +1,5 @@
-let data = require('../data')
+const {hsServer} = require('../data')
 
-module.exports = () => {
-  /*
-    *[D] createUser
-    *[i] Elemento Html
-  */
-  data.regNewServer.createUser = '<b> Servidor </b> <p> Algunos fragmentos de datos han fallado en nuestros servidores </p>'
+const hsS = require('./es/hsS.json')
 
-  return data
-}
+module.exports = new hsServer(hsS).get_hsServer()

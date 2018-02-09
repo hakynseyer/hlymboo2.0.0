@@ -1,0 +1,43 @@
+{
+  "HS": "hsSelect",
+  "question1": {
+    "config": {
+      "id": "question1Select",
+      "typeSelect": "Array",
+      "optionDataDefault": "Mi mayor pasatiempo:",
+      "optionData": [
+        "Mi mayor miedo de niño:",
+        "El nombre de mi primer amigo:",
+        "Mi mayor pasatiempo:",
+        "Mi primera mascota se llamaba:",
+        "Mi celebridad favorita:",
+        "La comida que más amo:",
+        "Mi entretenimiento favorito:",
+        "El libro de mis recuerdos:"
+      ],
+      "titleSelect": "Pregunta Seguridad 1",
+      "headboard": "Seguridad",
+      "hiddenMessage": "Ya me quiero dormir"
+    }
+  },
+  "question2": {
+    "config": {
+      "id": "question2Select",
+      "typeSelect": "Array",
+      "optionDataDefault": "Mi celebridad favorita:",
+      "optionData": [
+        "Mi mayor miedo de niño:",
+        "El nombre de mi primer amigo:",
+        "Mi mayor pasatiempo:",
+        "Mi primera mascota se llamaba:",
+        "Mi celebridad favorita:",
+        "La comida que más amo:",
+        "Mi entretenimiento favorito:",
+        "El libro de mis recuerdos:"
+      ],
+      "titleSelect": "Pregunta Seguridad 2",
+      "headboard": "Seguridad",
+      "hiddenMessage": "Del salmon al tomato"
+    }
+  }
+}

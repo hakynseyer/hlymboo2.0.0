@@ -1,0 +1,84 @@
+{
+  "HS": "hsAlertModal",
+  "fail": {
+    "configModal": {
+      "id": "failAlertModal",
+      "transition": "hsModal_Center",
+      "disableExit": true,
+      "head": {
+        "headAlign": "center",
+        "title": "Error de activación",
+        "subtitle": "Información Corrupta"
+      },
+      "timer": {
+        "time": 18,
+        "redirect": {
+          "name": "Inicio Hlymboo",
+          "route": "home"
+        }
+      }
+    },
+    "configAlertModal": {
+      "type": "error",
+      "body": {
+        "head": "Muro de Seguridad",
+        "body": "<p>Se te ha negado la activación de cuenta Hyzher... por la seguridad de Hlymboo y la de su comunidad, se registrará su entrada en nuestros sistemas.</p>",
+        "footer": "&copy Hlymboo, todos los derechos reservados, #####"
+      }
+    }
+  },
+  "hyzher": {
+    "configModal": {
+      "id": "hyzherAlertModal",
+      "transition": "hsModal_Center",
+      "disableExit": true,
+      "head": {
+        "headAlign": "center",
+        "title": "Cuenta ya Activada",
+        "subtitle": "Hyzher #####"
+      },
+      "timer": {
+        "time": 25,
+        "redirect": {
+          "name": "Login Hlymboo Hyzher",
+          "route": "login"
+        }
+      }
+    },
+    "configAlertModal": {
+      "type": "success",
+      "body": {
+        "head": "Hola Hyzher #####",
+        "body": "<p>Tu cuenta Hyzher ya había sido activada con anterioridad, por lo que ya no es necesario volverla a activar de nuevo... De cualquier forma, asegurate de poseer en tu dominio tu llave zoul ya que es el vínculo entre tu alma Hyzher y tu alma terrestre</p>",
+        "footer": "&copy Hlymboo, todos los derechos reservados, #####"
+      }
+    }
+  },
+  "new": {
+    "configModal": {
+      "id": "newAlertModal",
+      "transition": "hsModal_Center",
+      "disableExit": true,
+      "head": {
+        "headAlign": "center",
+        "title": "Cuenta Activada",
+        "subtitle": "Hyzher #####"
+      },
+      "timer": {
+        "time": 25,
+        "redirect": {
+          "name": "Login Hlymboo Hyzher",
+          "route": "login"
+        }
+      }
+    },
+    "configAlertModal": {
+      "type": "success",
+      "body": {
+        "head": "Felicidades Hyzher #####",
+        "body": "<p>Tu cuenta Hyzher ya ha sido activada con satisfacción. Se ha creado el vínculo entre el universo Hlymboo y tu alma Hyzher... ¡Felicidades, Hlymboo te ha presentado ante todos nuestros hermanos Hyzhers!</p>",
+        "footer": "&copy Hlymboo, todos los derechos reservados, #####"
+      }
+    }
+  }
+}

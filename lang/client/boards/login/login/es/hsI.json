@@ -1,0 +1,23 @@
+{
+  "HS": "hsInput",
+  "email": {
+    "config": {
+      "id": "emailInput",
+      "hideInput": false,
+      "typeInput": "email",
+      "titleInput": "Email",
+      "headboard": "Hlymboo Hyzher",
+      "hiddenMessage": "Hace mucho frio hoy"
+    }
+  },
+  "password": {
+    "config": {
+      "id": "passwordInput",
+      "hideInput": false,
+      "typeInput": "password",
+      "titleInput": "Contraseña",
+      "headboard": "Hlymboo Hyzher",
+      "hiddenMessage": "Mi hermana la olvidadiza"
+    }
+  }
+}

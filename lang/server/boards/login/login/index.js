@@ -1,4 +1,4 @@
-const {packsLang} = require('../../_tools')
+const storeLang = require('../../../_fixData/storeLang')
 
 // [i] Packs
 
@@ -17,15 +17,15 @@ const loginPack = (lang, pack) => {
 
   switch (pack) {
     case 'validator':
-      langData = packsLang.fragPacks(lang,
-        {lang: 'es', pack: validator.es()},
-        {lang: 'en', pack: validator.en()}
+      langData = storeLang(lang,
+        {lang: 'es', pack: validator.es},
+        {lang: 'en', pack: validator.en}
       )
       break
     case 'server':
-      langData = packsLang.fragPacks(lang,
-        {lang: 'es', pack: server.es()},
-        {lang: 'en', pack: server.en()}
+      langData = storeLang(lang,
+        {lang: 'es', pack: server.es},
+        {lang: 'en', pack: server.en}
       )
       break
   }

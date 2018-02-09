@@ -6,10 +6,10 @@ const boards = (lang, board, module, pack) => {
   let langData
 
   switch (board) {
-    case 'register':
+    case 'Register':
       langData = registerModule(lang, module, pack)
       break
-    case 'login':
+    case 'Login':
       langData = loginModule(lang, module, pack)
       break
   }
@@ -25,7 +25,7 @@ const tools = (lang, tool) => {
   let langData
 
     switch (tool) {
-      case 'validator':
+      case 'Validator':
         langData = validatorLang(lang)
         break
     }

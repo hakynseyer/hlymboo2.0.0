@@ -46,7 +46,7 @@ const valDefault = (lang) => {
 
 const valServer = (lang) => {
   const {boards} = require('../../../../../lang/server')
-  const langData = boards(lang, 'login', 'login', 'validator')
+  const langData = boards(lang, 'Login', 'login', 'validator')
 
   return {
     async analyzeEmail (email) {

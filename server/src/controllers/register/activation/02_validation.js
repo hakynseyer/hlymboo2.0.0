@@ -39,7 +39,7 @@ const valDefault = (lang) => {
 
 const valServer = (lang) => {
   const {boards} = require('../../../../../lang/server')
-  const langData = boards(lang, 'register', 'activation', 'validator')
+  const langData = boards(lang, 'Register', 'activation', 'validator')
 
   return {
     async thereisAlias (alias) {

@@ -1,0 +1,27 @@
+{
+  "HS": "hsBoardMenu",
+  "new": {
+    "config": {
+      "text": {
+        "title": "Subir Imagen",
+        "description": "Sube una imagen por vez con un peso no mayor  a 2mb. Los formatos aceptados son jpg, jpeg y png."
+      },
+      "key": "UploadBasic",
+      "icon": "picture-o",
+      "children": []
+    }
+  },
+  "search": {
+    "config": {
+      "text": {
+        "title": "Buscar Imagen",
+        "description": "Realiza cambios a tus imagenes para una mejor organización o modifica sus atributos especiales para su comportamiento en Hlymboo."
+      },
+      "key": "SearchImage",
+      "icon": "search",
+      "children": [
+        {"title": null, "icon": "camera", "key": "editImageBasic"}
+      ]
+    }
+  }
+}

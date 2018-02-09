@@ -1,0 +1,30 @@
+{
+  "HS": "hsFormHeadboard",
+  "picture": {
+    "hideHelp": false,
+    "title": "Imagen",
+    "message": [
+      "Solo imagenes con formato jpg, jpeg o png",
+      "El peso máximo por imagen es de 2mb",
+      "Si se descubre duplicidad de imagenes en tu perfil, tú serás sancionado"
+    ],
+    "buttonIcon": "trash-o"
+  },
+  "basic": {
+    "hideHelp": false,
+    "title": "Basicos",
+    "message": [
+      "Titulos ofensivos, serán encapsuladas y entrarán a juicio por parte del tribunal",
+      "Hlymboo solo podrá ayudar (Hasta donde este nuestro alcance) a hyzhers en disputas de derechos de autor, siempre y cuando el material sea del 100% del creador y siendo publicado en Hlymboo con más de 1 mes de anticipación con respecto a otras plataformas o instituciones... Para más detalles revisa la sección de derechos de autor en tu menu Hyzher"
+    ],
+    "buttonIcon": "trash-o"
+  },
+  "organization": {
+    "hideHelp": false,
+    "title": "Organización",
+    "message": [
+      "Organiza tus imagenes en paquetes llamados Baules. Imagina varios chocolates, libros y refrescos guardados en una caja de herramientas, ¿verdad que no tiene sentido?... Cada cosa debe de ir en su lugar"
+    ],
+    "buttonIcon": "trash-o"
+  }
+}

@@ -51,14 +51,14 @@ form(
 <script>
 import {boards} from '../../../../lang/client'
 
-import hsFormHead from '@/components/main/form/hsFormHead'
+import hsFormHead from '@/components/form/hsFormHead'
 
-import hsError from '@/components/main/error/hsError'
+import hsError from '@/components/error/hsError'
 
-import hsFormHeadboard from '@/components/main/form/hsFormHeadboard'
+import hsFormHeadboard from '@/components/form/hsFormHeadboard'
 
-import hsImage from '@/components/main/image/hsImage'
-import hsInput from '@/components/main/input/hsInput'
+import hsImage from '@/components/image/hsImage'
+import hsInput from '@/components/input/hsInput'
 
 export default {
   components: {

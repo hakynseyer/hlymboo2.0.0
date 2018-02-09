@@ -1,12 +1,12 @@
 module.exports = (lang) => {
   const {tools} = require('../../../../lang/server')
-  const langData = tools(lang, 'validator')
+  const langData = tools(lang, 'Validator').hsValidator
 
   return {
     valEmpty (data) {
       let res = null
 
-      if ((data === null || data === 'null') || data.length <= 0) res = langData.validator.valEmpty.res
+      if ((data === null || data === 'null') || data.length <= 0) res = langData.valEmpty.res
 
       return res
     },
@@ -16,27 +16,27 @@ module.exports = (lang) => {
 
       switch (option) {
         case 'text':
-          if (typeof (data) !== 'string' || !isNaN(data)) res = langData.validator.valType.text.res
+          if (typeof (data) !== 'string' || !isNaN(data)) res = langData.valType.text.res
           break
         case 'number':
-          if (isNaN(data)) res = langData.validator.valType.number.res
+          if (isNaN(data)) res = langData.valType.number.res
           break
         case 'email':
           const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          if (!re.test(data)) res = langData.validator.valType.email.res
+          if (!re.test(data)) res = langData.valType.email.res
           break
         case 'password':
-          if (data.search(/[!@#$%^&*_+].*[!@#$%^&*_+].*[!@#$%^&*_+]/) < 0) res = langData.validator.valType.password.resSpecial.replace('#####', 3)
-          if (data.search(/[a-z].*[a-z].*[a-z]/i) < 0) res = langData.validator.valType.password.resLetter.replace('#####', 3)
-          if (data.search(/[0-9].*[0-9].*[0-9]/) < 0) res = langData.validator.valType.password.resNumber.replace('#####', 3)
+          if (data.search(/[!@#$%^&*_+].*[!@#$%^&*_+].*[!@#$%^&*_+]/) < 0) res = langData.valType.password.resSpecial.replace('#####', 3)
+          if (data.search(/[a-z].*[a-z].*[a-z]/i) < 0) res = langData.valType.password.resLetter.replace('#####', 3)
+          if (data.search(/[0-9].*[0-9].*[0-9]/) < 0) res = langData.valType.password.resNumber.replace('#####', 3)
           break
         case 'boolean':
-          if (typeof (data.value) !== 'boolean') res = langData.validator.valType.boolean.resMain
+          if (typeof (data.value) !== 'boolean') res = langData.valType.boolean.resMain
           if (typeof (data.response) !== 'undefined') {
             if (data.response) {
-              if (!data.value) res = langData.validator.valType.boolean.resTrue
+              if (!data.value) res = langData.valType.boolean.resTrue
             } else if (!data.response) {
-              if (data.value) res = langData.validator.valType.boolean.resFalse
+              if (data.value) res = langData.valType.boolean.resFalse
             }
           }
           break
@@ -48,7 +48,7 @@ module.exports = (lang) => {
     valMin (data, min) {
       let res = null
 
-      if (data.length < min) res = langData.validator.valMin.res.replace('#####', min).replace('?????', min - data.length)
+      if (data.length < min) res = langData.valMin.res.replace('#####', min).replace('?????', min - data.length)
 
       return res
     },
@@ -56,7 +56,7 @@ module.exports = (lang) => {
     valMax (data, max) {
       let res = null
 
-      if (data.length > max) res = langData.validator.valMax.res.replace('#####', max).replace('?????', data.length - max)
+      if (data.length > max) res = langData.valMax.res.replace('#####', max).replace('?????', data.length - max)
 
       return res
     },
@@ -64,7 +64,7 @@ module.exports = (lang) => {
     valEqual (data, compare) {
       let res = null
 
-      if (data !== compare.data) res = langData.validator.valEqual.res.replace('#####', compare.name)
+      if (data !== compare.data) res = langData.valEqual.res.replace('#####', compare.name)
 
       return res
     },
@@ -74,10 +74,10 @@ module.exports = (lang) => {
 
       switch (option) {
         case 'simple':
-          if (data === compare.data) res = langData.validator.valUnequal.res.replace('#####', compare.name)
+          if (data === compare.data) res = langData.valUnequal.res.replace('#####', compare.name)
           break
         case 'array':
-          if (compare.indexOf(data) >= 0) res = langData.validator.valUnequal.resArray
+          if (compare.indexOf(data) >= 0) res = langData.valUnequal.resArray
           break
       }
 
@@ -87,7 +87,7 @@ module.exports = (lang) => {
     valBigger (data, min) {
       let res = null
 
-      if (data <= min) res = langData.validator.valBigger.res
+      if (data <= min) res = langData.valBigger.res
 
       return res
     },

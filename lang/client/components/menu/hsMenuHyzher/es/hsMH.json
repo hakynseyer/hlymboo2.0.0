@@ -1,0 +1,8 @@
+{
+  "logout": "Cerrar Sesión",
+  "ranks": {
+    "Hyzher": [
+      {"page": "image", "icon": "picture-o", "route": "image"}
+    ]
+  }
+}

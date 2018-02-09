@@ -1,21 +1,4 @@
-import store from '../../../../client/src/store/store'
-
-function imageLang (...modules) {
-  switch (store.state.lang) {
-    case 'es':
-      for (let module of modules) {
-        if (module.lang === 'es') return module.module
-      }
-      break
-    case 'en':
-      for (let module of modules) {
-        if (module.lang === 'en') return module.module
-      }
-      break
-    default:
-      return {}
-  }
-}
+import {storeLang} from '../../_fixData/storeLang'
 
 // [i] Module "hsBoardMenu"
 import {hsBoardMenuLang_es} from './hsBoardMenu/hsBoardMenuLang_es'
@@ -30,13 +13,13 @@ const imageModule = (module) => {
 
   switch (module) {
     case 'hsBoardMenu':
-      langData = imageLang(
+      langData = storeLang(
         {lang: 'es', module: hsBoardMenuLang_es},
         {lang: 'en', module: hsBoardMenuLang_en}
       )
       break
     case 'uploadBasic':
-      langData = imageLang(
+      langData = storeLang(
         {lang: 'es', module: uploadBasicLang_es},
         {lang: 'en', module: hsUploadBasicLang_en}
       )

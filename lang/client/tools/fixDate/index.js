@@ -1,19 +1,13 @@
-import store from '../../../../client/src/store/store'
+import {storeLang} from '../../_fixData/storeLang'
 
-import {fixDateLang_es} from './lang/fixDateLang_es'
-import {fixDateLang_en} from './lang/fixDateLang_en'
+import {fixDateLang_es} from './fixDate/fixDateLang_es'
+import {fixDateLang_en} from './fixDate/fixDateLang_en'
 
 const fixDateLang = () => {
-  let langData = {}
-
-  switch (store.state.lang) {
-    case 'es':
-      langData = fixDateLang_es()
-      break
-    case 'en':
-      langData = fixDateLang_en()
-      break
-  }
+  let langData = storeLang(
+    {lang: 'es', module: fixDateLang_es},
+    {lang: 'en', module: fixDateLang_en}
+  )
 
   return langData
 }

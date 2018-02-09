@@ -1,0 +1,30 @@
+{
+  "HS": "hsAlertModal",
+  "register": {
+    "configModal": {
+      "id": "registerAlertModal",
+      "transition": "hsModal_Center",
+      "disableExit": true,
+      "head": {
+        "headAlign": "center",
+        "title": "Nuevo Huesped Registrado",
+        "subtitle": "USUARIO: #####"
+      },
+      "timer": {
+        "time": 30,
+        "redirect": {
+          "name": "Login Hlymboo Hyzher",
+          "route": "login"
+        }
+      }
+    },
+    "configAlertModal": {
+      "type": "normal",
+      "body": {
+        "head": "Revisa tu Correo Electrónico",
+        "body": "<p>Muchas gracias <b>#####</b> por registrarte en Hlymboo, y sobre todo gracias por creer en este proyecto.</p><p>Para finalizar la creación de tu ingreso, deberás de seguir las instrucciones que se te enviaron a tu correo electrónico, esto con la finalidad de terminar el proceso de tu activacion de rango Hyzher... Muchas gracias.</p>",
+        "footer": "##### registrado el día ?????"
+      }
+    }
+  }
+}

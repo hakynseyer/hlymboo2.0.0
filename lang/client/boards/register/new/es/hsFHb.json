@@ -1,0 +1,41 @@
+{
+  "HS": "hsFormHeadboard",
+  "personal": {
+    "hideHelp": false,
+    "title": "Personal",
+    "message": [
+      "No utilices datos engañosos o datos que afecten la sensibilidad del público",
+      "Utiliza datos coherentes, claros... Lo más simple posible",
+      "Caracteres especiales como: [ , á ñ * + ], entre otros será borrados en algunos campos"
+    ],
+    "buttonIcon": "trash-o"
+  },
+  "passwords": {
+    "hideHelp": false,
+    "title": "Contraseñas",
+    "message": [
+      "No usar acentos ni letras como ñ o semejantes",
+      "Crea contraseñas complejas pero que sean fáciles de recordar para ti... combina letras (mayusculas, minisculas) con números y caracteres especiales",
+      "Tu contraseña será encriptada por lo que nadie (hyzhers, admins, creador) tendrá acceso a conocer tu contraseña, solo tú podrás saberlo"
+    ],
+    "buttonIcon": "trash-o"
+  },
+  "security": {
+    "hideHelp": false,
+    "title": "Seguridad",
+    "message": [
+      "Utiliza respuestas cortas, claras y simples de recordar",
+      "Escoge una pregunta que más te haga recordar la respuesta, recuerda que esto será una medida de seguridad en caso de perder tu contraseña o en su defecto en apartados específicos"
+    ],
+    "buttonIcon": "trash-o"
+  },
+  "sign": {
+    "hideHelp": false,
+    "title": "Firma",
+    "message": [
+      "Aceptar nuestro términos y condiciones otorgará seguridad para ti, como para   nosotros en Hlymboo... Por favor leelas antes de continuar",
+      "El cambio estará presente por lo que nuestros términos y condiciones se actualizaran cada determinado tiempo... No te preocupes, en Hlymboo nuestra primera regla es proteger a nuestros Hyzhers para garantizar su seguridad en nuestra plataforma"
+    ],
+    "buttonIcon": "trash-o"
+  }
+}

@@ -1,21 +1,4 @@
-import store from '../../../../client/src/store/store'
-
-function registerLang (...modules) {
-  switch (store.state.lang) {
-    case 'es':
-      for (let module of modules) {
-        if (module.lang === 'es') return module.module
-      }
-      break
-    case 'en':
-      for (let module of modules) {
-        if (module.lang === 'en') return module.module
-      }
-      break
-    default:
-      return {}
-  }
-}
+import {storeLang} from '../../_fixData/storeLang'
 
 // [i] Module "Login"
 import {loginLang_es} from './login/loginLang_es'
@@ -26,7 +9,7 @@ const loginModule = (module) => {
 
   switch (module) {
     case 'login':
-      langData = registerLang(
+      langData = storeLang(
         {lang: 'es', module: loginLang_es},
         {lang: 'en', module: loginLang_en}
       )

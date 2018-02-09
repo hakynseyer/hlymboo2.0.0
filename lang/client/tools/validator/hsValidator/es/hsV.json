@@ -1,0 +1,27 @@
+{
+  "checkEmpty": {
+    "res": "<b> Vacio </b> <p> Este campo no puede estar vacio </p>"
+  },
+  "checkMin": {
+    "res": "<b> Longitud mínima </b> <p> Solo se permiten ##### caracteres como mínimo, a ti te faltan ????? caracteres </p>"
+  },
+  "checkMax": {
+    "res": "<b> Longitud máxima </b> <p> Solo se permiten ##### caracteres como máximo, a ti te sobran ????? caracteres </p>"
+  },
+  "checkEmail": {
+    "res": "<b> Email invalido </b> <p> Solo se permiten emails correctamente escritas </p>"
+  },
+  "checkEqual": {
+    "res": "<b> Datos desiguales </b> <p> No coincide con el campo ##### </p>"
+  },
+  "checkUnequal": {
+    "res": "<b> Datos iguales </b> <p> No puede coincidir con el campo ##### </p>"
+  },
+  "checkType": {
+    "boolean": {
+      "resMain": "<b> Tipo de dato </b> <p> El valor ingresado es invalido para nuestro sistema... asegurate de ingresar lo que se te pide </p>",
+      "resTrue": "<b> Tipo de dato </b> <p> El valor ingresado ha sido negado por nuestro sistema </p>",
+      "resFalse": "<b> Tipo de dato </b> <p> El valor ingresado ha sido negado por nuestro sistema </p>"
+    }
+  }
+}

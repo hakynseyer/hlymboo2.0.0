@@ -1,7 +1,7 @@
 <template lang="pug">
   article(class="article--clean")
     hs-board-menu(
-      :configBoardMenu="lang.hsBoardMenu.config"
+      :hsBM="lang.hsBoardMenu"
       @sendActionBM="actionBoardMenu")
 
     transition(name="router-transition")
@@ -11,7 +11,7 @@
 <script>
 import {boards} from '../../../../lang/client'
 
-import hsBoardMenu from '@/components/main/board/hsBoardMenu'
+import hsBoardMenu from '@/components/board/hsBoardMenu'
 
 import Vue from 'vue'
 Vue.prototype.$busForm = new Vue()
@@ -39,6 +39,7 @@ export default {
 
   methods: {
     actionBoardMenu (element) {
+      console.log(element)
       this.$router.push({name: `image${element}`})
 
       this.$busForm.$emit('hsBoardMenu_pocket', true)

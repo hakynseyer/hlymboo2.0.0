@@ -1,11 +1,19 @@
 <template lang="pug">
   article
     hs-alert-modal(
-    :configModal="lang.hsAlertModal.configModal"
-    :configAlertModal="lang.hsAlertModal.configAlertModal")
+    :configModal="lang.hsAlertModal.fail.configModal"
+    :configAlertModal="lang.hsAlertModal.fail.configAlertModal")
+
+    hs-alert-modal(
+    :configModal="lang.hsAlertModal.hyzher.configModal"
+    :configAlertModal="lang.hsAlertModal.hyzher.configAlertModal")
+
+    hs-alert-modal(
+    :configModal="lang.hsAlertModal.new.configModal"
+    :configAlertModal="lang.hsAlertModal.new.configAlertModal")
 
     div(class="div--width-100")
-      h2(class="h2--margin-right") {{lang.h2ActivationMessage.h2Message}}
+      h2(class="h2--margin-right") {{lang.hsSimpleMessage.message}}
       icon(
         v-if="stateSpinner"
         name="cog"
@@ -15,15 +23,14 @@
     hs-error(
       simple=true
       :errors="errorServer")
-
 </template>
 
 <script>
 import {boards} from '../../../../lang/client'
 import {date} from '../tools/customizedTools'
 
-import hsAlertModal from '@/components/main/modal/hsAlertModal'
-import hsError from '@/components/main/error/hsError'
+import hsAlertModal from '@/components/modal/hsAlertModal'
+import hsError from '@/components/error/hsError'
 
 import {valHS} from '../tools/validator'
 
@@ -56,18 +63,8 @@ export default {
     const checkCode = valHS.checkEmpty(this.code)
     const checkAlias = valHS.checkEmpty(this.alias)
 
-    if (checkCode !== null && checkAlias !== null) {
-      const langAlertModal = new Promise(resolve => {
-        this.errorAlertModal()
-
-        this.lang.hsAlertModal.configAlertModal.body.footer = this.lang.hsAlertModal.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
-
-        resolve()
-      })
-      langAlertModal.then(() => {
-        this.activationModal()
-      })
-    } else {
+    if (checkCode !== null && checkAlias !== null) this.fixFailAM()
+    else {
       try {
         const response = await serverRegisterRequest.activationUser({
           code: {
@@ -78,23 +75,8 @@ export default {
           }
         })
 
-        this.stateSpinner = false
-
-        if (response.data.mode === 'success') {
-          this.successAlertModal()
-
-          this.lang.hsAlertModal.configModal.head.subtitle = this.lang.hsAlertModal.configModal.head.subtitle.replace('#####', response.data.hyzher)
-          this.lang.hsAlertModal.configAlertModal.body.body = this.lang.hsAlertModal.configAlertModal.body.body.replace('#####', response.data.hyzher)
-          this.lang.hsAlertModal.configAlertModal.body.footer = this.lang.hsAlertModal.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
-        } else if (response.data.mode === 'hyzher') {
-          this.hyzherAlertModal()
-
-          this.lang.hsAlertModal.configModal.head.subtitle = this.lang.hsAlertModal.configModal.head.subtitle.replace('#####', response.data.hyzher)
-          this.lang.hsAlertModal.configAlertModal.body.head = this.lang.hsAlertModal.configAlertModal.body.head.replace('#####', response.data.hyzher)
-          this.lang.hsAlertModal.configAlertModal.body.footer = this.lang.hsAlertModal.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
-        }
-
-        this.$busForm.$emit('hsModal_showModal', true)
+        if (response.data.mode === 'success') this.fixNewAM(response.data.hyzher)
+        else if (response.data.mode === 'hyzher') this.fixHyzherAM(response.data.hyzher)
       } catch (error) {
         if (typeof (error.response) !== 'undefined') {
           switch (error.response.status) {
@@ -102,28 +84,53 @@ export default {
               this.errorServer = error.response.data.errors.alias[0]
               break
             case 403:
-              if (error.response.data.errors) {
-                this.errorAlertModal()
-
-                this.lang.hsAlertModal.configAlertModal.body.footer = this.lang.hsAlertModal.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
-
-                this.$busForm.$emit('hsModal_showModal', true)
-              }
+              if (error.response.data.errors) this.fixFailAM()
               break
             case 400:
               this.errorServer = error.response.data.errors
               break
           }
         } else console.error(error)
-
-        this.stateSpinner = false
       }
     }
   },
 
   methods: {
-    activationModal () {
-      this.$busForm.$emit('hsModal_showModal', true)
+    fixFailAM () {
+      let addInfo = new Promise(resolve => {
+        this.lang.hsAlertModal.fail.configAlertModal.body.footer = this.lang.hsAlertModal.fail.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
+        resolve()
+      })
+      addInfo.then(() => {
+        this.stateSpinner = false
+        this.$busForm.$emit('hsModal_showModal', {id: 'failAlertModal', state: true})
+      })
+    },
+
+    fixHyzherAM (hyzher) {
+      let addInfo = new Promise(resolve => {
+        this.lang.hsAlertModal.hyzher.configModal.head.subtitle = this.lang.hsAlertModal.hyzher.configModal.head.subtitle.replace('#####', hyzher)
+        this.lang.hsAlertModal.hyzher.configAlertModal.body.head = this.lang.hsAlertModal.hyzher.configAlertModal.body.head.replace('#####', hyzher)
+        this.lang.hsAlertModal.hyzher.configAlertModal.body.footer = this.lang.hsAlertModal.hyzher.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
+        resolve()
+      })
+      addInfo.then(() => {
+        this.stateSpinner = false
+        this.$busForm.$emit('hsModal_showModal', {id: 'hyzherAlertModal', state: true})
+      })
+    },
+
+    fixNewAM (hyzher) {
+      let addInfo = new Promise(resolve => {
+        this.lang.hsAlertModal.new.configModal.head.subtitle = this.lang.hsAlertModal.new.configModal.head.subtitle.replace('#####', hyzher)
+        this.lang.hsAlertModal.new.configAlertModal.body.head = this.lang.hsAlertModal.new.configAlertModal.body.head.replace('#####', hyzher)
+        this.lang.hsAlertModal.new.configAlertModal.body.footer = this.lang.hsAlertModal.new.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
+        resolve()
+      })
+      addInfo.then(() => {
+        this.stateSpinner = false
+        this.$busForm.$emit('hsModal_showModal', {id: 'newAlertModal', state: true})
+      })
     }
   }
 }

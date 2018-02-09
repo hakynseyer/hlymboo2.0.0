@@ -1,0 +1,13 @@
+{
+  "HS": "hsFormHeadboard",
+  "hyzher": {
+    "hideHelp": false,
+    "title": "Hlymboo Hyzher",
+    "message": [
+      "Solo hyzhers registrados podrán acceder a Hlymboo Hyzher",
+      "Los huespedes registrados deberán seguir las instrucciones enviados a su correo electronico, esto con el fin de activar su cuenta Hyzher",
+      "Después de tres intentos fallidos, serás redirigido a la página principal"
+    ],
+    "buttonIcon": "trash-o"
+  }
+}
