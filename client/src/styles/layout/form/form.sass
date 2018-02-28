@@ -4,14 +4,15 @@ form
   justify-content: space-around
   align-items: baseline
   flex-wrap: wrap
-  padding-bottom: 100px
+  margin-top: map-get($var-height, header)
 
 .form
   +ele('head')
     z-index: map-get($var-z-index, form-Head)
     position: fixed
-    bottom: 0
+    top: 0
     left: map-get($var-width, mother-Asides)
+    margin-top: map-get($var-height, header)
     width: map-get($var-width, mother-Section)/2
     height: 50px
     display: flex
@@ -19,10 +20,11 @@ form
     align-items: center
     padding: 10px 20px
     box-sizing: border-box
-    border-radius: 3px 3px 0px 0px
+    border-radius: 0px 0px 3px 0px
     color: lighten(map-get($colorsHS, gray), 60%)
     background-color: map-get($colorsHS, gray)
     overflow: hidden
+    animation: head-transition 1000ms
 
     +ele('title')
       position: relative
@@ -70,7 +72,7 @@ form
         margin-bottom: 10px
         padding: 0px 10px
         box-sizing: border-box
-        background-color: darken(map-get($colorsHS, white), 3%)
+        background-color: map-get($var-color-gray, form-group)
         overflow: hidden
         &:last-child
           margin-bottom: 0px
@@ -85,3 +87,8 @@ form
         // +ele('height_mas_5')
         //   height: 55px
 
+@keyframes head-transition
+  from
+    transform: translateX(-100%)
+  to
+    transform: translateX(0%)

@@ -1,0 +1,12 @@
+{
+  "HS": "hsTextarea",
+  "copyright": {
+    "config": {
+      "id": "copyrightTextarea",
+      "readOnly": false,
+      "titleTextarea": "Derechos de Autor",
+      "headboard": "Basicos",
+      "hiddenMessage": "Programando en SMgl"
+    }
+  }
+}

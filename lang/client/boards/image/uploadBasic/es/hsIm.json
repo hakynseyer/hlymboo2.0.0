@@ -3,6 +3,7 @@
   "image": {
     "config": {
       "id": "imageImage",
+      "updateErrors": true,
       "defaultImage": "HakynSeyer_Hpan503",
       "titleImage": "Subir Imagen",
       "headboard": "Imagen",

@@ -91,60 +91,6 @@ class hsFormHeadboard extends validateData {
   }
 }
 
-class hsBoardMenu extends validateData {
-  constructor (keyElement, data) {
-    super()
-    this.var_hsBoardMenu()
-
-    let key = typeof (keyElement) === 'string'
-    let config = typeof (data.config) === 'object'
-
-    if (key && config) {
-      let hsBM_key = this.validateText(keyElement, true)
-      if (hsBM_key) this.key = hsBM_key
-
-      let hsBM_config_text_title = this.validateText(data.config.text.title, true)
-      if (hsBM_config_text_title) this.hsBoardMenu.config.text.title = hsBM_config_text_title
-      let hsBM_config_text_description = this.validateText(data.config.text.description, true)
-      if (hsBM_config_text_description) this.hsBoardMenu.config.text.description = hsBM_config_text_description
-
-      let hsBM_config_key = this.validateText(data.config.key, true)
-      if (hsBM_config_key) this.hsBoardMenu.config.key = hsBM_config_key
-
-      let hsBM_config_icon = this.validateText(data.config.icon, true)
-      if (hsBM_config_icon) this.hsBoardMenu.config.icon = hsBM_config_icon
-
-      let hsBM_config_children = this.validateArray(data.config.children, 'array-object')
-      if (hsBM_config_children) this.hsBoardMenu.config.children = hsBM_config_children
-    }
-  }
-
-  var_hsBoardMenu () {
-    this.key = null
-    this.hsBoardMenu = {
-      config: {
-        text: {
-          title: null,
-          description: null
-        },
-        key: null,
-        icon: null,
-        // children: [{title: null, icon: null, key: null}]
-        children: []
-      }
-    }
-  }
-
-  get_hsBoardMenu () {
-    let hsBoardMenu = {
-      hsBoardMenu: {}
-    }
-    hsBoardMenu.hsBoardMenu[this.key] = this.hsBoardMenu
-
-    return hsBoardMenu
-  }
-}
-
 class hsInput extends validateData {
   constructor (keyElement, data) {
     super()
@@ -198,6 +144,58 @@ class hsInput extends validateData {
     hsInput.hsInput[this.key] = this.hsInput
 
     return hsInput
+  }
+}
+
+class hsTextarea extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsTextarea()
+
+    let key = typeof (keyElement)  === 'string'
+    let config = typeof (data.config) === 'object'
+
+    if (key && config) {
+      let hsTA_key = this.validateText(keyElement, true)
+      if (hsTA_key) this.key = hsTA_key
+
+      let hsTA_config_id = this.validateText(data.config.id, true)
+      if (hsTA_config_id) this.hsTextarea.config.id = hsTA_config_id
+
+      let hsTA_config_readOnly = this.validateBoolean(data.config.readOnly)
+      if (hsTA_config_readOnly) this.hsTextarea.config.readOnly = hsTA_config_readOnly
+
+      let hsTA_config_titleTextarea = this.validateText(data.config.titleTextarea, true)
+      if (hsTA_config_titleTextarea) this.hsTextarea.config.titleTextarea = hsTA_config_titleTextarea
+
+      let hsTA_config_headboard = this.validateText(data.config.headboard, true)
+      if (hsTA_config_headboard) this.hsTextarea.config.headboard = hsTA_config_headboard
+
+      let hsTA_config_hiddenMessage = this.validateText(data.config.hiddenMessage, true)
+      if (hsTA_config_hiddenMessage) this.hsTextarea.config.hiddenMessage = hsTA_config_hiddenMessage
+    }
+  }
+
+  var_hsTextarea () {
+    this.key = null,
+    this.hsTextarea = {
+      config: {
+        id: null,
+        readOnly: false,
+        titleTextarea: null,
+        headboard: null,
+        hiddenMessage: null
+      }
+    }
+  }
+
+  get_hsTextarea () {
+    let hsTextarea = {
+      hsTextarea: {}
+    }
+    hsTextarea.hsTextarea[this.key] = this.hsTextarea
+
+    return hsTextarea
   }
 }
 
@@ -258,6 +256,70 @@ class hsSelect extends validateData {
     hsSelect.hsSelect[this.key] = this.hsSelect
 
     return hsSelect
+  }
+}
+
+class hsChest extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsChest()
+
+    let key = typeof (keyElement) === 'string'
+    let config = typeof (data.config) === 'object'
+
+    if (key && config) {
+      let hsCh_key = this.validateText(keyElement, true)
+      if (hsCh_key) this.key = hsCh_key
+
+      let hsCh_config_id = this.validateText(data.config.id, true)
+      if (hsCh_config_id) this.hsChest.config.id = hsCh_config_id
+
+      let hsCh_config_idInput = this.validateText(data.config.idInput, true)
+      if (hsCh_config_idInput) this.hsChest.config.idInput = hsCh_config_idInput
+
+      let hsCh_config_idSelect = this.validateText(data.config.idSelect, true)
+      if (hsCh_config_idSelect) this.hsChest.config.idSelect = hsCh_config_idSelect
+
+      let hsCh_config_typeSelect = this.validateText(data.config.typeSelect, true)
+      if (hsCh_config_typeSelect) this.hsChest.config.typeSelect = hsCh_config_typeSelect
+
+      let hsCh_config_optionData = this.validateArray(data.config.optionData, 'array-simple')
+      if (hsCh_config_optionData) this.hsChest.config.optionData = hsCh_config_optionData
+
+      let hsCh_config_titleChest = this.validateText(data.config.titleChest, true)
+      if (hsCh_config_titleChest) this.hsChest.config.titleChest = hsCh_config_titleChest
+
+      let hsCh_config_headboard = this.validateText(data.config.headboard, true)
+      if (hsCh_config_headboard) this.hsChest.config.headboard = hsCh_config_headboard
+
+      let hsCh_config_hiddenMessage = this.validateText(data.config.hiddenMessage, true)
+      if (hsCh_config_hiddenMessage) this.hsChest.config.hiddenMessage = hsCh_config_hiddenMessage
+    }
+  }
+
+  var_hsChest () {
+    this.key = null
+    this.hsChest = {
+      config: {
+        id: null,
+        idInput: null,
+        idSelect: null,
+        typeSelect: null,
+        optionData: [],
+        titleChest: null,
+        headboard: null,
+        hiddenMessage: null
+      }
+    }
+  }
+
+  get_hsChest () {
+    let hsChest = {
+      hsChest: {}
+    }
+    hsChest.hsChest[this.key] = this.hsChest
+
+    return hsChest
   }
 }
 
@@ -333,6 +395,9 @@ class hsImage extends validateData {
       let hsIm_key = this.validateText(keyElement, true)
       if (hsIm_key) this.key = hsIm_key
 
+      let hsIm_config_updateErrors = this.validateBoolean(data.config.updateErrors)
+      if (hsIm_config_updateErrors) this.hsImage.config.updateErrors = hsIm_config_updateErrors
+
       let hsIm_config_id = this.validateText(data.config.id, true)
       if (hsIm_config_id) this.hsImage.config.id = hsIm_config_id
 
@@ -355,6 +420,7 @@ class hsImage extends validateData {
     this.hsImage = {
       config: {
         id: null,
+        updateErrors: false,
         defaultImage: null,
         titleImage: null,
         headboard: null,
@@ -462,6 +528,60 @@ class hsAlertModal extends validateData {
   }
 }
 
+class hsSmallModal extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsSmallModal()
+
+    let key = typeof (keyElement) === 'string'
+    let configSmallModal = typeof (data.configSmallModal) === 'object'
+
+    if (key && configSmallModal) {
+      let hsSM_key = this.validateText(keyElement, true)
+      if (hsSM_key) this.key = hsSM_key
+
+      let hsSM_configSmallModal_id = this.validateText(data.configSmallModal.id, true)
+      if (hsSM_configSmallModal_id) this.hsSmallModal.configSmallModal.id = hsSM_configSmallModal_id
+
+      let hsSM_configSmallModal_type = this.validateText(data.configSmallModal.type, true)
+      if (hsSM_configSmallModal_type) this.hsSmallModal.configSmallModal.type = hsSM_configSmallModal_type
+
+      let hsSM_configSmallModal_title = this.validateText(data.configSmallModal.title, true)
+      if (hsSM_configSmallModal_title) this.hsSmallModal.configSmallModal.title = hsSM_configSmallModal_title
+
+      let hsSM_configSmallModal_body = this.validateText(data.configSmallModal.body, true)
+      if (hsSM_configSmallModal_body) this.hsSmallModal.configSmallModal.body = hsSM_configSmallModal_body
+
+      let hsSM_configSmallModal_timer_time = this.validateNumber(data.configSmallModal.timer.time)
+      if (hsSM_configSmallModal_timer_time) this.hsSmallModal.configSmallModal.timer.time = hsSM_configSmallModal_timer_time
+    }
+  }
+
+  var_hsSmallModal () {
+    this.key = null
+    this.hsSmallModal = {
+      configSmallModal: {
+        id: null,
+        type: null,
+        title: null,
+        body: null,
+        timer: {
+          time: 0
+        }
+      }
+    }
+  }
+
+  get_hsSmallModal () {
+    let hsSmallModal = {
+      hsSmallModal: {}
+    }
+    hsSmallModal.hsSmallModal[this.key] = this.hsSmallModal
+
+    return hsSmallModal
+  }
+}
+
 class hsSimpleMessage extends validateData {
   constructor (data) {
     super()
@@ -488,14 +608,241 @@ class hsSimpleMessage extends validateData {
   }
 }
 
+class hsBoardMenu extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsBoardMenu()
+
+    let key = typeof (keyElement) === 'string'
+    let config = typeof (data.config) === 'object'
+
+    if (key && config) {
+      let hsBM_key = this.validateText(keyElement, true)
+      if (hsBM_key) this.key = hsBM_key
+
+      let hsBM_config_text_title = this.validateText(data.config.text.title, true)
+      if (hsBM_config_text_title) this.hsBoardMenu.config.text.title = hsBM_config_text_title
+      let hsBM_config_text_description = this.validateText(data.config.text.description, true)
+      if (hsBM_config_text_description) this.hsBoardMenu.config.text.description = hsBM_config_text_description
+
+      let hsBM_config_key = this.validateText(data.config.key, true)
+      if (hsBM_config_key) this.hsBoardMenu.config.key = hsBM_config_key
+
+      let hsBM_config_icon = this.validateText(data.config.icon, true)
+      if (hsBM_config_icon) this.hsBoardMenu.config.icon = hsBM_config_icon
+
+      let hsBM_config_children = this.validateArray(data.config.children, 'array-object')
+      if (hsBM_config_children) this.hsBoardMenu.config.children = hsBM_config_children
+    }
+  }
+
+  var_hsBoardMenu () {
+    this.key = null
+    this.hsBoardMenu = {
+      config: {
+        text: {
+          title: null,
+          description: null
+        },
+        key: null,
+        icon: null,
+        // children: [{title: null, icon: null, key: null}]
+        children: []
+      }
+    }
+  }
+
+  get_hsBoardMenu () {
+    let hsBoardMenu = {
+      hsBoardMenu: {}
+    }
+    hsBoardMenu.hsBoardMenu[this.key] = this.hsBoardMenu
+
+    return hsBoardMenu
+  }
+}
+
+class hsList extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsList()
+
+    let key = typeof (keyElement === 'string')
+    let configList = typeof (data.configList) === 'object'
+
+    if (key && configList) {
+      let hsL_key = this.validateText(keyElement, true)
+      if (hsL_key) this.key = hsL_key
+
+      let hsL_configList_sendList_mode = this.validateText(data.configList.sendList.mode, true)
+      if (hsL_configList_sendList_mode) this.hsList.configList.sendList.mode = hsL_configList_sendList_mode
+
+      let hsL_configList_sendList_nameEvent = this.validateText(data.configList.sendList.nameEvent, true)
+      if (hsL_configList_sendList_nameEvent) this.hsList.configList.sendList.nameEvent = hsL_configList_sendList_nameEvent
+      // [i] Monitorear si no llega a dar un conflicto con los datos Linea de Abajo
+      let hsL_configList_dataList = this.validateArray(data.configList.dataList, 'array-object')
+      if (hsL_configList_dataList) this.hsList.configList.dataList = hsL_configList_dataList
+    }
+  }
+
+  var_hsList () {
+    this.key = null
+    this.hsList = {
+      configList: {
+        sendList: {
+          mode: null,
+          nameEvent: null
+        },
+        dataList: []
+      }
+    }
+  }
+
+  get_hsList () {
+    let hsList = {
+      hsList: {}
+    }
+    hsList.hsList[this.key] = this.hsList
+
+    return hsList
+  }
+}
+
+class hsFilter extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsFilter()
+
+    let key = typeof (keyElement) === 'string'
+    let configFilter = typeof (data.configFilter) === 'object'
+
+    if (key, configFilter) {
+      let hsF_key = this.validateText(keyElement, true)
+      if (hsF_key) this.key = hsF_key
+
+      let hsF_configFilter_ids_filterButton = this.validateText(data.configFilter.ids.filterButton, true)
+      if (hsF_configFilter_ids_filterButton) this.hsFilter.configFilter.ids.filterButton = hsF_configFilter_ids_filterButton
+      let hsF_configFilter_ids_orderButton = this.validateText(data.configFilter.ids.orderButton, true)
+      if (hsF_configFilter_ids_orderButton) this.hsFilter.configFilter.ids.orderButton = hsF_configFilter_ids_orderButton
+
+      let hsF_configFilter_select = this.validateArray(data.configFilter.select, 'array-object')
+      if (hsF_configFilter_select) this.hsFilter.configFilter.select = hsF_configFilter_select
+
+      let hsF_configFilter_text_placeholder = this.validateText(data.configFilter.text.placeholder, true)
+      if (hsF_configFilter_text_placeholder) this.hsFilter.configFilter.text.placeholder = hsF_configFilter_text_placeholder
+      let hsF_configFilter_text_key = this.validateArray(data.configFilter.text.key, 'array-simple')
+      if (hsF_configFilter_text_key) this.hsFilter.configFilter.text.key = hsF_configFilter_text_key
+      let hsF_configFilter_text_buttons = this.validateArray(data.configFilter.text.buttons, 'array-object')
+      if (hsF_configFilter_text_buttons) this.hsFilter.configFilter.text.buttons = hsF_configFilter_text_buttons
+
+      let hsF_configFilter_order = this.validateArray(data.configFilter.order, 'array-object')
+      if (hsF_configFilter_order) this.hsFilter.configFilter.order = hsF_configFilter_order
+    }
+  }
+
+  var_hsFilter () {
+    this.key = null
+    this.hsFilter = {
+      configFilter: {
+        ids: {
+          filterButton: null,
+          orderButton: null
+        },
+        select: [],
+        text: {
+          placeholder: null,
+          key: [],
+          buttons: []
+        },
+        order: []
+      }
+    }
+  }
+
+  get_hsFilter () {
+    let hsFilter = {
+      hsFilter: {}
+    }
+    hsFilter.hsFilter[this.key] = this.hsFilter
+
+    return hsFilter
+  }
+}
+
+class hsPagination extends validateData {
+  constructor (keyElement, data) {
+    super()
+    this.var_hsPagination()
+
+    let key = typeof (keyElement) === 'string'
+    let configPagination = typeof (data.configPagination) === 'object'
+
+    if (key && configPagination) {
+      let hsP = this.validateText(keyElement, true)
+      if (hsP) this.key = hsP
+
+      let hsP_configPagination_id = this.validateText(data.configPagination.id, true)
+      if (hsP_configPagination_id) this.hsPagination.configPagination.id = hsP_configPagination_id
+
+      let hsP_configPagination_information_label = this.validateText(data.configPagination.information.label, true)
+      if (hsP_configPagination_information_label) this.hsPagination.configPagination.information.label = hsP_configPagination_information_label
+      let hsP_configPagination_information_limitImages = this.validateNumber(data.configPagination.information.limitImages)
+      if (hsP_configPagination_information_limitImages) this.hsPagination.configPagination.information.limitImages = hsP_configPagination_information_limitImages
+      let hsP_configPagination_information_total = this.validateNumber(data.configPagination.information.total)
+      if (hsP_configPagination_information_total) this.hsPagination.configPagination.information.total = hsP_configPagination_information_total
+
+      let hsP_configPagination_buttons_buttons = this.validateNumber(data.configPagination.buttons.buttons)
+      if (hsP_configPagination_buttons_buttons) this.hsPagination.configPagination.buttons.buttons = hsP_configPagination_buttons_buttons
+      let hsP_configPagination_buttons_currentPage = this.validateNumber(data.configPagination.buttons.currentPage)
+      if (hsP_configPagination_buttons_currentPage) this.hsPagination.configPagination.buttons.currentPage = hsP_configPagination_buttons_currentPage
+      let hsP_configPagination_buttons_pages = this.validateNumber(data.configPagination.buttons.pages)
+      if (hsP_configPagination_buttons_pages) this.hsPagination.configPagination.buttons.pages = hsP_configPagination_buttons_pages
+    }
+  }
+
+  var_hsPagination () {
+    this.key = null
+    this.hsPagination = {
+      configPagination: {
+        id: null,
+        information: {
+          label: null,
+          limitImages: null,
+          total: null
+        },
+        buttons: {
+          buttons: null,
+          currentPage: null,
+          pages: null
+        }
+      }
+    }
+  }
+
+  get_hsPagination () {
+    let hsPagination = {
+      hsPagination: {}
+    }
+    hsPagination.hsPagination[this.key] = this.hsPagination
+
+    return hsPagination
+  }
+}
+
 export {
   hsFormHead,
   hsFormHeadboard,
-  hsBoardMenu,
   hsInput,
+  hsTextarea,
   hsSelect,
+  hsChest,
   hsCheckbox,
   hsImage,
   hsAlertModal,
-  hsSimpleMessage
+  hsSmallModal,
+  hsSimpleMessage,
+  hsBoardMenu,
+  hsList,
+  hsFilter,
+  hsPagination
 }

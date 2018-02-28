@@ -27,7 +27,7 @@
 
 <script>
 import {boards} from '../../../../lang/client'
-import {date} from '../tools/customizedTools'
+import {_date} from '../tools/customizedTools'
 
 import hsAlertModal from '@/components/modal/hsAlertModal'
 import hsError from '@/components/error/hsError'
@@ -98,7 +98,7 @@ export default {
   methods: {
     fixFailAM () {
       let addInfo = new Promise(resolve => {
-        this.lang.hsAlertModal.fail.configAlertModal.body.footer = this.lang.hsAlertModal.fail.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
+        this.lang.hsAlertModal.fail.configAlertModal.body.footer = this.lang.hsAlertModal.fail.configAlertModal.body.footer.replace('#####', _date.fixDate()(new Date(), 'longDate'))
         resolve()
       })
       addInfo.then(() => {
@@ -111,7 +111,7 @@ export default {
       let addInfo = new Promise(resolve => {
         this.lang.hsAlertModal.hyzher.configModal.head.subtitle = this.lang.hsAlertModal.hyzher.configModal.head.subtitle.replace('#####', hyzher)
         this.lang.hsAlertModal.hyzher.configAlertModal.body.head = this.lang.hsAlertModal.hyzher.configAlertModal.body.head.replace('#####', hyzher)
-        this.lang.hsAlertModal.hyzher.configAlertModal.body.footer = this.lang.hsAlertModal.hyzher.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
+        this.lang.hsAlertModal.hyzher.configAlertModal.body.footer = this.lang.hsAlertModal.hyzher.configAlertModal.body.footer.replace('#####', _date.fixDate()(new Date(), 'longDate'))
         resolve()
       })
       addInfo.then(() => {
@@ -124,7 +124,7 @@ export default {
       let addInfo = new Promise(resolve => {
         this.lang.hsAlertModal.new.configModal.head.subtitle = this.lang.hsAlertModal.new.configModal.head.subtitle.replace('#####', hyzher)
         this.lang.hsAlertModal.new.configAlertModal.body.head = this.lang.hsAlertModal.new.configAlertModal.body.head.replace('#####', hyzher)
-        this.lang.hsAlertModal.new.configAlertModal.body.footer = this.lang.hsAlertModal.new.configAlertModal.body.footer.replace('#####', date.fixDate()(new Date(), 'longDate'))
+        this.lang.hsAlertModal.new.configAlertModal.body.footer = this.lang.hsAlertModal.new.configAlertModal.body.footer.replace('#####', _date.fixDate()(new Date(), 'longDate'))
         resolve()
       })
       addInfo.then(() => {

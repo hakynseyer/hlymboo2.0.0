@@ -1,6 +1,7 @@
 module.exports = (req, res, next) => {
-  if (typeof (req.body.clientLang) !== 'undefined') {
-    console.log('LENGUAJE PROVENIENTE DEL CLIENTE')
+  if (typeof (req.headers.langapp) !== 'undefined' && req.headers.langapp !== null) {
+    req.serverLang = req.headers.langapp
+    next()
   } else {
     let serverLang = 'es'
     const acceptsLanguages = req.acceptsLanguages('es', 'en')

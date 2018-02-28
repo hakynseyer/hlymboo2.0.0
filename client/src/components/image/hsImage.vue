@@ -22,6 +22,16 @@
         class="image__container__frame"
         @click="loadImage")
 
+      div(
+        v-show="details.cellsA && details.cellsB"
+        class="image__container__details")
+        div(class="image__container__details__group")
+          span(class="image__container__details__group__cells") {{lang.hsImage.details.cellType}}
+          span(class="image__container__details__group__cells") {{details.cellsA}}
+        div(class="image__container__details__group")
+          span(class="image__container__details__group__cells") {{lang.hsImage.details.cellWeight}}
+          span(class="image__container__details__group__cells") {{details.cellsB}}
+
       div(class="image__container__curtain")
 
       input(
@@ -35,7 +45,9 @@
 </template>
 
 <script>
-import hiddenMessageInputs from '@/components/_support/hiddenMessageInputs'
+import {components} from '../../../../lang/client'
+
+import hiddenMessageInputs from '@/components/hiddenMessageInputs/hsHiddenMessageInputs'
 
 import hsError from '@/components/error/hsError'
 
@@ -51,8 +63,12 @@ export default {
     'errorImage'
   ],
 
+  mixins: [components('Image', 'hsImage')],
+
   created () {
-    if (this.reactiveDataImage !== null) this.activeImage = true
+    if (typeof (this.reactiveDataImage) === 'string') {
+      if (this.reactiveDataImage !== null) this.activeImage = true
+    }
   },
 
   mounted () {
@@ -62,16 +78,15 @@ export default {
       } else if (typeof (data.state) === 'boolean') this.activeImage = data.state
     })
 
-    this.$busForm.$on('hsImage_changeImg', image => {
-      let changeImage = new Promise(resolve => {
-        if (image !== null) {
-          this.changeImg = require(`@/assets/img/${image}`)
+    this.$busForm.$on('hsImage_changeImg', data => {
+      if (typeof (data.id) === 'string') {
+        if (typeof (this.$refs[data.id]) !== 'undefined') {
+          if (data.image !== null) this.changeImg = require(`@/assets/img/${data.image}`)
+          else this.changeImg = null
+          this.details.cellsA = null
+          this.details.cellsB = null
         }
-        resolve()
-      })
-      changeImage.then(() => {
-        this.fixChangeImg()
-      })
+      }
     })
   },
 
@@ -84,7 +99,11 @@ export default {
     return {
       activeImage: false,
       stateTouch: false,
-      changeImg: null
+      changeImg: null,
+      details: {
+        cellsA: null,
+        cellsB: null
+      }
     }
   },
 
@@ -105,8 +124,8 @@ export default {
     fixChangeImg () {
       if (this.changeImg !== null) return this.changeImg
       else {
-        if (this.reactiveDataImage !== null) {
-          return require(`@/assets/img/${this.reactiveDataImage}`)
+        if (typeof (this.reactiveDataImage) === 'string') {
+          if (this.reactiveDataImage !== null) return require(`@/assets/img/${this.reactiveDataImage}`)
         } else if (this.configImage.defaultImage === 'HakynSeyer_Hpan503') return require(`@/assets/img/server/inputImg/subir_imagen.svg`)
       }
     }
@@ -115,7 +134,7 @@ export default {
     stateImage () {
       if (this.reactiveDataImage === null && !this.activeImage) this.activeImage = true
 
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configImage.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configImage.headboard, false)
     },
 
     loadImage () {
@@ -123,7 +142,7 @@ export default {
     },
 
     changeDefaultImage (e) {
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configImage.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configImage.headboard, false)
 
       const img = e.target.files
       let readImg
@@ -136,7 +155,25 @@ export default {
           this.changeImg = e.target.result
         }
 
+        this.details.cellsA = img[0].type
+        this.details.cellsB = ((img[0].size / 1048576).toFixed(2)) + ' MB'
+
         this.$emit('imageData', img[0])
+
+        if (this.configImage.updateErrors) {
+          this.stateTouch = true
+          this.sendTouch()
+        }
+      }
+    },
+
+    sendTouch () {
+      if (this.stateTouch) {
+        if (typeof (this.reactiveDataImage) === 'string') {
+          if (this.reactiveDataImage === null || this.reactiveDataImage.length <= 0) this.activeImage = false
+        }
+        this.$emit('imageTouch', true)
+        this.stateTouch = false
       }
     }
   }

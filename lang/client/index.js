@@ -25,6 +25,9 @@ const boards = (board, module) => {
 import {Header} from './components/header'
 import {Modal} from './components/modal'
 import {Menu} from './components/menu'
+import {Image} from './components/image'
+import {Filter} from './components/filter'
+import {Pagination} from './components/pagination'
 
 const components = (resource, component) => {
   let langData = {}
@@ -38,6 +41,15 @@ const components = (resource, component) => {
       break
     case 'Menu':
       langData = Menu(component)
+      break
+    case 'Image':
+      langData = Image(component)
+      break
+    case 'Filter':
+      langData = Filter(component)
+      break
+    case 'Pagination':
+      langData = Pagination(component)
       break
   }
 

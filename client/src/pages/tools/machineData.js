@@ -62,24 +62,32 @@ const mainMachineData = {
 
 const updateMachineData = {
   methods: {
+    callFunction (headBoard, component) {
+      if (this.form[headBoard].status || this.form[headBoard][component].error.length) {
+        let callFunc = 'check' + component.charAt(0).toUpperCase() + component.slice(1)
+        this[callFunc]()
+      }
+    },
+
     updateMain (headBoard, component, value) {
       if (value === null || value.length <= 0) this.form[headBoard][component].value = null
       else this.form[headBoard][component].value = value
 
-      if (this.form[headBoard].status || this.form[headBoard][component].error.length) {
-        let callFunction = 'check' + component.charAt(0).toUpperCase() + component.slice(1)
-        this[callFunction]()
-      }
+      this.callFunction(headBoard, component)
     },
 
     updateMainSelect (headBoard, component, data) {
       if (data.value === null || data.value.length <= 0) this.form[headBoard][component].value = null
       else this.form[headBoard][component].value = data.value
 
-      if (this.form[headBoard].status || this.form[headBoard][component].error.length) {
-        let callFunction = 'check' + component.charAt(0).toUpperCase() + component.slice(1)
-        this[callFunction]()
-      }
+      this.callFunction(headBoard, component)
+    },
+
+    updateMainObject (headBoard, component, data) {
+      if (typeof (data) !== 'object') this.form[headBoard][component].value = null
+      else this.form[headBoard][component].value = data
+
+      this.callFunction(headBoard, component)
     }
   }
 }

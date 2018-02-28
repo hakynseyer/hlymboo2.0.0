@@ -1,0 +1,28 @@
+{
+  "HS": "hsFilter",
+  "image": {
+    "configFilter": {
+      "ids": {
+        "filterButton": "idFilterButton",
+        "orderButton": "idOrderButton"
+      },
+      "select": [
+        {"name": "Baul", "key": "chest", "optionData": []},
+        {"name": "Copy", "key": "copyright", "optionData": ["hlymboo", "HLoo"]}
+      ],
+      "text": {
+        "placeholder": "Titulo, Baul...",
+        "key": ["title", "chest"],
+        "buttons": [
+          {"icon": "refresh", "key": "cleaner"}
+        ]
+      },
+      "order": [
+        {"name": "Nuevo", "type": "date", "key": "createdAt", "reverse": true},
+        {"name": "Cambio", "type": "date", "key": "updatedAt", "reverse": true},
+        {"name": "Abc", "type": "string", "key": "title", "reverse": true},
+        {"name": "Baul", "type": "string", "key": "chest", "reverse": true}
+      ]
+    }
+  }
+}

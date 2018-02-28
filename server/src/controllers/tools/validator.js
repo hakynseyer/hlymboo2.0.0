@@ -84,10 +84,39 @@ module.exports = (lang) => {
       return res
     },
 
-    valBigger (data, min) {
+    valNumbers (mode, number, limit, msgMergeError) {
       let res = null
 
-      if (data <= min) res = langData.valBigger.res
+      switch (mode) {
+        case 'bigger':
+          const missing = limit - number
+          if (typeof (msgMergeError) === 'string') {
+            if (number < limit) res = langData.valNumbers.resBigger.replace('#####', limit + msgMergeError).replace('?????', missing + msgMergeError)
+          } else {
+            if (number < limit) res = langData.valNumbers.resBigger.replace('#####', limit).replace('?????', missing)
+          }
+          break
+        case 'lower':
+          const exceeded = number - limit
+          if (typeof (msgMergeError) === 'string') {
+            if (number > limit) res = langData.valNumbers.resLower.replace('#####', limit + msgMergeError).replace('?????', exceeded + msgMergeError)
+          } else {
+            if (number > limit) res = langData.valNumbers.resLower.replace('#####', limit).replace('?????', exceeded)
+          }
+          break
+      }
+
+      return res
+    },
+
+    valExtensions (file, listExtensions, data) {
+      let res = null
+
+      switch (file) {
+        case 'image':
+          if (!listExtensions.includes(data)) res = langData.valExtensions.resImage.replace('#####', listExtensions.toString())
+          break
+      }
 
       return res
     },

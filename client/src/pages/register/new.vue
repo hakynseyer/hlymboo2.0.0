@@ -121,7 +121,7 @@ form(
 
 <script>
 import {boards} from '../../../../lang/client'
-import {date} from '../tools/customizedTools'
+import {_date} from '../tools/customizedTools'
 
 import hsFormHead from '@/components/form/hsFormHead'
 
@@ -291,7 +291,7 @@ export default {
 
           this.lang.hsAlertModal.register.configModal.head.subtitle = this.lang.hsAlertModal.register.configModal.head.subtitle.replace('#####', response.data.alias)
           this.lang.hsAlertModal.register.configAlertModal.body.body = this.lang.hsAlertModal.register.configAlertModal.body.body.replace('#####', response.data.alias)
-          this.lang.hsAlertModal.register.configAlertModal.body.footer = this.lang.hsAlertModal.register.configAlertModal.body.footer.replace('#####', response.data.name + ' ' + response.data.surnames).replace('?????', date.fixDate()(response.data.createdAt, 'longDate'))
+          this.lang.hsAlertModal.register.configAlertModal.body.footer = this.lang.hsAlertModal.register.configAlertModal.body.footer.replace('#####', response.data.name + ' ' + response.data.surnames).replace('?????', _date.fixDate()(response.data.createdAt, 'longDate'))
 
           this.$busForm.$emit('hsModal_showModal', {id: 'registerAlertModal', state: true})
 

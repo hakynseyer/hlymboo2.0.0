@@ -1,0 +1,15 @@
+{
+  "HS": "hsChest",
+  "chest": {
+    "config": {
+      "id": "chestChest",
+      "idInput": "inputChestChest",
+      "idSelect": "selectChestChest",
+      "typeSelect": "array",
+      "optionData": [],
+      "titleChest": "Baul Imagenes",
+      "headboard": "Organización",
+      "hiddenMessage": "Liado con el Baúl"
+    }
+  }
+}

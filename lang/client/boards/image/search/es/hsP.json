@@ -1,0 +1,18 @@
+{
+  "HS": "hsPagination",
+  "image": {
+    "configPagination": {
+      "id": "idMiddleButton",
+      "information": {
+        "label": "Imagenes",
+        "limitImages": 3,
+        "total": null
+      },
+      "buttons": {
+        "buttons": 3,
+        "currentPage": 1,
+        "pages": null
+      }
+    }
+  }
+}

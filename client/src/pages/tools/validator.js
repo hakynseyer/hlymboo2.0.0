@@ -2,7 +2,7 @@ import {tools} from '../../../../lang/client'
 
 const hsValidatorLang = tools('Validator').hsValidator
 
-export const valHS = {
+const valHS = {
   checkEmpty (data) {
     let res = null
 
@@ -73,7 +73,49 @@ export const valHS = {
     }
 
     return res
+  },
+
+  checkNumbers (mode, number, limit, msgMergeError) {
+    let res = null
+
+    switch (mode) {
+      case 'bigger':
+        const missing = limit - number
+        if (typeof (msgMergeError) === 'string') {
+          if (number < limit) res = hsValidatorLang.checkNumbers.resBigger.replace('#####', limit + msgMergeError).replace('?????', missing + msgMergeError)
+        } else {
+          if (number < limit) res = hsValidatorLang.checkNumbers.resBigger.replace('#####', limit).replace('?????', missing)
+        }
+        break
+      case 'lower':
+        const exceeded = number - limit
+        if (typeof (msgMergeError) === 'string') {
+          if (number > limit) res = hsValidatorLang.checkNumbers.resLower.replace('#####', limit + msgMergeError).replace('?????', exceeded + msgMergeError)
+        } else {
+          if (number > limit) res = hsValidatorLang.checkNumbers.resLower.replace('#####', limit).replace('?????', exceeded)
+        }
+        break
+    }
+
+    return res
+  },
+
+  checkExtensions (file, listExtensions, data) {
+    let res = null
+
+    switch (file) {
+      case 'image':
+        if (!listExtensions.includes(data)) res = hsValidatorLang.checkExtensions.resImage.replace('#####', listExtensions.toString())
+        break
+    }
+
+    return res
   }
+}
+
+export {
+  valHS,
+  hsValidatorLang
 }
 
 //   revisarTipo (dato, opcion) {

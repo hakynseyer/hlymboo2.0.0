@@ -99,13 +99,18 @@
           overflow: hidden
 
   +ele('pocket')
+    z-index: map-get($var-z-index, form-Head)
+    position: fixed
+    top: 0
+    right: map-get($var-width, mother-Asides)
+    margin-top: map-get($var-height, header)
+    // width: map-get($var-width, mother-Section)/4
     height: 50px
     display: flex
     // flex-wrap: wrap
     justify-content: space-between
-    padding: 5px
-    background-color: lighten(map-get($colorsHS, gray), 60)
-    border-radius: 5px
+    border-radius: 0px 0px 0px 3px
+    background-color: map-get($colorsHS, gray)
     overflow: hidden
 
     +ele('information')
@@ -114,7 +119,7 @@
       flex-wrap: wrap
       justify-content: center
       align-items: center
-      background-color: lighten(map-get($colorsHS, gray), 50)
+      // background-color: lighten(map-get($colorsHS, gray), 50)
 
       +ele('title')
         width: 40%
@@ -159,7 +164,7 @@
       flex-wrap: wrap
       justify-content: center
       align-items: center
-      background-color: lighten(map-get($colorsHS, gray), 50)
+      // background-color: lighten(map-get($colorsHS, gray), 50)
       overflow: hidden
 
       +ele('element')
@@ -169,12 +174,13 @@
         justify-content: center
         align-items: center
         border-radius: 5px
+        color: lighten(map-get($colorsHS, gray), 60)
         overflow: hidden
         cursor: pointer
         transition: all 100ms ease-in-out
         &:hover
           background-color: map-get($colorsHS, gray)
-          color: lighten(map-get($colorsHS, gray), 50)
+          color: lighten(map-get($colorsHS, gray), 20)
 
         +ele('icon')
           transform: scale(1.5)

@@ -1,0 +1,115 @@
+.list
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+  margin-top: map-get($var-height, header)
+
+  +ele('container')
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    align-items: baseline
+    overflow: hidden
+
+    +ele('element')
+      position: relative
+      align-items: center
+      width: 28%
+      margin-bottom: 20px
+      cursor: pointer
+      overflow: hidden
+      &:hover
+        .list__content
+          &:before
+            background-color: transparent
+
+  +ele('label')
+    display: flex
+    justify-content: space-between
+    width: 100%
+
+    +ele('title')
+      width: 70%
+      padding: 5px 5px
+      border-radius: 3px 3px 0px 0px
+      border-style: solid solid none solid
+      border-width: 2px
+      border-color: map-get($colorsHS, gray)
+      box-sizing: border-box
+      text-transform: uppercase
+      font-size: 13px
+      font-weight: 500
+      text-indent: 10px
+      color: map-get($colorsHS, white)
+      background-color: lighten(map-get($colorsHS, gray), 10)
+
+  +ele('content')
+    width: 100%
+    border: solid 2px map-get($colorsHS, gray)
+    box-sizing: border-box
+    &:before
+      z-index: map-get($var-z-index, list)
+      position: absolute
+      content: ''
+      width: 100%
+      height: 100%
+      background-color: rgba(darken(map-get($colorsHS, gray), 10), .5)
+      transition: all 300ms ease-in-out
+
+    +ele('preview')
+      position: relative
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+
+      +ele('author')
+        position: absolute
+        bottom: 0
+        right: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 50%
+        padding: 2px 5px
+        box-sizing: border-box
+        font-size: 13px
+        font-style: italic
+        text-align: center
+        text-transform: capitalize
+        color: map-get($colorsHS, white)
+        background-color: rgba(darken(map-get($colorsHS, white), 80), .7)
+
+      +ele('picture')
+        max-width: 100%
+
+    +ele('information')
+      width: 100%
+      background-color: lighten(map-get($colorsHS, gray), 65)
+
+      +ele('text')
+        width: 100%
+        font-size: 13px
+        font-weight: 300
+        padding: 3px 5px
+        box-sizing: border-box
+        text-align: center
+
+        +mod('title')
+          font-weight: 500
+          text-transform: uppercase
+
+        +mod('paragraph')
+          font-style: italic
+          &:before
+            content: '"'
+            font-weight: bold
+            margin-right: 5px
+          &:after
+            content: '"'
+            font-weight: bold
+            margin-left: 5px
+
+        +mod('bold')
+          font-weight: 500

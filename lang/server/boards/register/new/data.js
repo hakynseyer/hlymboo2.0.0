@@ -36,7 +36,7 @@ class hsValidator extends validateData {
     }
   }
 
-  get_hsValitador () {
+  get_hsValidator () {
     return this.hsValidator
   }
 }

@@ -17,7 +17,7 @@
         "title": "Buscar Imagen",
         "description": "Realiza cambios a tus imagenes para una mejor organización o modifica sus atributos especiales para su comportamiento en Hlymboo."
       },
-      "key": "SearchImage",
+      "key": "Search",
       "icon": "search",
       "children": [
         {"title": null, "icon": "camera", "key": "editImageBasic"}

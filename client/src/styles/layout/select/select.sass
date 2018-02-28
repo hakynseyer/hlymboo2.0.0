@@ -19,22 +19,38 @@ option
   font-weight: 300
   outline: none
   border: none
-  &:checked
-    color: map-get($colorsHS, white)
-    background: map-get($colorsHS, purple)
+  // &:hover
+  //   background: red
+  // &:checked
+  //   color: map-get($colorsHS, white)
+  //   background-color: map-get($colorsHS, gray)
+
 
 .select
   +mod('active')
     height: 30px
 
+  +mod('background-default')
+    background-color: map-get($var-color-gray, form-group)
+
+  +mod('font-size-small')
+    font-size: 12px
+
+  +mod('cursor')
+    cursor: pointer
+
+  +mod('multiple')
+    padding: 10px 0px
+    height: 60px
+
   +ele('arrow')
     position: absolute
     right: 0
-    margin-right: 10px
+    padding-right: 10px
     // color: $hc-morado_FB
     pointer-events: none
+    background-color: map-get($var-color-gray, form-group)
 
   +ele('container')
     width: 100%
     position: relative
-

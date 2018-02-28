@@ -11,7 +11,7 @@ import login from '@/pages/login'
 
 import image from '@/pages/image'
 import imageUploadBasic from '@/pages/image/uploadBasic'
-import imageAdd from '@/pages/image/add'
+import imageSearch from '@/pages/image/search'
 
 Vue.use(Router)
 
@@ -58,9 +58,9 @@ export default new Router({
           component: imageUploadBasic
         },
         {
-          path: '/image/add',
-          name: 'imageAdd',
-          component: imageAdd
+          path: '/image/search',
+          name: 'imageSearch',
+          component: imageSearch
         }
       ]
     },
@@ -68,5 +68,8 @@ export default new Router({
       path: '*',
       redirect: {name: 'home'}
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return {x: 0, y: 0}
+  }
 })

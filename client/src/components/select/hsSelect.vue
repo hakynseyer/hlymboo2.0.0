@@ -24,8 +24,7 @@
           @blur="sendTouch()")
           option(
             v-for="data in configSelect.optionData"
-            :value="data"
-            :label="data")
+            :value="data") {{data}}
         icon(
           name="sort-desc"
           scale="1.5"
@@ -51,7 +50,7 @@
 </template>
 
 <script>
-import hiddenMessageInputs from '@/components/_support/hiddenMessageInputs'
+import hiddenMessageInputs from '@/components/hiddenMessageInputs/hsHiddenMessageInputs'
 
 import hsError from '@/components/error/hsError'
 
@@ -121,7 +120,7 @@ export default {
     stateSelect () {
       if (this.reactiveDataSelect === null && !this.activeSelect) this.activeSelect = true
 
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configSelect.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configSelect.headboard, false)
     },
     sendSelect (data) {
       if (!this.stateTouch && data.code !== 'Tab') this.stateTouch = true
@@ -131,7 +130,7 @@ export default {
       if (typeof (selectData) === 'string' && !isNaN(selectData)) this.$emit('selectData', {value: parseInt(selectData), state: true})
       else this.$emit('selectData', {value: selectData, state: true})
 
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configSelect.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configSelect.headboard, false)
     },
     nextInput (key) {
       if ((key === 'Tab') && !this.activeSelect) this.activeSelect = true

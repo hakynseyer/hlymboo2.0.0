@@ -51,6 +51,7 @@ export default {
       }
     })
   },
+
   beforeDestroy () {
     this.$busForm.$off('hsModal_showModal')
   },
@@ -100,7 +101,7 @@ export default {
         this.updateMsgRedirect()
 
         if (this.timer.time === 0) {
-          clearInterval(this.timer.countdown)
+          // clearInterval(this.timer.countdown)
 
           if (typeof (this.configModal.timer.redirect) !== 'undefined') this.$router.push({name: this.configModal.timer.redirect.route})
 

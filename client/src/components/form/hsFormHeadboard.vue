@@ -38,13 +38,13 @@ export default {
   ],
 
   mounted () {
-    this.$busForm.$on('hsFormHeadBoard_showMessage' + this.configHeadboard.title, value => {
+    this.$busForm.$on('hsFormHeadboard_showMessage' + this.configHeadboard.title, value => {
       if (this.showMessage) this.showMessage = value
     })
   },
 
   beforeDestroy () {
-    this.$busForm.$off('hsFormHeadBoard_showMessage' + this.configHeadboard.title)
+    this.$busForm.$off('hsFormHeadboard_showMessage' + this.configHeadboard.title)
   },
 
   data () {

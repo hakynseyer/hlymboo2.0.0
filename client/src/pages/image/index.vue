@@ -1,5 +1,5 @@
 <template lang="pug">
-  article(class="article--clean")
+  div
     hs-board-menu(
       :hsBM="lang.hsBoardMenu"
       @sendActionBM="actionBoardMenu")
@@ -40,6 +40,13 @@ export default {
   methods: {
     actionBoardMenu (element) {
       console.log(element)
+
+      switch (element) {
+        case 'Search':
+          this.$busForm.$emit('searchImage_imageChosen', {clear: true, data: null})
+          break
+      }
+
       this.$router.push({name: `image${element}`})
 
       this.$busForm.$emit('hsBoardMenu_pocket', true)

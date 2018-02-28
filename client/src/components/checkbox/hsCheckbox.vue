@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import hiddenMessageInputs from '@/components/_support/hiddenMessageInputs'
+import hiddenMessageInputs from '@/components/hiddenMessageInputs/hsHiddenMessageInputs'
 
 import hsError from '@/components/error/hsError'
 
@@ -120,7 +120,7 @@ export default {
     stateCheck () {
       if (this.configCheck.checkList.length) this.activeCheck = true
 
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configCheck.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configCheck.headboard, false)
     },
     sendCheck (data) {
       let checkData = null
@@ -146,7 +146,7 @@ export default {
       this.$emit('checkData', this.saveCheck)
       if (this.configCheck.updateErrors) this.sendTouch()
 
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configCheck.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configCheck.headboard, false)
     },
     nextInput (key) {
       // TODO: Activar siguiente input no funciona. Necesario para activar el siguiente input al usar combinación de keys

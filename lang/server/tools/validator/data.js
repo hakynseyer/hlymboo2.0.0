@@ -11,9 +11,10 @@ class hsValidator extends validateData {
     let valEqual = typeof (data.valEqual) === 'object'
     let valUnequal = typeof (data.valUnequal) === 'object'
     let valType = typeof (data.valType) === 'object'
-    let valBigger = typeof (data.valBigger) === 'object'
+    let valNumbers = typeof (data.valNumbers) === 'object'
+    let valExtensions = typeof (data.valExtensions) === 'object'
 
-    if (valEmpty && valMin && valMax && valEqual && valUnequal && valType && valBigger) {
+    if (valEmpty && valMin && valMax && valEqual && valUnequal && valType && valNumbers && valExtensions) {
       let hsV_valEmpty_res = this.validateText(data.valEmpty.res, true)
       if (hsV_valEmpty_res) this.hsValidator.valEmpty.res = hsV_valEmpty_res
 
@@ -50,8 +51,13 @@ class hsValidator extends validateData {
       let hsV_valType_boolean_resFalse = this.validateText(data.valType.boolean.resFalse, true)
       if (hsV_valType_boolean_resFalse) this.hsValidator.valType.boolean.resFalse = hsV_valType_boolean_resFalse
 
-      let hsV_valBigger_res = this.validateText(data.valBigger.res, true)
-      if (hsV_valBigger_res) this.hsValidator.valBigger.res = hsV_valBigger_res
+      let hsV_valNumbers_resBigger = this.validateText(data.valNumbers.resBigger, true)
+      if (hsV_valNumbers_resBigger) this.hsValidator.valNumbers.resBigger = hsV_valNumbers_resBigger
+      let hsV_valNumbers_resLower = this.validateText(data.valNumbers.resLower, true)
+      if (hsV_valNumbers_resLower) this.hsValidator.valNumbers.resLower = hsV_valNumbers_resLower
+
+      let hsV_valExtensions_resImage = this.validateText(data.valExtensions.resImage, true)
+      if (hsV_valExtensions_resImage) this.hsValidator.valExtensions.resImage = hsV_valExtensions_resImage
     }
   }
 
@@ -94,8 +100,12 @@ class hsValidator extends validateData {
           resFalse: null
         }
       },
-      valBigger: {
-        res: null
+      valNumbers: {
+        resBigger: null,
+        resLower: null
+      },
+      valExtensions: {
+        resImage: null
       }
     }
   }

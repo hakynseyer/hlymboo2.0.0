@@ -1,13 +1,42 @@
 .image
   +ele('container')
     position: relative
-    height: 300px
+    height: 0px
     width: 100%
     margin: 20px 0px
     overflow: hidden
     display: flex
     justify-content: center
     align-items: center
+    transition: all 500ms ease-in-out
+
+    +ele('details')
+      z-index: map-get($var-z-index, inputImage) + 1
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      display: flex
+      justify-content: space-between
+      padding: 5px
+      box-sizing: border-box
+      background-color: rgba(map-get($colorsHS, gray), .5)
+      color: map-get($colorsHS, white)
+
+      +ele('group')
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+
+        +ele('cells')
+          width: 100%
+          font-size: 15px
+          text-align: center
+          &:nth-child(even)
+            font-size: 13px
+            font-weight: 300
 
     +ele('curtain')
       z-index: map-get($var-z-index, inputImage)
@@ -33,3 +62,6 @@
 
     +ele('input')
       display: none
+
+  +mod('active')
+    height: 300px

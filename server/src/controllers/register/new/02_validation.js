@@ -44,6 +44,7 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'text', 3, 10)
       if (err !== null) errors.name.push(err)
     },
+
     surnames (data) {
       let err = null
       errors.surnames = []
@@ -51,6 +52,7 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'text', 5, 20)
       if (err !== null) errors.surnames.push(err)
     },
+
     alias (data) {
       let err = null
       errors.alias = []
@@ -58,6 +60,7 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'text', 4, 15)
       if (err !== null) errors.alias.push(err)
     },
+
     email (data) {
       let err = null
       errors.email = []
@@ -65,6 +68,7 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'email', 5, 50)
       if (err !== null) errors.email.push(err)
     },
+
     password (data) {
       let err = null
       errors.password = []
@@ -72,24 +76,29 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'password', 7, 70)
       if (err !== null) errors.password.push(err)
     },
+
     repeatPassword (data, compare) {
       let err = null
       errors.repeatPassword = []
 
       err = val.valBasicMain(data, 'password', 7, 70)
       if (err !== null) errors.repeatPassword.push(err)
+
       err = val.valEqual(data, compare)
       if (err !== null) errors.repeatPassword.push(err)
     },
+
     question1 (data, compare) {
       let err = null
       errors.question1 = []
 
       err = val.valBasicMain(data, 'text', 4, 100)
       if (err !== null) errors.question1.push(err)
+
       err = val.valUnequal(data, compare, 'simple')
       if (err !== null) errors.question1.push(err)
     },
+
     answer1 (data) {
       let err = null
       errors.answer1 = []
@@ -97,15 +106,18 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'text', 5, 35)
       if (err !== null) errors.answer1.push(err)
     },
+
     question2 (data, compare) {
       let err = null
       errors.question2 = []
 
       err = val.valBasicMain(data, 'text', 4, 100)
       if (err !== null) errors.question2.push(err)
+
       err = val.valUnequal(data, compare, 'simple')
       if (err !== null) errors.question2.push(err)
     },
+
     answer2 (data) {
       let err = null
       errors.answer2 = []
@@ -113,6 +125,7 @@ const valDefault = (lang) => {
       err = val.valBasicMain(data, 'text', 5, 35)
       if (err !== null) errors.answer2.push(err)
     },
+
     sign (data) {
       let err = null
       errors.sign = []

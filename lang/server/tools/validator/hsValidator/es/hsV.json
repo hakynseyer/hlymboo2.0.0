@@ -36,7 +36,11 @@
       "resFalse": "<b> Tipo de dato </b> <p> El valor ingresado ha sido negado por nuestro sistema </p>"
     }
   },
-  "valBigger": {
-    "res": "<b> Valor invalido </b> <p> El dato ingresado es invalido para nuestro sistema </p>"
+  "valNumbers": {
+    "resBigger": "<b> Número invalido </b> <p> El limite mínimo para subir este contenido es de #####; tu contenido esta faltante por ????? </p>",
+    "resLower": "<b> Número invalido </b> <p> El limite máximo para subir este contenido es de #####; tu contenido esta excedido por ????? </p>"
+  },
+  "valExtensions": {
+    "resImage": "<b> Imagen invalida </b> <p> El tipo de archivo de tu imagen no es valida para nuestro sistema; aqui solo soportamos imagenes con estos formatos: ##### </p>"
   }
 }

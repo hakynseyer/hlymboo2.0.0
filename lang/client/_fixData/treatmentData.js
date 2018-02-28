@@ -29,9 +29,18 @@ class treatmentData {
         newData[index] = {}
 
         for (let keyChild of keysChild) {
-          if (!isHTML(data[index][keyChild]) && data[index][keyChild] !== null) {
-            newData[index][keyChild] = data[index][keyChild].replace(/</g, "&lt;").replace(/>/g, "&gt;")
-          } else newData[index][keyChild] = data[index][keyChild]
+          if (typeof (data[index][keyChild]) === 'string') {
+            if (!isHTML(data[index][keyChild]) && data[index][keyChild] !== null) {
+              newData[index][keyChild] = data[index][keyChild].replace(/</g, "&lt;").replace(/>/g, "&gt;")
+            } else newData[index][keyChild] = data[index][keyChild]
+          } else if (Array.isArray(data[index][keyChild])) {
+            // [i] Solo funcionará para arrays simples
+            if (data[index][keyChild].length) return newData[index][keyChild] = this.treatingArray(data[index][keyChild])
+            else return newData[index][keyChild] = data[index][keyChild]
+          } else if (typeof (data[index][keyChild]) === 'boolean' || data[index][keyChild] === null) {
+            if (data[index][keyChild] === null) return newData[index][keyChild] = null
+            else return newData[index][keyChild] = data[index][keyChild]
+          }
         }
       })
 

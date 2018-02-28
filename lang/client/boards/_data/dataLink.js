@@ -1,4 +1,4 @@
-import {hsFormHead, hsFormHeadboard, hsInput, hsSelect, hsCheckbox, hsImage, hsAlertModal, hsSimpleMessage, hsBoardMenu} from './data'
+import {hsFormHead, hsFormHeadboard, hsInput, hsTextarea, hsSelect, hsChest, hsCheckbox, hsImage, hsAlertModal, hsSmallModal, hsSimpleMessage, hsBoardMenu, hsList, hsFilter, hsPagination} from './data'
 
 export const dataLink = (data) => {
   switch(data.HS) {
@@ -47,6 +47,23 @@ export const dataLink = (data) => {
         }
       }
       break
+    case 'hsTextarea':
+      delete data.HS
+      let keys_hsTA = Object.keys(data)
+      let data_hsTA = {hsTextarea: {}}
+
+      keys_hsTA.forEach(key => {
+        data_hsTA.hsTextarea[key] = new hsTextarea(key, data[key]).get_hsTextarea().hsTextarea[key]
+      })
+
+      return {
+        data () {
+          return {
+            lang: data_hsTA
+          }
+        }
+      }
+      break
     case 'hsSelect':
       delete data.HS
       let keys_hsS = Object.keys(data)
@@ -60,6 +77,23 @@ export const dataLink = (data) => {
         data () {
           return {
             lang: data_hsS
+          }
+        }
+      }
+      break
+    case 'hsChest':
+      delete data.HS
+      let keys_hsCh = Object.keys(data)
+      let data_hsCh = {hsChest: {}}
+
+      keys_hsCh.forEach(key => {
+        data_hsCh.hsChest[key] = new hsChest(key, data[key]).get_hsChest().hsChest[key]
+      })
+
+      return {
+        data () {
+          return {
+            lang: data_hsCh
           }
         }
       }
@@ -115,6 +149,23 @@ export const dataLink = (data) => {
         }
       }
       break
+    case 'hsSmallModal':
+      delete data.HS
+      let keys_hsSM = Object.keys(data)
+      let data_hsSM = {hsSmallModal: {}}
+
+      keys_hsSM.forEach(key => {
+        data_hsSM.hsSmallModal[key] = new hsSmallModal(key, data[key]).get_hsSmallModal().hsSmallModal[key]
+      })
+
+      return {
+        data () {
+          return {
+            lang: data_hsSM
+          }
+        }
+      }
+      break
     case 'hsSimpleMessage':
       delete data.HS
 
@@ -139,6 +190,57 @@ export const dataLink = (data) => {
         data () {
           return {
             lang: data_hsBM
+          }
+        }
+      }
+      break
+    case 'hsList':
+      delete data.HS
+      let keys_hsL = Object.keys(data)
+      let data_hsL = {hsList: {}}
+
+      keys_hsL.forEach(key => {
+        data_hsL.hsList[key] = new hsList(key, data[key]).get_hsList().hsList[key]
+      })
+
+      return {
+        data () {
+          return {
+            lang: data_hsL
+          }
+        }
+      }
+      break
+    case 'hsFilter':
+      delete data.HS
+      let keys_hsF = Object.keys(data)
+      let data_hsF = {hsFilter: {}}
+
+      keys_hsF.forEach(key => {
+        data_hsF.hsFilter[key] = new hsFilter(key, data[key]).get_hsFilter().hsFilter[key]
+      })
+
+      return {
+        data () {
+          return {
+            lang: data_hsF
+          }
+        }
+      }
+      break
+    case 'hsPagination':
+      delete data.HS
+      let keys_hsP = Object.keys(data)
+      let data_hsP = {hsPagination: {}}
+
+      keys_hsP.forEach(key => {
+        data_hsP.hsPagination[key] = new hsPagination(key, data[key]).get_hsPagination().hsPagination[key]
+      })
+
+      return {
+        data () {
+          return {
+            lang: data_hsP
           }
         }
       }

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import hiddenMessageInputs from '@/components/_support/hiddenMessageInputs'
+import hiddenMessageInputs from '@/components/hiddenMessageInputs/hsHiddenMessageInputs'
 
 import hsError from '@/components/error/hsError'
 
@@ -82,7 +82,7 @@ export default {
     stateInput () {
       if (this.reactiveDataInput === null && !this.activeInput) this.activeInput = true
 
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configInput.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configInput.headboard, false)
     },
     sendInput (data) {
       if (!this.stateTouch && data.code !== 'Tab') this.stateTouch = true
@@ -92,7 +92,7 @@ export default {
       if ((data.code === 'Tab') && !this.activeInput) this.activeInput = true
 
       this.$emit('inputData', inputData)
-      this.$busForm.$emit('hsFormHeadBoard_showMessage' + this.configInput.headboard, false)
+      this.$busForm.$emit('hsFormHeadboard_showMessage' + this.configInput.headboard, false)
     },
     sendTouch () {
       if (this.stateTouch) {

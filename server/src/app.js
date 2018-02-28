@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(formidable.parse({keepExtensions: true}))
 
-// require('./passport')
+require('./config/passport')
 require('./routes')(app)
 
 sequelize.sync().then(() => {

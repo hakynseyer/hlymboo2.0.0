@@ -1,0 +1,12 @@
+{
+  "HS": "hsList",
+  "image": {
+    "configList": {
+      "sendList": {
+        "mode": "globalEvent",
+        "nameEvent": "searchImage_imageChosen"
+      },
+      "dataList": []
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.filter
+  width: 100%
+  display: flex
+  justify-content: space-around
+  margin-top: map-get($var-height, header)
+  padding: 10px
+  border: dashed 2px map-get($colorsHS, gray)
+  box-sizing: border-box
+
+  +ele('title')
+    width: 100%
+    font-size: 12px
+    text-transform: uppercase
+
+  +ele('filters')
+    width: 25%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+    +ele('group')
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: flex-start
+      overflow: hidden
+      margin-bottom: 5px
+
+      +ele('button')
+        width: 33%
+        height: 24px
+        margin-bottom: 5px
+        background-color: lighten(map-get($colorsHS, gray), 65)
+        &:hover
+          background: lighten(map-get($colorsHS, gray), 55)
+
+        +mod('active')
+          background: lighten(map-get($colorsHS, gray), 55)
+
+    +ele('select')
+      width: 100%
+      display: flex
+      align-items: flex-start
+      margin-bottom: 10px
+
+    +ele('lauch')
+      width: 100%
+      display: flex
+      justify-content: center
+
+      +ele('button')
+        width: 50%
+        height: 30px
+        font-size: 12px
+        color: map-get($colorsHS, white)
+        background-color: lighten(map-get($colorsHS, gray), 10)
+        &:active
+          background-color: map-get($colorsHS, gray)
+
+  +ele('text')
+    width: 30%
+    display: flex
+    flex-wrap: wrap
+    overflow: hidden
+
+    +ele('group')
+      width: 100%
+      display: flex
+
+      +ele('input')
+        width: 80%
+        padding: 0px 5px
+
+
+      +ele('button')
+        width: 30px
+        height: 30px
+        background-color: lighten(map-get($colorsHS, gray), 10)
+        color: map-get($colorsHS, white)
+        &:active
+          background-color: map-get($colorsHS, gray)
+
+    +ele('buttons')
+      width: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+
+      +ele('button')
+        width: 32px
+        height: 32px
+        background-color: lighten(map-get($colorsHS, gray), 10)
+        color: map-get($colorsHS, white)
+        &:active
+          background-color: map-get($colorsHS, gray)
+
+  +ele('order')
+    width: 25%
+    display: flex
+    flex-wrap: wrap
+
+    +ele('group')
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      flex-direction: row-reverse
+      justify-content: space-between
+
+      +ele('button')
+        font-size: 12px
+        width: 48%
+        height: 24px
+        padding: 5px
+        box-sizing: border-box
+        margin-bottom: 5px
+        background-color: lighten(map-get($colorsHS, gray), 10)
+        color: map-get($colorsHS, white)
+
+        &:active
+          padding: 5px
+
+        +mod('purple')
+          background-color: map-get($colorsHS, purple)

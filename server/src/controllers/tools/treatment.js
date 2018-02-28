@@ -1,3 +1,5 @@
+const {text} = require('./customizedTools')
+
 const treat = {
   treatTrim (data) {
     if (data !== null) return data.trim()
@@ -24,8 +26,22 @@ const treat = {
     return data
   },
 
-  treatReplaceSpaces (data) {
-    if (data !== null) return data.replace(/_/g, ' ')
+  treatReplaceSpaces (data, mode) {
+    switch (mode) {
+      case 'underscore_space':
+        if (data !== null) return data.replace(/_/g, ' ')
+        break
+      case 'space_underscore':
+        if (data !== null) return data.replace(/ /g, '_')
+        break
+      case 'space_camelCase':
+        let dataArray = data.split(' ').map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+        if (dataArray.length) return dataArray.toString().replace(',', '')
+        break
+      case 'space_void':
+        if (data !== null) return data.replace(/ /g, '')
+        break
+    }
   }
 }
 
@@ -37,11 +53,24 @@ const treatMethods = {
 
     return c
   },
-  treatTrimReplaceSpaces (data) {
+  treatTrimReplaceSpaces (data, mode) {
     const a = treat.treatTrim(data)
-    const b = treat.treatReplaceSpaces(a)
+    const b = treat.treatReplaceSpaces(a, 'underscore_space')
 
     return b
+  },
+
+  treatRouteFile (data, file) {
+    let extension = file.split('.').pop()
+
+    const a = treat.treatTrim(data)
+    const b = treat.treatReplaceSpaces(a, 'space_underscore')
+    const c = treat.treatSize(b, 'lowerCase')
+    const d = treat.treatCharacters(c)
+
+    const res = d + text.masterKey(10) + '.' + extension
+
+    return res
   }
 }
 

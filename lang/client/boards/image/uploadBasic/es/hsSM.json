@@ -1,0 +1,14 @@
+{
+  "HS": "hsSmallModal",
+  "uploadBasic": {
+    "configSmallModal": {
+      "id": "up_ImageSuccess_SM",
+      "type": "success",
+      "title": "Guardado: #####",
+      "body": "<p> La imagen ##### se ha subido con éxito con la fecha ????? </p>",
+      "timer": {
+        "time": 7
+      }
+    }
+  }
+}

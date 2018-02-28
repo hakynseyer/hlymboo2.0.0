@@ -1,0 +1,8 @@
+{
+  "imgUploadBasicValidator": {
+    "uniqueRoute": {
+      "res": "<b> Unico </b> <p> Existe otra imagen con las mismas caracteristicas informativas... Si esta imagen NO es copia de otra igual en tu pérfil, entonces intenta cambiar el título de tu imagen</p>",
+      "resError": "<b> Unico </b> <p> Se ha presentado un error al intentar validar esta imagen </p>"
+    }
+  }
+}

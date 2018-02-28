@@ -1,0 +1,12 @@
+{
+  "filter": {
+    "title": "Filtrar",
+    "button": "Lanzar"
+  },
+  "text": {
+    "title": "Buscar"
+  },
+  "order": {
+    "title": "Ordenar"
+  }
+}

@@ -1,0 +1,23 @@
+[33mcommit fa616dae9cb116a2218cb4ac6e6b0744b2b2fe80[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Joaquin Reyes Sanchez <joaquin.seyer21@gmail.com>
+Date:   Fri Feb 9 12:51:59 2018 -0600
+
+    [Global, Lang]: Se ha optimizado el proceso de datos Lang de la carpeta principal lang (cliente y servidor)... Se ha cambiado la forma de recogida de informacion para datos lang, creando clases y archivos json para una mejor organizacion
+
+[33mcommit a85627345581f100b3155375c1b07c2e213f831e[m
+Author: Joaquin Reyes Sanchez <joaquin.seyer21@gmail.com>
+Date:   Mon Jan 29 22:42:14 2018 -0600
+
+    [Global, board Image]: Se ha iniciado el proceso de creación del board Image, creando componentes como asides, menu hyzher, menu board, input image... Tambien se ha modificado la forma de mostrar el boton ready, logrando una forma mas simple y automatica
+
+[33mcommit fe34b18a0d4d748ac2fbb93c1ef437c1dfcf112f[m
+Author: Joaquin Reyes Sanchez <joaquin.seyer21@gmail.com>
+Date:   Mon Jan 22 20:07:26 2018 -0600
+
+    [Global, Board Login]: Se han hecho cambios respecto a la apariencia y organizacion de las carpetas, modificacion de estilos y agregacion de elementos aside  a los laterales del contenido principal mother. Se ha finalizado el trabajo pricipal del board login
+
+[33mcommit 5f572459fa9c4d04642c71f54ec92b2bad5261aa[m
+Author: Joaquin Reyes Sanchez <joaquin.seyer21@gmail.com>
+Date:   Thu Jan 11 09:28:35 2018 -0600
+
+    [Board Register]: Se ha finalizado el trabajo principal del board register, creando componentes (input, select, checkbox, ...), lang y servidor

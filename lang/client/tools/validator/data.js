@@ -38,6 +38,14 @@ class hsValidator extends validateData {
       if (hsV_checkType_boolean_resTrue) this.hsValidator.checkType.boolean.resTrue = hsV_checkType_boolean_resTrue
       let hsV_checkType_boolean_resFalse = this.validateText(data.checkType.boolean.resFalse, true)
       if (hsV_checkType_boolean_resFalse) this.hsValidator.checkType.boolean.resFalse = hsV_checkType_boolean_resFalse
+
+      let hsV_checkNumbers_resBigger = this.validateText(data.checkNumbers.resBigger, true)
+      if (hsV_checkNumbers_resBigger) this.hsValidator.checkNumbers.resBigger = hsV_checkNumbers_resBigger
+      let hsV_checkNumbers_resLower = this.validateText(data.checkNumbers.resLower, true)
+      if (hsV_checkNumbers_resLower) this.hsValidator.checkNumbers.resLower = hsV_checkNumbers_resLower
+
+      let hsV_checkExtensions_resImage = this.validateText(data.checkExtensions.resImage, true)
+      if (hsV_checkExtensions_resImage) this.hsValidator.checkExtensions.resImage = hsV_checkExtensions_resImage
     }
   }
 
@@ -67,6 +75,13 @@ class hsValidator extends validateData {
           resTrue: null,
           resFalse: null
         }
+      },
+      checkNumbers: {
+        resBigger: null,
+        resLower: null
+      },
+      checkExtensions: {
+        resImage: null
       }
     }
   }

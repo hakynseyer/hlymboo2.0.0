@@ -1,6 +1,7 @@
 // [i] Boards
 const {registerModule} = require('./boards/register')
 const {loginModule} = require('./boards/login')
+const {imageModule} = require('./boards/image')
 
 const boards = (lang, board, module, pack) => {
   let langData
@@ -11,6 +12,9 @@ const boards = (lang, board, module, pack) => {
       break
     case 'Login':
       langData = loginModule(lang, module, pack)
+      break
+    case 'Image':
+      langData = imageModule(lang, module, pack)
       break
   }
 
