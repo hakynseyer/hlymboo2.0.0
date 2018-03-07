@@ -1,52 +1,69 @@
-.board-menu
+.hs-board-menu
+  width: 100%
+
   display: flex
   flex-wrap: wrap
   justify-content: flex-end
 
   +ele('main')
     width: 100%
+
+    padding: 30px 10px
+
     display: flex
     flex-wrap: wrap
     justify-content: space-around
-    padding: 30px 10px
 
     +ele('element')
-      position: relative
       width: 250px
       height: 270px
+
       margin-bottom: 30px
+
+      position: relative
+
       display: flex
       flex-wrap: wrap
       justify-content: center
       align-items: center
-      overflow: hidden
-      border: solid 5px lighten(map-get($colorsHS, gray), 15)
+
+      border: solid 5px map-get($_color-main, violet-L1)
       border-radius: 10px
-      background-color: lighten(map-get($colorsHS, gray), 100)
+
+      background-color: map-get($_color-main, violet-L2)
+
+      overflow: hidden
+
       cursor: pointer
-      transition: all 200ms ease-in-out
+
+      transition: background 200ms ease-in-out
 
       &:hover
-        background-color: lighten(map-get($colorsHS, gray), 50)
-        .board-menu__main__element__text__children__circle
+        background-color: map-get($_color-main, violet-L1)
+
+        .hs-board-menu__main__element__text__children__circle
           transform: translateX(0%)
 
       +mod('hover-move')
         &:hover
-          .board-menu__main__element__icon
+          .hs-board-menu__main__element__icon
             transform: translateX(-20px) scale(7)
 
       +ele('icon')
         transform: scale(7)
-        color: darken(map-get($colorsHS, gray), 2)
-        transition: all 300ms ease-in-out
+
+        color: map-get($_color-main, violet-H1)
+
+        transition: transform 300ms ease-in-out
 
       +ele('text')
+        width: 100%
+        height: 100%
+
         position: absolute
         top: 0
         left: 0
-        width: 100%
-        height: 100%
+
         display: flex
         flex-direction: column
         justify-content: space-between
@@ -54,133 +71,187 @@
 
         +ele('title')
           width: 100%
+
           padding: 5px 10px
+
           box-sizing: border-box
+
           font-size: 15px
           text-transform: uppercase
           text-align: center
-          color: darken(map-get($colorsHS, gray), 2)
+
+          color: map-get($_color-main, violet-H1)
 
         +ele('children')
           width: 100%
+
+          padding: 10px
+
           display: flex
           justify-content: flex-end
-          padding: 10px
 
           +ele('circle')
             width: 40px
             height: 40px
+
             border-radius: 50%
+
             display: flex
             justify-content: center
             align-items: center
-            background-color: darken(map-get($colorsHS, gray), 2)
+
+            background-color: map-get($_color-main, violet-H1)
+
             transform: translateX(200%)
-            transition: all 300ms ease-in-out
+
+            transition: transform 300ms ease-in-out
 
             +ele('number')
-              color: lighten(map-get($colorsHS, gray), 50)
+              color: map-get($_color-main, violet-L2)
+
               &:before
                 content: '+'
-                margin-right: 2px
 
+                margin-right: 2px
 
         +ele('description')
           width: 100%
           height: 60px
+
           display: flex
           align-items: center
+
           padding: 0px 10px
           box-sizing: border-box
+
           margin-bottom: 10px
+
           font-size: 13px
           text-align: justify
-          color: darken(map-get($colorsHS, gray), 2)
+
+          color: map-get($_color-main, violet-H1)
+
           overflow: hidden
 
+
   +ele('pocket')
-    z-index: map-get($var-z-index, form-Head)
-    position: fixed
-    top: 0
-    right: map-get($var-width, mother-Asides)
-    margin-top: map-get($var-height, header)
-    // width: map-get($var-width, mother-Section)/4
-    height: 50px
+    height: map-get($_var-height, frm-head)
+
     display: flex
-    // flex-wrap: wrap
-    justify-content: space-between
-    border-radius: 0px 0px 0px 3px
-    background-color: map-get($colorsHS, gray)
+    justify-content: flex-end
+
     overflow: hidden
 
     +ele('information')
-      width: 68%
-      display: flex
-      flex-wrap: wrap
-      justify-content: center
-      align-items: center
-      // background-color: lighten(map-get($colorsHS, gray), 50)
+      position: relative
+
+      box-sizing: border-box
+
+      background-color: map-get($_color-main, violet-H2)
+
+      pointer-events: auto
 
       +ele('title')
-        width: 40%
+        width: 100%
         height: 100%
-        margin: 0px 10px
-        font-size: 13px
-        border-style: none dotted none dotted
-        border-width: 2px
-        border-color: map-get($colorsHS, gray)
-        text-transform: uppercase
+
         display: flex
-        justify-content: center
         align-items: center
+
+        font-size: 10px
+        text-transform: uppercase
         text-align: center
+        line-height: 1.5
+
+        color: map-get($_color-main, violet-L1)
+
         overflow: hidden
+
+        &:hover
+          & + .hs-board-menu__pocket__information__dates
+            top: 0%
 
       +ele('dates')
-        width: 25%
+        width: 100%
         height: 100%
+
+        padding: 10px
+
+        position: absolute
+        top: 200%
+
         display: flex
-        justify-content: center
-        align-items: center
-        flex-wrap: wrap
-        overflow: hidden
+        flex-direction: column
+        justify-content: space-between
 
-        +ele('title')
-          width: 100%
-          font-size: 13px
-          text-align: center
+        box-sizing: border-box
 
-        +ele('date')
+        background-color: map-get($_color-main, violet-L1)
+
+        pointer-events: none
+
+        transition: top 500ms ease-in-out
+
+        +ele('group')
           width: 100%
-          font-size: 13px
-          font-weight: 300
-          text-align: center
+          height: 50%
+
+          display: flex
+
+          +ele('title')
+            width: 40%
+
+            font-size: 13px
+            text-align: center
+
+            overflow: hidden
+
+          +ele('date')
+            width: 60%
+
+            overflow: hidden
+
+            font-size: 13px
+            font-weight: 300
+            text-align: center
 
     +ele('elements')
-      // width: 30%
+      max-width: 50%
       height: 100%
+
       padding: 0px 5px
+
       display: flex
-      flex-wrap: wrap
       justify-content: center
       align-items: center
-      // background-color: lighten(map-get($colorsHS, gray), 50)
-      overflow: hidden
+
+      background-color: map-get($_color-main, violet-H1)
+
+      pointer-events: auto
 
       +ele('element')
-        width: 40px
-        height: 40px
+        width: 25px
+        height: 25px
+
+        margin-right: 5px
+
         display: flex
         justify-content: center
         align-items: center
-        border-radius: 5px
-        color: lighten(map-get($colorsHS, gray), 60)
+
+        color: map-get($_color-main, violet-L1)
+
         overflow: hidden
+
         cursor: pointer
-        transition: all 100ms ease-in-out
+
+        transition: color 100ms ease-in-out
+
+        &:last-child
+          margin-right: 0
+
         &:hover
-          background-color: map-get($colorsHS, gray)
-          color: lighten(map-get($colorsHS, gray), 20)
+          color: map-get($_color-main, violet-L2)
 
         +ele('icon')
-          transform: scale(1.5)
+          transform: scale(1.4)

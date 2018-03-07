@@ -1,11 +1,11 @@
 <template lang="pug">
   div(
-    :class="{'form__box__body__group--free-height': reactiveDataSelect, 'form__box__body__group--error': validateErrors}"
-    class="form__box__body__group")
+    :class="{'hs-frm__box__body__group--free-height': reactiveDataSelect, 'hs-frm__box__body__group--error': validateErrors}"
+    class="hs-frm__box__body__group")
 
     label(
-      :class="{'label--active' : activeSelect, 'label--error': validateErrors}"
-      class="label"
+      :class="{'hs-label--active' : activeSelect, 'hs-label--error': validateErrors}"
+      class="hs-label"
       @click="stateSelect()") {{configSelect.titleSelect}}
 
     hidden-message-inputs(
@@ -13,12 +13,12 @@
       :hiddenMessage="configSelect.hiddenMessage")
 
     template(v-if="configSelect.typeSelect === 'Array'")
-      div(class="select__container")
+      div(class="hs-select__container")
         select(
           :ref="configSelect.id"
           :value="reactiveDataSelect"
-          :class="{'select--active' : activeSelect}"
-          class="select"
+          :class="{'hs-select--active' : activeSelect}"
+          class="hs-select"
           @keyup="nextInput($event.code)"
           @change="sendSelect($event)"
           @blur="sendTouch()")
@@ -28,15 +28,15 @@
         icon(
           name="sort-desc"
           scale="1.5"
-          class="select__arrow")
+          class="hs-select__arrow")
 
     template(v-if="configSelect.typeSelect === 'Customized'")
-      div(class="select__container")
+      div(class="hs-select__container")
         select(
           :ref="configSelect.id"
           :value="reactiveDataSelect"
-          :class="{'select--active' : activeSelect}"
-          class="select"
+          :class="{'hs-select--active' : activeSelect}"
+          class="hs-select"
           @keyup="nextInput($event.code)"
           @change="sendSelect($event)"
           @blur="sendTouch()")
@@ -44,7 +44,7 @@
         icon(
             name="sort-desc"
             scale="1.5"
-            class="select__arrow")
+            class="hs-select__arrow")
 
     hs-error(:errors="errorSelect")
 </template>

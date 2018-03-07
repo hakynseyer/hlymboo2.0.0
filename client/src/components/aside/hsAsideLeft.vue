@@ -1,7 +1,8 @@
 <template lang="pug">
   aside
-    div(class="aside__left")
-      hs-menu-hyzher(v-if="$store.state.login")
+    div(class="hs-row hs-row__fixed-maria hs-row__fixed-maria--aside-left hs-row__maria")
+      div(class="hs-col-aside-left")
+        hs-menu-hyzher(v-if="$store.state.login")
 </template>
 
 <script>

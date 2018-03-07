@@ -1,27 +1,32 @@
-.modal__body
+.hs-modal__body
   +ele('alert')
     width: 50%
+
     padding: 20px
+
     border-radius: 5px
-    color: map-get($colorsHS, white)
+
+    color: map-get($_color-main, violet-L2)
 
     +mod('normal')
-      background-color: map-get($colorsHS, purple)
+      background-color: map-get($_color-main, violet-H1)
 
     +mod('error')
-      background-color: map-get($colorsHS, red)
+      background-color: map-get($_color-secondary, red)
 
     +mod('success')
-      background-color: map-get($colorsHS, green)
+      background-color: map-get($_color-secondary, green)
 
     +ele('head')
       padding-bottom: 10px
-      border-bottom: solid 1px map-get($colorsHS, white)
+
+      border-bottom: solid 1px map-get($_color-main, violet-L2)
 
     +ele('body')
       padding: 20px
-      text-align: justify
+
       font-weight: 300
+      text-align: justify
 
     +ele('footer')
       font-size: 15px

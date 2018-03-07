@@ -1,34 +1,34 @@
 <template lang="pug">
-  div(class="form__head-board")
+  div(class="hs-frm__headboard")
     div(
       v-if="!configHeadboard.hideHelp"
-      @click="showMessage = !showMessage"
-      class="form__head-board__help")
+      class="hs-frm__headboard__information"
+      @click="showMessage = !showMessage")
       icon(
         name="info-circle"
         scale="2"
-        class="form__head-board__help__icon")
-    transition(name="show-head-board")
+        class="hs-frm__headboard__information__icon")
+    transition(name="information-transition")
       div(
         v-show="showMessage"
-        class="form__head-board__help__message")
+        class="hs-frm__headboard__information__message")
         span(
           v-for="msg in configHeadboard.message"
-          class="form__head-board__help__message__list") {{msg}}
+          class="hs-frm__headboard__information__message__list") {{msg}}
     div(
       v-text="configHeadboard.title"
-      class="form__head-board__title")
+      class="hs-frm__headboard__title")
 
-    div(class="form__head-board__space-right")
+    div(class="hs-frm__headboard__space-right")
       slot(name="hsHeadboardButton")
       button(
           type="button"
-          class="form__head-board__space-right__button"
+          class="hs-frm__headboard__space-right__button"
           @click="buttonAction")
             icon(
               :name="configHeadboard.buttonIcon"
               scale="1.5"
-              class="form__head-board__space-right__button__icon")
+              class="hs-frm__headboard__space-right__button__icon")
 </template>
 
 <script>
@@ -62,10 +62,10 @@ export default {
 </script>
 
 <style lang="sass">
-.show-head-board-enter-active
+.information-transition-enter-active
   animation: show-head-board 500ms
 
-.show-head-board-leave-active
+.information-transition-leave-active
   animation: show-head-board 500ms reverse
 
 @keyframes show-head-board

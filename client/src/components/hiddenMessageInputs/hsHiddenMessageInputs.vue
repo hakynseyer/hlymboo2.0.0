@@ -1,23 +1,23 @@
 <template lang="pug">
   div(:ref="refMessage")
     span(
-      class="label__status"
+      class="hs-label__status"
       @mousedown="enableHiddenMessage"
       @mouseup="disableHiddenMessage")
       icon(
         v-if="!successIcon"
         name="asterisk"
         scale="1.5"
-        class="label__status__icon")
+        class="hs-label__status__icon-error")
       icon(
         v-else
         name="check"
         scale="1.5"
-        class="label__status__icon")
+        class="hs-label__status__icon-success")
     transition(name="hiddenMessage-transition")
       span(
         v-show="showHiddenMessage.status"
-        class="label__status__msg") {{hiddenMessage}}
+        class="hs-label__status__msg") {{hiddenMessage}}
 </template>
 
 <script>

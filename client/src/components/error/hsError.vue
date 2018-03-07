@@ -1,18 +1,18 @@
 <template lang="pug">
-  transition(name="skid-transition")
+  transition(name="error-transition")
     div(
       v-if="showError"
-      :class="{'error--simple': simple}"
-      class="error")
+      :class="{'hs-error--simple': simple}"
+      class="hs-error")
       template(v-if="simple")
         span(
           v-html="errors"
-          class="error__message")
+          class="hs-error__message")
       template(v-else)
         span(
           v-for="err in errors"
           v-html="err"
-          class="error__message")
+          class="hs-error__message")
 </template>
 
 <script>
@@ -36,13 +36,13 @@ export default {
 </script>
 
 <style lang="sass">
-.skid-transition-enter-active
-  animation: skid-transition 500ms
+.error-transition-enter-active
+  animation: error-transition 500ms
 
-.skid-transition-leave-active
-  animation: skid-transition 500ms reverse
+.error-transition-leave-active
+  animation: error-transition 500ms reverse
 
-@keyframes skid-transition
+@keyframes error-transition
   from
     transform: translateX(-100%)
   to

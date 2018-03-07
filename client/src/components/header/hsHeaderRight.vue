@@ -1,8 +1,8 @@
 <template lang="pug">
-  div(class="header__logo")
+  div(class="hs-hdr__right")
     router-link(
       :to="{name: lang.hsHeaderRight.main.page}"
-      class="header__logo__main") {{lang.hsHeaderRight.main.name}}
+      class="hs-link hs-link--big") {{lang.hsHeaderRight.main.name}}
 </template>
 
 <script>

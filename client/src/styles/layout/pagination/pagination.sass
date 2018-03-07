@@ -1,0 +1,79 @@
+.hs-pagination
+  width: 100%
+
+  display: flex
+  justify-content: flex-end
+
+  overflow: hidden
+  +ele('information')
+    width: 20%
+
+    display: flex
+    justify-content: center
+
+    +ele('text')
+      height: 100%
+
+      margin-right: 10px
+
+      display: flex
+      justify-content: center
+      align-items: center
+
+      font-size: 18px
+      font-style: italic
+      text-transform: uppercase
+
+      color: map-get($_color-main, violet-H1)
+
+      &:last-child
+        margin-right: 0
+
+        font-style: normal
+
+  +ele('buttons')
+    width: 50%
+    height: 40px
+
+    display: flex
+    justify-content: flex-end
+
+    +ele('start')
+      width: 30%
+
+      display: flex
+
+      +ele('origin-button')
+        font-size: 15px
+
+        color: map-get($_color-secondary, red)
+
+      +ele('before-button')
+        color: map-get($_color-main, violet-H1)
+
+    +ele('middle')
+      width: 40%
+
+      display: flex
+
+      +ele('central-button')
+        color: map-get($_color-main, violet-H1)
+
+        +mod('active')
+          font-size: 16px
+          color: map-get($_color-secondary, red)
+
+    +ele('end')
+      width: 30%
+
+      width: 30%
+
+      display: flex
+
+      +ele('after-button')
+        color: map-get($_color-main, violet-H1)
+
+      +ele('final-button')
+        font-size: 15px
+
+        color: map-get($_color-secondary, red)

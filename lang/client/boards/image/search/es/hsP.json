@@ -5,11 +5,11 @@
       "id": "idMiddleButton",
       "information": {
         "label": "Imagenes",
-        "limitImages": 3,
+        "limitImages": 10,
         "total": null
       },
       "buttons": {
-        "buttons": 3,
+        "buttons": 4,
         "currentPage": 1,
         "pages": null
       }

@@ -1,11 +1,5 @@
 <template lang="pug">
-form(
-  v-on:submit.prevent=""
-  autocomplete="off"
-  class="form")
-
-  //- pre {{$data.form}}
-
+article(class="hs-art--frm")
   hs-form-head(
     :configFormHead="lang.hsFormHead"
     @cleanerAction="formCleaner"
@@ -15,25 +9,31 @@ form(
     simple=true
     :errors="errorServer")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.hyzher"
-        @buttonAction="formCleanerHyzher")
-    div(class="form__box__body")
-      hs-input(
-        :configInput="lang.hsInput.email.config"
-        :reactiveDataInput="form.hyzher.email.value"
-        :errorInput="form.hyzher.email.error"
-        @inputData="updateEmail"
-        @inputTouch="checkEmail")
+  form(
+    v-on:submit.prevent=""
+    autocomplete="off")
 
-      hs-input(
-        :configInput="lang.hsInput.password.config"
-        :reactiveDataInput="form.hyzher.password.value"
-        :errorInput="form.hyzher.password.error"
-        @inputData="updatePassword"
-        @inputTouch="checkPassword")
+    //- pre {{$data.form}}
+
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.hyzher"
+          @buttonAction="formCleanerHyzher")
+      div(class="hs-frm__box__body")
+        hs-input(
+          :configInput="lang.hsInput.email.config"
+          :reactiveDataInput="form.hyzher.email.value"
+          :errorInput="form.hyzher.email.error"
+          @inputData="updateEmail"
+          @inputTouch="checkEmail")
+
+        hs-input(
+          :configInput="lang.hsInput.password.config"
+          :reactiveDataInput="form.hyzher.password.value"
+          :errorInput="form.hyzher.password.error"
+          @inputData="updatePassword"
+          @inputTouch="checkPassword")
 </template>
 
 <script>

@@ -2,10 +2,12 @@
   main
     hs-header-main
     hs-section
+    //- hs-grid
 </template>
 
 
 <script>
+import hsGrid from '@/components/grid/hsGrid'
 import hsHeaderMain from '@/components/header/hsHeaderMain'
 
 import hsSection from '@/components/section/hsSection'
@@ -13,7 +15,8 @@ import hsSection from '@/components/section/hsSection'
 export default {
   components: {
     hsHeaderMain,
-    hsSection
+    hsSection,
+    hsGrid
   }
 }
 </script>

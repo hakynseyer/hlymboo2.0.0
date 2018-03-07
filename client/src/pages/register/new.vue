@@ -1,15 +1,5 @@
 <template lang="pug">
-form(
-  v-on:submit.prevent=""
-  autocomplete="off"
-  class="form")
-
-  //- pre {{$data.form}}
-
-  hs-alert-modal(
-    :configModal="lang.hsAlertModal.register.configModal"
-    :configAlertModal="lang.hsAlertModal.register.configAlertModal")
-
+article(class="hs-art--frm")
   hs-form-head(
     :configFormHead="lang.hsFormHead"
     @cleanerAction="formCleaner"
@@ -19,104 +9,114 @@ form(
     simple=true
     :errors="errorServer")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.personal"
-        @buttonAction="formCleanerPersonal")
-    div(class="form__box__body")
-      hs-input(
-        :configInput="lang.hsInput.name.config"
-        :reactiveDataInput="form.personal.name.value"
-        :errorInput="form.personal.name.error"
-        @inputData="updateName"
-        @inputTouch="checkName")
+  hs-alert-modal(
+    :configModal="lang.hsAlertModal.register.configModal"
+    :configAlertModal="lang.hsAlertModal.register.configAlertModal")
 
-      hs-input(
-        :configInput="lang.hsInput.surnames.config"
-        :reactiveDataInput="form.personal.surnames.value"
-        :errorInput="form.personal.surnames.error"
-        @inputData="updateSurnames"
-        @inputTouch="checkSurnames")
+  form(
+    v-on:submit.prevent=""
+    autocomplete="off")
 
-      hs-input(
-        :configInput="lang.hsInput.alias.config"
-        :reactiveDataInput="form.personal.alias.value"
-        :errorInput="form.personal.alias.error"
-        @inputData="updateAlias"
-        @inputTouch="checkAlias")
+    //- pre {{$data.form}}
 
-      hs-input(
-        :configInput="lang.hsInput.email.config"
-        :reactiveDataInput="form.personal.email.value"
-        :errorInput="form.personal.email.error"
-        @inputData="updateEmail"
-        @inputTouch="checkEmail")
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.personal"
+          @buttonAction="formCleanerPersonal")
+      div(class="hs-frm__box__body")
+        hs-input(
+          :configInput="lang.hsInput.name.config"
+          :reactiveDataInput="form.personal.name.value"
+          :errorInput="form.personal.name.error"
+          @inputData="updateName"
+          @inputTouch="checkName")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.passwords"
-        @buttonAction="formCleanerPasswords")
-    div(class="form__box__body")
-      hs-input(
-        :configInput="lang.hsInput.password.config"
-        :reactiveDataInput="form.passwords.password.value"
-        :errorInput="form.passwords.password.error"
-        @inputData="updatePassword"
-        @inputTouch="checkPassword")
-      hs-input(
-        :configInput="lang.hsInput.repeatPassword.config"
-        :reactiveDataInput="form.passwords.repeatPassword.value"
-        :errorInput="form.passwords.repeatPassword.error"
-        @inputData="updateRepeatPassword"
-        @inputTouch="checkRepeatPassword(lang.hsInput.password.config.titleInput)")
+        hs-input(
+          :configInput="lang.hsInput.surnames.config"
+          :reactiveDataInput="form.personal.surnames.value"
+          :errorInput="form.personal.surnames.error"
+          @inputData="updateSurnames"
+          @inputTouch="checkSurnames")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.security"
-        @buttonAction="formCleanerSecurity")
-    div(class="form__box__body")
-      hs-select(
-        :configSelect="lang.hsSelect.question1.config"
-        :reactiveDataSelect="form.security.question1.value"
-        :errorSelect="form.security.question1.error"
-        @selectData="updateQuestion1"
-        @selectTouch="checkQuestion1(lang.hsSelect.question2.config.titleSelect)")
+        hs-input(
+          :configInput="lang.hsInput.alias.config"
+          :reactiveDataInput="form.personal.alias.value"
+          :errorInput="form.personal.alias.error"
+          @inputData="updateAlias"
+          @inputTouch="checkAlias")
 
-      hs-input(
-        :configInput="lang.hsInput.answer1.config"
-        :reactiveDataInput="form.security.answer1.value"
-        :errorInput="form.security.answer1.error"
-        @inputData="updateAnswer1"
-        @inputTouch="checkAnswer1")
+        hs-input(
+          :configInput="lang.hsInput.email.config"
+          :reactiveDataInput="form.personal.email.value"
+          :errorInput="form.personal.email.error"
+          @inputData="updateEmail"
+          @inputTouch="checkEmail")
 
-      hs-select(
-        :configSelect="lang.hsSelect.question2.config"
-        :reactiveDataSelect="form.security.question2.value"
-        :errorSelect="form.security.question2.error"
-        @selectData="updateQuestion2"
-        @selectTouch="checkQuestion2(lang.hsSelect.question1.config.titleSelect)")
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.passwords"
+          @buttonAction="formCleanerPasswords")
+      div(class="hs-frm__box__body")
+        hs-input(
+          :configInput="lang.hsInput.password.config"
+          :reactiveDataInput="form.passwords.password.value"
+          :errorInput="form.passwords.password.error"
+          @inputData="updatePassword"
+          @inputTouch="checkPassword")
+        hs-input(
+          :configInput="lang.hsInput.repeatPassword.config"
+          :reactiveDataInput="form.passwords.repeatPassword.value"
+          :errorInput="form.passwords.repeatPassword.error"
+          @inputData="updateRepeatPassword"
+          @inputTouch="checkRepeatPassword(lang.hsInput.password.config.titleInput)")
 
-      hs-input(
-        :configInput="lang.hsInput.answer2.config"
-        :reactiveDataInput="form.security.answer2.value"
-        :errorInput="form.security.answer2.error"
-        @inputData="updateAnswer2"
-        @inputTouch="checkAnswer2")
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.security"
+          @buttonAction="formCleanerSecurity")
+      div(class="hs-frm__box__body")
+        hs-select(
+          :configSelect="lang.hsSelect.question1.config"
+          :reactiveDataSelect="form.security.question1.value"
+          :errorSelect="form.security.question1.error"
+          @selectData="updateQuestion1"
+          @selectTouch="checkQuestion1(lang.hsSelect.question2.config.titleSelect)")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.sign"
-        @buttonAction="formCleanerSign")
-    div(class="form__box__body")
-      hs-checkbox(
-        :configCheck="lang.hsCheckbox.sign.config"
-        :errorCheck="form.sign.sign.error"
-        @checkData="updateSign(lang.hsCheckbox.sign.config.checkChosen, ...arguments)"
-        @checkTouch="checkSign")
+        hs-input(
+          :configInput="lang.hsInput.answer1.config"
+          :reactiveDataInput="form.security.answer1.value"
+          :errorInput="form.security.answer1.error"
+          @inputData="updateAnswer1"
+          @inputTouch="checkAnswer1")
+
+        hs-select(
+          :configSelect="lang.hsSelect.question2.config"
+          :reactiveDataSelect="form.security.question2.value"
+          :errorSelect="form.security.question2.error"
+          @selectData="updateQuestion2"
+          @selectTouch="checkQuestion2(lang.hsSelect.question1.config.titleSelect)")
+
+        hs-input(
+          :configInput="lang.hsInput.answer2.config"
+          :reactiveDataInput="form.security.answer2.value"
+          :errorInput="form.security.answer2.error"
+          @inputData="updateAnswer2"
+          @inputTouch="checkAnswer2")
+
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.sign"
+          @buttonAction="formCleanerSign")
+      div(class="hs-frm__box__body")
+        hs-checkbox(
+          :configCheck="lang.hsCheckbox.sign.config"
+          :errorCheck="form.sign.sign.error"
+          @checkData="updateSign(lang.hsCheckbox.sign.config.checkChosen, ...arguments)"
+          @checkTouch="checkSign")
 </template>
 
 <script>

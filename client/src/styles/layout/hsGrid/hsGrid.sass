@@ -1,0 +1,165 @@
+$sides: 1.5%
+$top-bottom: 1%
+// 1366 -> 100% | 20px -> ???
+$spa-col: 1.5%
+// Espaciado global necesario para calcular el with real de cada columna
+// 1.5% -> 12 espaciados globales | X espaciados internos -> ???
+$spa-col-G: $spa-col/12
+// Aprox: 8.33% -> 100% Valor de 1 Columna
+$col: 100%/12
+// | | | | | | | | | | |
+// lineas internas = numero de columnas - 1
+// ( 100% - (lineas internas * margen derecha %) ) / numero columnas
+
+.hs-row
+  padding: $top-bottom $sides
+
+  box-sizing: border-box
+
+  display: flex
+
+  // background-color: lighten(violet, 10)
+
+  +mod('no-padding')
+    padding: 0
+
+  +ele('twelve')
+    & > .hs-col
+      width: $col - ($spa-col-G * 11)
+
+  +ele('six')
+    & > .hs-col
+      // | | | | | | | | | | | | | <<<< Columnas Twelve
+      // | - | - | - | - | - | - | <<<< Columnas Six
+      width: ($col * 2) - ($spa-col-G * 5)
+
+  +ele('four')
+    // | | | | | | | | | | | | | <<<< Columnas Twelve
+    // | - - | - - | - - | - - | <<<< Columnas Four
+    & > .hs-col
+      width: ($col * 3) - (($spa-col-G * 3) * 2)
+
+  +ele('three')
+    // | | | | | | | | | | | | | <<<< Columnas Twelve
+    // | - - - | - - - | - - - | <<<< Columnas Three
+    & > .hs-col
+      width: ($col * 4) - (($spa-col-G * 2) * 3)
+
+  +ele('two')
+    // | | | | | | | | | | | | | <<<< Columnas Twelve
+    // | - - - - - | - - - - - | <<<< Columnas Three
+    & > .hs-col
+      width: ($col * 6) - (($spa-col-G) * 5)
+
+  +ele('one')
+    // | | | | | | | | | | | | | <<<< Columnas Twelve
+    // | - - - - - - - - - - - | <<<< Columnas Three
+    & > .hs-col
+      width: 100%
+
+  +ele('header')
+    & > .hs-col
+      width: ($col * 6) - (($spa-col-G * 2) * 5)
+
+      &:first-child, &:last-child
+        width: ($col * 3) - (($spa-col-G * 2) * 2)
+
+  +ele('maria')
+    & > .hs-col
+      width: ($col * 8) - (($spa-col-G * 2) * 7)
+
+      &:first-child, &:last-child
+        width: ($col * 2) - ($spa-col-G * 2)
+    // hs-col-center: Columna especial ligado a la clase fixed-maria
+    & > .hs-col-center
+      width: ($col * 8) - (($spa-col-G * 2) * 7)
+      margin: 0 ($col * 2) - ($spa-col-G * 3) + $sides
+
+      pointer-events: auto
+
+    & > .hs-col-center-left-half
+      width: (($col * 8) - (($spa-col-G * 2) * 3) + $sides) / 2
+
+      position: absolute
+      top: 0
+      left: ($col * 2) - ($spa-col-G * 3)
+
+      pointer-events: auto
+
+      overflow: hidden
+
+    & > .hs-col-center-right-three
+      width: (($col * 8) - (($spa-col-G * 2) * 3) + $sides) / 3
+
+      position: absolute
+      right: ($col * 2) - ($spa-col-G * 3)
+
+      pointer-events: none
+
+      overflow: hidden
+
+    & > .hs-col-aside-left
+      // Extiendete hasta la columna 2 y despues restale el % de espaciado interno (1) multiplado por el 3 espaciados globales de la fila
+      width: ($col * 2) - ($spa-col-G * 3)
+      // height: 100vh
+
+      pointer-events: auto
+
+      // background-color: map-get($_color-main, violet-H1)
+
+      overflow: hidden
+
+    & > .hs-col-small-modal
+      width: (($col * 8) - (($spa-col-G * 2) * 3) + $sides) / 3
+
+      position: absolute
+      bottom: 0
+      left: ($col * 2) - ($spa-col-G * 3)
+
+      pointer-events: auto
+
+      overflow: hidden
+
+  +ele('fixed-maria')
+    width: 100%
+
+    padding: 0
+
+    position: fixed
+    left: 0
+
+    pointer-events: none
+
+    +mod('form-head')
+      z-index: map-get($_var-zIndex, header)
+
+      top: map-get($_var-height, header)
+
+    +mod('aside-left')
+      z-index: map-get($_var-zIndex, aside-left)
+
+      top: map-get($_var-height, header)
+
+    +mod('board-menu')
+      z-index: map-get($_var-zIndex, header)
+
+      top: map-get($_var-height, header)
+
+    +mod('small-modal')
+      z-index: map-get($_var-zIndex, modal-small)
+
+      bottom: 0
+
+.hs-col
+  margin-right: 1.5%
+
+  // font-size: 15px
+  // text-align: center
+
+  // background-color: lighten(tomato, 10)
+
+  &:last-child
+    margin-right: 0px
+
+    // background: tomato
+

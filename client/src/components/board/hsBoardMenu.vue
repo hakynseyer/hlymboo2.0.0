@@ -1,58 +1,64 @@
 <template lang="pug">
-  div(class="board-menu")
-    transition(name="pocket-transition")
-      div(
-        v-if="pocket"
-        class="board-menu__pocket")
-
-        //- div(class="board-menu__pocket__information")
-        //-   div(class="board-menu__pocket__information__dates")
-        //-     div(class="board-menu__pocket__information__dates__title") Fecha Creacion
-        //-     div(class="board-menu__pocket__information__dates__date") 20 Abril 2010
-        //-   div(class="board-menu__pocket__information__title") Nueva Imagen DE USUARIO AQUI MISMOsasdasdas sdad
-        //-   div(class="board-menu__pocket__information__dates")
-        //-     div(class="board-menu__pocket__information__dates__title") Fecha Actualizacion
-        //-     div(class="board-menu__pocket__information__dates__date") 20 Abril 2010
-
-        div(class="board-menu__pocket__elements")
+  div(class="hs-board-menu")
+    div(class="hs-row hs-row__fixed-maria hs-row__fixed-maria--board-menu hs-row__maria")
+      div(class="hs-col-center-right-three")
+        transition(name="pocket-transition")
           div(
-            v-for="element in hsBM"
-            :key="element.config.key"
-            class="board-menu__pocket__elements__element"
-            @click="sendActionBM(element.config.key)")
-            icon(
-              :name="element.config.icon"
-              class="board-menu__pocket__elements__element__icon")
+            v-if="pocket"
+            class="hs-board-menu__pocket")
+
+            div(class="hs-board-menu__pocket__elements")
+              div(
+                v-for="element in hsBM"
+                :key="element.config.key"
+                class="hs-board-menu__pocket__elements__element"
+                @click="sendActionBM(element.config.key)")
+                icon(
+                  :name="element.config.icon"
+                  class="hs-board-menu__pocket__elements__element__icon")
+
+            //- div(class="hs-board-menu__pocket__information")
+            //-   div(class="hs-board-menu__pocket__information__title") Nueva Imagen DE USUARIO AQUI MISMOsasdasdas sdad
+            //-   div(class="hs-board-menu__pocket__information__dates")
+            //-     div(class="hs-board-menu__pocket__information__dates__group")
+            //-       div(class="hs-board-menu__pocket__information__dates__group__title") Cambio
+            //-       div(class="hs-board-menu__pocket__information__dates__group__date") 20 Abril 2010
+            //-     div(class="hs-board-menu__pocket__information__dates__group")
+            //-       div(class="hs-board-menu__pocket__information__dates__group__title") Cambio
+            //-       div(class="hs-board-menu__pocket__information__dates__group__date") 20 Abril 2010
+
 
     transition(name="main-transition")
       div(
         v-if="!pocket"
-        class="board-menu__main")
+        class="hs-board-menu__main")
 
         div(
           v-for="element in hsBM"
           :key="element.config.key"
-          :class="{'board-menu__main__element--hover-move': checkChildren(element.config)}"
-          class="board-menu__main__element"
+          :class="{'hs-board-menu__main__element--hover-move': checkChildren(element.config)}"
+          class="hs-board-menu__main__element"
           @click="sendActionBM(element.config.key)")
           icon(
             :name="element.config.icon"
-            class="board-menu__main__element__icon")
-          div(class="board-menu__main__element__text")
-            div(class="board-menu__main__element__text__title") {{element.config.text.title}}
+            class="hs-board-menu__main__element__icon")
+          div(class="hs-board-menu__main__element__text")
+            div(class="hs-board-menu__main__element__text__title") {{element.config.text.title}}
             div(
               v-if="checkChildren(element.config)"
-              class="board-menu__main__element__text__children")
-              div(class="board-menu__main__element__text__children__circle")
+              class="hs-board-menu__main__element__text__children")
+              div(class="hs-board-menu__main__element__text__children__circle")
                 div(
                   v-text="children(element.config)"
-                  class="board-menu__main__element__text__children__circle__number")
-            div(class="board-menu__main__element__text__description") {{element.config.text.description}}
+                  class="hs-board-menu__main__element__text__children__circle__number")
+            div(class="hs-board-menu__main__element__text__description") {{element.config.text.description}}
 
 
 </template>
 
 <script>
+import {_text} from '@/pages/tools/customizedTools'
+
 export default {
   props: [
     'hsBM'
@@ -72,6 +78,12 @@ export default {
     return {
       pocket: false
 
+    }
+  },
+
+  filters: {
+    cutTitle (value) {
+      return _text.cutText(value, 20)
     }
   },
 
@@ -97,13 +109,13 @@ export default {
 
 <style lang="sass">
 .pocket-transition-enter-active
-  animation: pocket-transition 1000ms
+  animation: pocket-transition 500ms
 
 @keyframes pocket-transition
   from
-    transform: translateX(200%)
+    transform: translateY(-100%)
   to
-    transform: translateX(0%)
+    transform: translateY(0%)
 
 .main-transition-enter-active
   animation: main-transition 1000ms

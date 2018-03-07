@@ -1,0 +1,28 @@
+.hs-frm
+  +ele('head')
+    width: 100%
+    height: map-get($_var-height, frm-head)
+
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    background-color: map-get($_color-main, violet-H1)
+
+    overflow: hidden
+
+    & > h2
+      width: 50%
+
+      font-size: 21px
+      font-weight: 300
+      text-indent: 20px
+
+      color: map-get($_color-main, violet-L2)
+
+    +ele('buttons')
+      width: 50%
+
+      display: flex
+      justify-content: flex-end
+      align-items: center

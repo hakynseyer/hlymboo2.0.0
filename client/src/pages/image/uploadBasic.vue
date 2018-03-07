@@ -1,13 +1,5 @@
 <template lang="pug">
-form(
-  v-on:submit.prevent=""
-  enctype="multipart/form-data"
-  autocomplete="off"
-  class="form")
-  //- pre {{$data.form}}
-
-  hs-small-modal(:configSmallModal="lang.hsSmallModal.uploadBasic.configSmallModal")
-
+article(class="hs-art--frm")
   hs-form-head(
     :configFormHead="lang.hsFormHead"
     @cleanerAction="cleaner"
@@ -17,51 +9,59 @@ form(
     simple=true
     :errors="errorServer")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.picture"
-        @buttonAction="cleanerPicture")
-    div(class="form__box__body")
-      hs-image(
-        :configImage="lang.hsImage.image.config"
-        :reactiveDataImage="form.picture.image.value"
-        :errorImage="form.picture.image.error"
-        @imageData="updateImage"
-        @imageTouch="checkImage")
+  hs-small-modal(:configSmallModal="lang.hsSmallModal.uploadBasic.configSmallModal")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.basic"
-        @buttonAction="cleanerBasic")
-    div(class="form__box__body")
-      hs-input(
-        :configInput="lang.hsInput.title.config"
-        :reactiveDataInput="form.basic.title.value"
-        :errorInput="form.basic.title.error"
-        @inputData="updateTitle"
-        @inputTouch="checkTitle")
+  form(
+    v-on:submit.prevent=""
+    enctype="multipart/form-data"
+    autocomplete="off")
+    //- pre {{$data.form}}
 
-      hs-textarea(
-        :configTextarea="lang.hsTextarea.copyright.config"
-        :reactiveDataTextarea="form.basic.copyright.value"
-        :errorTextarea="form.basic.copyright.error"
-        @textareaData="updateCopyright"
-        @textareaTouch="checkCopyright")
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.picture"
+          @buttonAction="cleanerPicture")
+      div(class="hs-frm__box__body")
+        hs-image(
+          :configImage="lang.hsImage.image.config"
+          :reactiveDataImage="form.picture.image.value"
+          :errorImage="form.picture.image.error"
+          @imageData="updateImage"
+          @imageTouch="checkImage")
 
-  div(class="form__box")
-    div(class="form__box__head-board")
-      hs-form-Headboard(
-        :configHeadboard="lang.hsFormHeadboard.organization"
-        @buttonAction="cleanerOrganization")
-    div(class="form__box__body")
-      hs-chest(
-        :configChest="lang.hsChest.chest.config"
-        :reactiveDataChest="form.organization.chest.value"
-        :errorChest="form.organization.chest.error"
-        @chestData="updateChest"
-        @chestTouch="checkChest")
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.basic"
+          @buttonAction="cleanerBasic")
+      div(class="hs-frm__box__body")
+        hs-input(
+          :configInput="lang.hsInput.title.config"
+          :reactiveDataInput="form.basic.title.value"
+          :errorInput="form.basic.title.error"
+          @inputData="updateTitle"
+          @inputTouch="checkTitle")
+
+        hs-textarea(
+          :configTextarea="lang.hsTextarea.copyright.config"
+          :reactiveDataTextarea="form.basic.copyright.value"
+          :errorTextarea="form.basic.copyright.error"
+          @textareaData="updateCopyright"
+          @textareaTouch="checkCopyright")
+
+    div(class="hs-frm__box")
+      div(class="hs-frm__box__headboard")
+        hs-form-Headboard(
+          :configHeadboard="lang.hsFormHeadboard.organization"
+          @buttonAction="cleanerOrganization")
+      div(class="hs-frm__box__body")
+        hs-chest(
+          :configChest="lang.hsChest.chest.config"
+          :reactiveDataChest="form.organization.chest.value"
+          :errorChest="form.organization.chest.error"
+          @chestData="updateChest"
+          @chestTouch="checkChest")
 </template>
 
 <script>

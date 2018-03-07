@@ -1,13 +1,12 @@
 <template lang="pug">
-  div(class="list")
-    div(class="list__body")
-      div(class="list__container")
-        div(
-          v-for="bodyRow in configList.dataList"
-          class="list__container__element"
-          @click="sendList(bodyRow)")
-          slot(name="labelCard" :data="bodyRow")
-          slot(name="contentCard" :data="bodyRow")
+  div(class="hs-list")
+    div(class="hs-list__container")
+      div(
+        v-for="bodyRow in configList.dataList"
+        class="hs-list__container__element"
+        @click="sendList(bodyRow)")
+        slot(name="labelCard" :data="bodyRow")
+        slot(name="contentCard" :data="bodyRow")
 </template>
 
 <script>

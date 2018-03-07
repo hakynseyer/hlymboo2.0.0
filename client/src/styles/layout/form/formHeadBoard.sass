@@ -1,68 +1,91 @@
-.form
-  +ele('head-board')
+.hs-frm
+  +ele('headboard')
     width: 100%
+
     display: flex
     justify-content: space-between
     align-items: center
-    border-bottom: dashed 2px lighten(map-get($colorsHS, gray), 10%)
 
-    +ele('help')
+    color: map-get($_color-main, violet-H1)
+
+    +ele('information')
       width: 10%
-
       +ele('icon')
+
         cursor: pointer
 
       +ele('message')
-        z-index: map-get($var-z-index, form-Headboard)
+        z-index: map-get($_var-zIndex, frm-headboard)
+
+        width: 50%
+
         position: absolute
         top: 0
         right: 0
+
+        padding: 10px
+
         display: flex
         flex-wrap: wrap
-        width: 50%
-        padding: 10px
+
+        border: dashed 2px lighten(map-get($_color-main, violet-H1), 10%)
+        box-sizing: border-box
+
         font-size: 14px
         font-weight: 300
-        border: dashed 2px lighten(map-get($colorsHS, gray), 10%)
-        box-sizing: border-box
-        background-color: map-get($colorsHS, white)
+
+        background-color: map-get($_color-main, violet-L2)
+
         overflow: hidden
 
         +ele('list')
           width: 100%
+
           display: inline-block
+
           margin-bottom: 5px
+
           animation: move .5s
+
           &:nth-child(even)
             animation: move .75s
+
           &:last-child
             margin-bottom: 0px
+
           &:before
             content: '\254'
+
+            margin-right: 10px
+
             font-size: 20px
             font-weight: 500
-            margin-right: 10px
 
     +ele('title')
       width: 75%
-      font-size: 18px
+
       padding-bottom: 5px
+
+      font-size: 18px
       text-transform: uppercase
 
     +ele('space-right')
       width: 30px
       height: 30px
+
       display: flex
       justify-content: center
       align-items: center
+
       overflow: hidden
 
       +ele('button')
         background-color: transparent
+
         cursor: pointer
 
         +ele('icon')
-          color: map-get($colorsHS, gray)
+          color: map-get($_color-main, violet-H1)
 
 @keyframes move
   from

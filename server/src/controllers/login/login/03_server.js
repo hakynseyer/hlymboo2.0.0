@@ -1,5 +1,5 @@
 const {boards} = require('../../../../../lang/server')
-const {User} = require('../../../models')
+const {User, UserRank} = require('../../../models')
 const config = require('../../../config/config')
 
 const jwt = require('jsonwebtoken')
@@ -22,6 +22,9 @@ module.exports = {
     try {
       const hyzher = await User.findOne({
         where: {email: body.email.value},
+        include: [
+          {model: UserRank, as: 'userRank', attributes: ['rank'], require: true}
+        ],
         attributes: ['id', 'alias', 'password']
       })
 

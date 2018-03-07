@@ -6,10 +6,13 @@ import {sync} from 'vuex-router-sync'
 import App from './App'
 import router from './router'
 import store from '@/store/store'
+import VueScrollStop from 'vue-scroll-stop'
 
 import './styles/icons/awesome'
 import Icon from 'vue-awesome/components/Icon.vue'
+
 Vue.component('icon', Icon)
+Vue.use(VueScrollStop)
 
 Vue.config.productionTip = false
 

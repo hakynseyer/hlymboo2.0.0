@@ -1,140 +1,189 @@
-.menu-hyzher
-  display: flex
-  flex-wrap: wrap
-  justify-content: center
+.hs-menu-hyzher
+  width: 100%
+  height: 100vh
 
   +ele('head')
     width: 100%
-    padding: 5px
-    margin-bottom: 10px
+    height: 100px
+
+    padding: 5px 10px
+    margin-bottom: 20px
+
+    position: relative
+
     display: flex
     justify-content: space-between
     align-items: center
 
-    +ele('profile')
-      width: 60%
-      display: flex
-      justify-content: space-around
-      align-items: center
-      cursor: pointer
-      &:hover
-        .menu-hyzher__head__profile__icon
-          transform: rotateY(180deg)
+    box-sizing: border-box
 
-      +ele('icon')
-        width: 30%
-        transition: all 500ms ease-in-out
+    // background-color: map-get($_color-main, violet-H2)
 
+    overflow: hidden
 
-      +ele('hyzher')
-        width: 65%
-        font-size: 15px
-        font-weight: 300
-        text-transform: capitalize
-        text-align: center
+    +ele ('image')
+      width: 55px
+      height: 55px
 
-    +ele('logout')
-      width: 30%
-      font-size: 13px
-      text-align: center
-      cursor: pointer
-      padding: 5px
-      transition: all 250ms ease-in-out
-      &:hover
-        background-color: lighten(map-get($colorsHS, gray), 50)
+      position: relative
 
-  +ele('ranks')
-    width: 100%
-    padding: 5px
-    margin-bottom: 20px
-    display: flex
-    justify-content: space-around
-    align-items: center
-
-    +ele('rank')
-      width: 35px
-      height: 35px
       display: flex
       justify-content: center
       align-items: center
-      border-radius: 5px
-      font-size: 13px
-      background-color: map-get($colorsHS, gray)
-      color: map-get($colorsHS, white)
+
+      border-radius: 50%
+
+      background-color: map-get($_color-main, violet-H1)
+
+      overflow: hidden
+
       cursor: pointer
-      transition: all 200ms ease-in-out
 
-      $background-Hyzher: lighten(map-get($colorsHS, purple), 5)
+      &:hover
+        .hs-menu-hyzher__head__image__icon
+          transform: translate(0%, 10%)
 
-      +mod('Hyzher')
-        &:hover
-          background-color: $background-Hyzher
+      +ele('icon')
+        transform: translate(-25%, 10%)
 
-      +mod('Hyzher-active')
-        background-color: $background-Hyzher
+        color: map-get($_color-main, violet-L1)
 
-      $background-Ryzher: lighten(map-get($colorsHS, red), 5)
+        transition: transform 250ms ease
 
-      +mod('Ryzher')
-        &:hover
-          background-color: $background-Ryzher
+    +ele('information')
+      width: 70%
+      height: 100%
 
-      +mod('Ryzher-active')
-        background-color: $background-Ryzher
+      +ele('fast-buttons')
+        width: 100%
+        height: auto
 
-      $background-Thryzher: lighten(map-get($colorsHS, green), 5)
+        margin-bottom: 10px
 
-      +mod('Thryzher')
-        &:hover
-          background-color: $background-Thryzher
+        display: flex
+        justify-content: flex-end
+        align-items: center
 
-      +mod('Thryzher-active')
-        background-color: $background-Thryzher
+        +ele('element')
+          display: flex
+          justify-content: center
+          align-items: center
 
+          color: map-get($_color-main, violet-H1)
+
+          cursor: pointer
+
+      +ele('card')
+        width: 100%
+
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+
+        +ele('hyzher')
+          width: 100%
+
+          padding-bottom: 5px
+
+          font-size: 15px
+          text-transform: uppercase
+          text-align: center
+
+          border-bottom: dashed 1px map-get($_color-main, violet-H1)
+          box-sizing: border-box
+
+          color: map-get($_color-main, violet-H1)
+
+        +ele('rank')
+          width: 100%
+
+          padding: 5px
+
+          font-size: 12px
+          text-align: center
+
+          box-sizing: border-box
+
+          color: map-get($_color-main, violet-H1)
+
+  +ele('pages')
+    width: 100%
+    height: 200px
+
+    display: flex
+
+    // background-color: map-get($_color-main, violet-H2)
+
+    +ele('ranks')
+      width: 25%
+      height: 100%
+
+      padding: 5px
+
+      display: flex
+      flex-direction: column
+      justify-content: space-around
+      align-items: center
+
+      border-right: dashed 1px map-get($_color-main, violet-H1)
+      box-sizing: border-box
+
+      +ele('rank')
+        width: 35px
+        height: 35px
+
+        display: flex
+        justify-content: center
+        align-items: center
+
+        font-size: 15px
+
+        color: map-get($_color-main, violet-H1)
+
+        cursor: pointer
+
+        transition: background, color 200ms ease-in-out
+
+        +mod('active')
+          background-color: map-get($_color-main, violet-H1)
+          color: map-get($_color-main, violet-L2)
 
   +ele('boards')
     width: 70%
-    position: relative
-    border: dotted 1px map-get($colorsHS, gray)
-    border-radius: 5px
-    padding: 10px 0px 0px 10px
+    height: 100%
 
-    +ele('head')
-      position: absolute
-      top: -10px
-      left: 10px
-      background-color: map-get($colorsHS, white)
-      border: dotted 1px map-get($colorsHS, gray)
-      border-radius: 5px
-      width: 50%
-      height: 20px
-      font-size: 13px
-      line-height: 1.5
-      text-align: center
-      overflow: hidden
+    display: flex
+    align-items: center
 
-    & > ul
-      max-height: 170px
+    overflow: hidden
+
+    & > span
+      width: 100%
+
       display: flex
       flex-wrap: wrap
-      justify-content: space-around
-      padding: 0px 10px
-      // border: solid 1px red
+      justify-content: center
+
       overflow: hidden
 
     +ele('element')
-      width: 30px
-      height: 30px
-      overflow: hidden
-      border: solid 2px map-get($colorsHS, gray)
-      // box-sizing: border-box
-      border-radius: 5px
-      margin-right: 10px
-      margin-bottom: 10px
-      cursor: pointer
+      width: 25px
+      height: 25px
+
+      padding: 5px
+      margin: 5px
+
       display: flex
       justify-content: center
       align-items: center
 
-      +ele('icon')
-        color: map-get($colorsHS, gray)
+      color: map-get($_color-main, violet-H1)
+
+      cursor: pointer
+
+      overflow: hidden
+
+      +mod('active')
+        background-color: map-get($_color-main, violet-H1)
+        color: map-get($_color-main, violet-L2)

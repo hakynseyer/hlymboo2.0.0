@@ -1,14 +1,16 @@
 <template lang="pug">
-  transition(name="smallModal-transition")
-    div(
-      v-show="showModal"
-      :ref="configSmallModal.id"
-      :class="{'small_modal--normal': typeModal === 'normal', 'small_modal--error': typeModal === 'error', 'small_modal--success': typeModal === 'success'}"
-      class="small_modal")
-      div(class="small_modal__title") {{configSmallModal.title}}
-      div(
-        v-html="configSmallModal.body"
-        class="small_modal__body")
+  div(class="hs-row hs-row__fixed-maria hs-row__fixed-maria--small-modal hs-row__maria")
+    div(class="hs-col-small-modal")
+      transition(name="smallModal-transition")
+        div(
+          v-show="showModal"
+          :ref="configSmallModal.id"
+          :class="{'hs-small_modal--normal': typeModal === 'normal', 'hs-small_modal--error': typeModal === 'error', 'hs-small_modal--success': typeModal === 'success'}"
+          class="hs-small_modal")
+          div(class="hs-small_modal__title") {{configSmallModal.title}}
+          div(
+            v-html="configSmallModal.body"
+            class="hs-small_modal__body")
 </template>
 
 <script>

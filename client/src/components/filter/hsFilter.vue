@@ -1,69 +1,74 @@
 <template lang="pug">
-  div(class="filter")
+  div(class="hs-filter")
     //- pre {{$data}}
-    div(class="filter__filters")
-      h2(class="filter__title") {{lang.hsFilter.filter.title}}
-      div(class="filter__filters__group")
+    div(class="hs-filter__filters")
+      h2(class="hs-filter__title") {{lang.hsFilter.filter.title}}
+      div(class="hs-filter__filters__group")
         button(
           :ref="configFilter.ids.filterButton"
           v-for="selectMode in configFilter.select"
           type="button"
-          class="filter__filters__group__button"
+          :class="{'hs-filter__filters__group__button--active': originSelect}"
+          class="hs-filter__filters__group__button"
           @click="chosenFilter(selectMode.name, selectMode.key)") {{selectMode.name}}
-      div(class="filter__filters__select")
+      div(class="hs-filter__filters__select")
         div(
           v-for="selectMode in configFilter.select"
           v-show="activatedFilter === selectMode.key"
-          class="select__container")
+          class="hs-select__container")
           select(
-            class="select select--active select--background-default select--font-size-small select--cursor select--multiple"
+            v-scroll-stop="true"
+            class="hs-select hs-select--active hs-select--color-violet hs-select--font-size-small hs-select--cursor hs-select--multiple"
             v-model="chosenFilters"
-            multiple)
+            multiple
+            @mousewheel="a($event)")
             option(
               v-for="data in selectMode.optionData"
               :value="data"
-              class="select--font-size-small") {{data}}
-      div(class="filter__filters__lauch")
+              class="hs-select--font-size-small") {{data}}
+      div(class="hs-filter__filters__lauch")
         button(
           type="button"
-          class="filter__filters__lauch__button"
+          class="hs-filter__filters__lauch__button"
           @click="sendFilter()") {{lang.hsFilter.filter.button}}
 
-    div(class="filter__text")
-      h2(class="filter__title") {{lang.hsFilter.text.title}}
-      div(class="filter__text__group")
+    div(class="hs-filter__text")
+      h2(class="hs-filter__title") {{lang.hsFilter.text.title}}
+      div(class="hs-filter__text__group")
         input(
           :placeholder="configFilter.text.placeholder"
           type="input"
           v-model="searchText"
-          class="input input--active input--background input--font-size-small filter__text__group__input"
+          class="hs-input hs-input--active hs-input--background hs-input--font-size-small hs-filter__text__group__input"
           @keyup="sendText($event.keyCode)")
         button(
           type="button"
-          class="filter__text__group__button"
+          class="hs-filter__text__group__button"
           @click="sendText")
           icon(
             name="search"
-            scale="1.5")
-      div(class="filter__text__buttons")
+            scale="1.5"
+            class="hs-filter__text__group__button__icon")
+      div(class="hs-filter__text__buttons")
         button(
           v-for="textButton in configFilter.text.buttons"
           type="button"
-          class="filter__text__buttons__button"
+          class="hs-filter__text__buttons__button"
           @click="sendTextButton(textButton.key)")
           icon(
             :name="textButton.icon"
-            scale="1.5")
+            scale="1.5"
+            class="hs-filter__text__buttons__button__icon")
 
-    div(class="filter__order")
-      h2(class="filter__title") {{lang.hsFilter.order.title}}
-      div(class="filter__order__group")
+    div(class="hs-filter__order")
+      h2(class="hs-filter__title") {{lang.hsFilter.order.title}}
+      div(class="hs-filter__order__group")
         button(
           :ref="configFilter.ids.orderButton"
           v-for="orderMode in configFilter.order"
           type="button"
           value="normal"
-          class="filter__order__group__button"
+          class="hs-filter__order__group__button"
           @click="sendOrder(orderMode)") {{orderMode.name}}
 </template>
 
@@ -107,11 +112,19 @@ export default {
     this.$busForm.$off('hsFilter_searchText')
   },
 
+  created () {
+    if (Object.keys(this.configFilter.select).length) {
+      this.originSelect = true
+      this.activatedFilter = this.configFilter.select[0].key
+    }
+  },
+
   data () {
     return {
       activatedFilter: null,
       chosenFilters: [],
-      searchText: null
+      searchText: null,
+      originSelect: false
     }
   },
 
@@ -119,8 +132,8 @@ export default {
     chosenFilter (filter, key) {
       this.activatedFilter = key
       this.$refs[this.configFilter.ids.filterButton].forEach(button => {
-        if (button.textContent === filter) button.className = 'filter__filters__group__button filter__filters__group__button--active'
-        else button.className = 'filter__filters__group__button'
+        if (button.textContent === filter) button.className = 'hs-filter__filters__group__button hs-filter__filters__group__button--active'
+        else button.className = 'hs-filter__filters__group__button'
       })
     },
 
@@ -159,7 +172,7 @@ export default {
               button.value = 'normal'
             }
 
-            if (previousValue !== button.value) button.className = 'filter__order__group__button filter__order__group__button--purple'
+            if (previousValue !== button.value) button.className = 'hs-filter__order__group__button hs-filter__order__group__button--purple'
           }
         })
       } else {
@@ -175,7 +188,7 @@ export default {
 
     resetOrder () {
       this.$refs[this.configFilter.ids.orderButton].forEach(button => {
-        button.className = 'filter__order__group__button'
+        button.className = 'hs-filter__order__group__button'
         let texto = button.textContent.split(' ')[0]
         button.innerHTML = texto
       })

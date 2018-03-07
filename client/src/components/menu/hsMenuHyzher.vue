@@ -1,36 +1,49 @@
 <template lang="pug">
-  div(class="menu-hyzher")
+  div(class="hs-menu-hyzher")
     //- pre {{$data.selectedRank}}
-    div(class="menu-hyzher__head")
-      div(
-        @click="logout"
-        class="menu-hyzher__head__logout") {{lang.hsMenuHyzher.logout}}
-      div(class="menu-hyzher__head__profile")
-        span(class="menu-hyzher__head__profile__hyzher") {{$store.state.hyzher.alias}}
+    div(class="hs-menu-hyzher__head")
+      div(class="hs-menu-hyzher__head__image")
         icon(
-          name="user-circle-o"
-          scale="2"
-          class="menu-hyzher__head__profile__icon")
+          name="user-secret"
+          scale="5"
+          class="hs-menu-hyzher__head__image__icon")
+      div(class="hs-menu-hyzher__head__information")
+        div(class="hs-menu-hyzher__head__information__fast-buttons")
+          div(
+            class="hs-menu-hyzher__head__information__fast-buttons__element"
+            @click="logout")
+            icon(
+            name="sign-out"
+            scale="1.5")
+        div(class="hs-menu-hyzher__head__information__card")
+          div(class="hs-menu-hyzher__head__information__card__hyzher") {{$store.state.hyzher.alias}}
+          div(class="hs-menu-hyzher__head__information__card__rank") {{$store.state.hyzher.userRank.rank}}
 
-    div(class="menu-hyzher__ranks")
-      div(
-        v-for="rank in getRanks"
-        :class="{'menu-hyzher__ranks__rank--Hyzher-active': selectedRank.rank === 'Hyzher', 'menu-hyzher__ranks__rank--Ryzher-active': selectedRank.rank === 'Ryzher', 'menu-hyzher__ranks__rank--Thryzher-active': selectedRank.rank === 'Thryzher'}"
-        class="menu-hyzher__ranks__rank"
-        @click="chosenRank(rank)") {{rank | shortRank}}
+        //- Elemento disponible, por default equivale a "cerrar sesion": {{lang.hsMenuHyzher.logout}}
 
-    div(class="menu-hyzher__boards")
-      span(class="menu-hyzher__boards__head") {{selectedRank.rank}}
-      transition-group(name="boards-transition" tag="ul")
+    div(class="hs-menu-hyzher__pages")
+      div(class="hs-menu-hyzher__pages__ranks")
         div(
-          v-for="board in selectedRank.boards"
-          :key="board.page"
-          class="menu-hyzher__boards__element"
-          @click="sendBoard(board.route)")
-          icon(
-            :name="board.icon"
-            scale="1.5"
-            class="menu-hyzher__boards__element__icon")
+          ref="rankButton"
+          :id="rank + 'Button'"
+          v-for="rank in getRanks"
+          :class="{'hs-menu-hyzher__pages__ranks__rank--active': activeRank === rank}"
+          class="hs-menu-hyzher__pages__ranks__rank"
+          @click="chosenRank(rank)") {{rank | shortRank}}
+
+      div(class="hs-menu-hyzher__boards")
+        //- Elemento disponible, por default equivale a "Hyzher, Ryzher o Thryzher": {{selectedRank.rank}}
+        transition-group(name="boards-transition" tag="span")
+          div(
+            ref="pageButton"
+            :id="board.route + 'Button'"
+            v-for="board in selectedRank.boards"
+            :key="board.page"
+            class="hs-menu-hyzher__boards__element"
+            @click="sendBoard(board.route)")
+            icon(
+              :name="board.icon"
+              scale="1.5")
 </template>
 
 <script>
@@ -40,15 +53,27 @@ import Vue from 'vue'
 Vue.prototype.$busForm = new Vue()
 
 export default {
+  mixins: [components('Menu', 'hsMenuHyzher')],
+
+  mounted () {
+    this.$busForm.$on('hsMenuHyzher_clearActives', data => {
+      if (data.ranks) this.clearActives(true, false)
+      if (data.pages) this.clearActives(false, true)
+    })
+  },
+
+  beforeDestroy () {
+    this.$busForm.$off('hsMenuHyzher_clearActives')
+  },
+
   created () {
     this.chosenRank('Hyzher')
   },
 
-  mixins: [components('Menu', 'hsMenuHyzher')],
-
   data () {
     return {
-      selectedRank: {}
+      selectedRank: {},
+      activeRank: 'Hyzher'
     }
   },
 
@@ -67,6 +92,15 @@ export default {
   methods: {
     chosenRank (selectedRank) {
       if (Array.isArray(this.lang.hsMenuHyzher.ranks[selectedRank])) {
+        if (Object.keys(this.$refs).length) {
+          this.$refs.rankButton.forEach(button => {
+            if (button.id === `${selectedRank}Button`) {
+              button.className = 'hs-menu-hyzher__pages__ranks__rank hs-menu-hyzher__pages__ranks__rank--active'
+              this.clearActives(false, true)
+            } else button.className = 'hs-menu-hyzher__pages__ranks__rank'
+          })
+        }
+
         this.selectedRank = {
           rank: selectedRank,
           boards: this.lang.hsMenuHyzher.ranks[selectedRank]
@@ -75,8 +109,28 @@ export default {
     },
 
     sendBoard (route) {
+      this.$refs.pageButton.forEach(button => {
+        if (button.id === `${route}Button`) {
+          button.className = 'hs-menu-hyzher__boards__element hs-menu-hyzher__boards__element--active'
+        } else button.className = 'hs-menu-hyzher__boards__element'
+      })
+
       this.$router.push({name: route})
       this.$busForm.$emit('hsBoardMenu_pocket', false)
+    },
+
+    clearActives (ranks, pages) {
+      if (ranks) {
+        this.$refs.rankButton.forEach(button => {
+          button.className = 'hs-menu-hyzher__pages__ranks__rank'
+        })
+      }
+
+      if (pages) {
+        this.$refs.pageButton.forEach(button => {
+          button.className = 'hs-menu-hyzher__boards__element'
+        })
+      }
     },
 
     logout () {

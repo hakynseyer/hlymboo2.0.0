@@ -1,84 +1,59 @@
 form
   width: 100%
+
   display: flex
+  flex-wrap: wrap
   justify-content: space-around
   align-items: baseline
-  flex-wrap: wrap
-  margin-top: map-get($var-height, header)
 
-.form
-  +ele('head')
-    z-index: map-get($var-z-index, form-Head)
-    position: fixed
-    top: 0
-    left: map-get($var-width, mother-Asides)
-    margin-top: map-get($var-height, header)
-    width: map-get($var-width, mother-Section)/2
-    height: 50px
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 10px 20px
-    box-sizing: border-box
-    border-radius: 0px 0px 3px 0px
-    color: lighten(map-get($colorsHS, gray), 60%)
-    background-color: map-get($colorsHS, gray)
-    overflow: hidden
-    animation: head-transition 1000ms
-
-    +ele('title')
-      position: relative
-      max-width: 60%
-      font-weight: 300
-      text-transform: capitalize
-      overflow: hidden
-
-    +ele('buttons')
-      width: 40%
-      height: 100%
-      display: flex
-      justify-content: flex-end
-      align-items: center
-
+.hs-frm
   +ele('box')
-    position: relative
     width: 47%
+
+    margin-top: 10px
+
+    position: relative
+
     display: flex
     flex-wrap: wrap
     align-items: flex-start
-    margin-top: 10px
-    padding: 10px
+
     box-sizing: border-box
-    border-radius: 3px
 
-    &:nth-child(even)
-      margin-right: 0px
-
-    +ele('head-board')
-      align-self: flex-start
+    +ele('headboard')
       width: 100%
+
       margin-bottom: 10px
+      padding: 10px
+
+      border-bottom: dashed 2px map-get($_color-main, violet-H1)
 
     +ele('body')
       width: 100%
 
       +ele('group')
+        width: 100%
+        height: 50px
+
         position: relative
+
         display: flex
         flex-wrap: wrap
         justify-content: center
-        width: 100%
-        height: 50px
+
         margin-bottom: 10px
         padding: 0px 10px
+
         box-sizing: border-box
-        background-color: map-get($var-color-gray, form-group)
+
         overflow: hidden
+
         &:last-child
           margin-bottom: 0px
 
         +mod('free-height')
           height: auto
+
         +mod('error')
           height: auto
 

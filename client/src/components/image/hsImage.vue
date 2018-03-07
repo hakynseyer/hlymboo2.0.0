@@ -1,11 +1,11 @@
 <template lang="pug">
   div(
-    :class="{'form__box__body__group--free-height': reactiveDataImage, 'form__box__body__group--error': validateErrors, 'form__box__body__group--free-height': activeImage}"
-    class="form__box__body__group")
+    :class="{'hs-frm__box__body__group--free-height': reactiveDataImage, 'hs-frm__box__body__group--error': validateErrors, 'hs-frm__box__body__group--free-height': activeImage}"
+    class="hs-frm__box__body__group")
 
     label(
-      :class="{'label--active' : activeImage, 'label--error': validateErrors}"
-      class="label"
+      :class="{'hs-label--active' : activeImage, 'hs-label--error': validateErrors}"
+      class="hs-label"
       @click="stateImage()") {{configImage.titleImage}}
 
     hidden-message-inputs(
@@ -14,31 +14,31 @@
 
     div(
       :ref="configImage.id"
-      :class="{'image--active': activeImage}"
-      class="image__container")
+      :class="{'hs-image--active': activeImage}"
+      class="hs-image__container")
 
       img(
         :src="fixChangeImg"
-        class="image__container__frame"
+        class="hs-image__container__frame"
         @click="loadImage")
 
       div(
         v-show="details.cellsA && details.cellsB"
-        class="image__container__details")
-        div(class="image__container__details__group")
-          span(class="image__container__details__group__cells") {{lang.hsImage.details.cellType}}
-          span(class="image__container__details__group__cells") {{details.cellsA}}
-        div(class="image__container__details__group")
-          span(class="image__container__details__group__cells") {{lang.hsImage.details.cellWeight}}
-          span(class="image__container__details__group__cells") {{details.cellsB}}
+        class="hs-image__container__details")
+        div(class="hs-image__container__details__group")
+          span(class="hs-image__container__details__group__cells") {{lang.hsImage.details.cellType}}
+          span(class="hs-image__container__details__group__cells") {{details.cellsA}}
+        div(class="hs-image__container__details__group")
+          span(class="hs-image__container__details__group__cells") {{lang.hsImage.details.cellWeight}}
+          span(class="hs-image__container__details__group__cells") {{details.cellsB}}
 
-      div(class="image__container__curtain")
+      div(class="hs-image__container__curtain")
 
       input(
         :id="configImage.titleImage"
         type="file"
         accept="image/*"
-        class="image__container__input"
+        class="hs-image__container__input"
         @change="changeDefaultImage")
 
     hs-error(:errors="errorImage")

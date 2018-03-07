@@ -1,0 +1,28 @@
+.hs-link
+  padding: 5px
+
+  display: flex
+  align-items: center
+
+  font-size: 12px
+  text-decoration: none
+  text-transform: uppercase
+  line-height: 1.5
+
+  color: map-get($_color-main, violet-L2)
+
+  +mod('hr')
+    transition: transform 250ms ease-in-out
+    &:hover
+      transform: rotateX(180deg)
+
+  +mod('big')
+    font-size: 24px
+
+@each $name, $color in $_color-main
+  .hs-link--hb-#{$name}
+    &:hover
+      background-color: $color
+      @if $name == violet-L1 or $name == violet-L2
+        color: map-get($_color-main, violet-H1)
+

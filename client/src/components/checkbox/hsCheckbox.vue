@@ -1,11 +1,11 @@
 <template lang="pug">
   div(
-    :class="{'form__box__body__group--free-height': activeCheck, 'form__box__body__group--padding-bottom': activeCheck, 'form__box__body__group--error': validateErrors}"
-    class="form__box__body__group")
+    :class="{'hs-frm__box__body__group--free-height': activeCheck, 'hs-frm__box__body__group--padding-bottom': activeCheck, 'hs-frm__box__body__group--error': validateErrors}"
+    class="hs-frm__box__body__group")
 
     label(
-      :class="{'label--active' : activeCheck, 'label--error': validateErrors}"
-      class="label"
+      :class="{'hs-label--active' : activeCheck, 'hs-label--error': validateErrors}"
+      class="hs-label"
       @click="stateCheck()") {{configCheck.titleCheck}}
 
     hidden-message-inputs(
@@ -14,8 +14,8 @@
 
     div(
       v-for="checkElement in configCheck.checkList"
-      :class="{'checkbox--active': activeCheck}"
-      class="checkbox")
+      :class="{'hs-checkbox--active': activeCheck}"
+      class="hs-checkbox")
       input(
         :id="checkElement"
         type="checkbox"
@@ -24,10 +24,10 @@
       label(
         :ref="configCheck.id"
         :for="checkElement"
-        class="checkbox__element") {{checkElement}}
+        class="hs-checkbox__element") {{checkElement}}
       div(
         :for="checkElement"
-        class="checkbox__square"
+        class="hs-checkbox__square"
         @click="sendCheck(checkElement)")
 
     hs-error(:errors="errorCheck")
@@ -80,7 +80,7 @@ export default {
         if (typeof (this.$refs[data.id]) !== 'undefined') {
           this.saveCheck = []
           this.$refs[data.id].forEach(check => {
-            check.nextSibling.className = 'checkbox__square'
+            check.nextSibling.className = 'hs-checkbox__square'
           })
         }
       }
@@ -139,8 +139,8 @@ export default {
 
       this.$refs[this.configCheck.id].forEach(check => {
         let checkPosition = this.saveCheck.indexOf(check.textContent)
-        if (checkPosition >= 0) check.nextSibling.className = 'checkbox__square checkbox__square--chosen'
-        else check.nextSibling.className = 'checkbox__square'
+        if (checkPosition >= 0) check.nextSibling.className = 'hs-checkbox__square hs-checkbox__square--chosen'
+        else check.nextSibling.className = 'hs-checkbox__square'
       })
 
       this.$emit('checkData', this.saveCheck)

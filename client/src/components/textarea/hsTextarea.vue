@@ -1,12 +1,12 @@
 <template lang="pug">
   div(
-    :class="{'form__box__body__group--free-height': reactiveDataTextarea || activeTextarea, 'form__box__body__group--error': validateErrors}"
-    class="form__box__body__group")
+    :class="{'hs-frm__box__body__group--free-height': reactiveDataTextarea || activeTextarea, 'hs-frm__box__body__group--error': validateErrors}"
+    class="hs-frm__box__body__group")
 
     label(
       :for="configTextarea.titleTextarea"
-      :class="{'label--active': activeTextarea, 'label--error': validateErrors}"
-      class="label"
+      :class="{'hs-label--active': activeTextarea, 'hs-label--error': validateErrors}"
+      class="hs-label"
       @click="stateTextarea()") {{configTextarea.titleTextarea}}
 
     hidden-message-inputs(
@@ -17,16 +17,17 @@
       v-if="configTextarea.readOnly"
       :ref="configTextarea.id"
       :id="configTextarea.titleTextarea"
-      :class="{'textarea--active': activeTextarea}"
-      class="textarea") {{reactiveDataTextarea}}
+      :class="{'hs-textarea--active': activeTextarea}"
+      class="hs-textarea") {{reactiveDataTextarea}}
 
     textarea(
+      v-scroll-stop="true"
       v-else
       :ref="configTextarea.id"
       :id="configTextarea.titleTextarea"
       :value="reactiveDataTextarea"
-      :class="{'textarea--active': activeTextarea}"
-      class="textarea"
+      :class="{'hs-textarea--active': activeTextarea}"
+      class="hs-textarea"
       @keyup="sendTextarea($event)"
       @blur="sendTouch()")
 

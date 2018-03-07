@@ -1,52 +1,61 @@
 button
-  font-family: 'Roboto', sans-serif
-  border: none
-  outline: none
   width: 90px
   height: 100%
+
+  padding: 5px
+
   display: flex
   justify-content: center
   align-items: center
-  border-radius: 3px
+
+  outline: none
+  border: none
+
+  font-family: 'Roboto', sans-serif
   font-size: 13px
-  padding: 0
+
   background-color: transparent
-  color: map-get($colorsHS, gray)
+  color: map-get($_color-secondary, gray)
+
   cursor: pointer
+
   overflow: hidden
+
   &:active
-    padding: 0
     outline: none
     border: none
 
-.button
+.hs-btn
   +mod('margin-right')
     margin-right: 10px
 
-@each $name, $color in $colorsHS
-  .button__darken-color--#{$name}
-    background-color: darken($color, 5%)
-    color: lighten($color, 45%)
-  .button__lighten-color--#{$name}
-    background-color: lighten($color, 45%)
-    color: darken($color, 5%)
+@each $name, $color in $_color-main
+  .hs-btn--b-#{$name}
+    background-color: $color
+    @if $name == violet-L1 or $name == violet-L2
+      color: map-get($_color-main, violet-H1)
 
-  .button__hover-darken-color--#{$name}
-    transition: all 100ms ease-in-out
+  .hs-btn--hb-#{$name}
     &:hover
-      background-color: darken($color, 5%)
-      color: lighten($color, 45%)
-  .button__hover-lighten-color--#{$name}
-    transition: all 100ms ease-in-out
+      background-color: $color
+      @if $name == violet-L1 or $name == violet-L2
+        color: map-get($_color-main, violet-H1)
+
+@each $name, $color in $_color-secondary
+  .hs-btn--b-#{$name}
+    background-color: $color
+    color: map-get($_color-main, violet-L2)
+
+  .hs-btn--hb-#{$name}
     &:hover
-      background-color: lighten($color, 45%)
-      color: darken($color, 45%)
+      background-color: $color
+      color: map-get($_color-main, violet-L2)
 
 
-.move-right-enter-active
+.ready-transition-enter-active
   animation: move-right 500ms
 
-.move-right-leave-active
+.ready-transition-leave-active
   animation: move-right 500ms reverse
 
 @keyframes move-right

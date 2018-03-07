@@ -1,13 +1,13 @@
 <template lang="pug">
   div(
     v-show="!configInput.hideInput"
-    :class="{'form__box__body__group--free-height': reactiveDataInput, 'form__box__body__group--error': validateErrors}"
-    class="form__box__body__group")
+    :class="{'hs-frm__box__body__group--free-height': reactiveDataInput, 'hs-frm__box__body__group--error': validateErrors}"
+    class="hs-frm__box__body__group")
 
     label(
       :for="configInput.titleInput"
-      :class="{'label--active': activeInput, 'label--error': validateErrors}"
-      class="label"
+      :class="{'hs-label--active': activeInput, 'hs-label--error': validateErrors}"
+      class="hs-label"
       @click="stateInput()") {{configInput.titleInput}}
 
     hidden-message-inputs(
@@ -19,8 +19,8 @@
       :id="configInput.titleInput"
       :type="configInput.typeInput"
       :value="reactiveDataInput"
-      :class="{'input--active': activeInput}"
-      class="input"
+      :class="{'hs-input--active': activeInput}"
+      class="hs-input"
       @keyup="sendInput($event)"
       @blur="sendTouch()")
 

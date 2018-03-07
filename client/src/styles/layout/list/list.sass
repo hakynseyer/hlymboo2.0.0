@@ -1,115 +1,158 @@
-.list
+.hs-list
   width: 100%
+
+  margin: 40px 0px 20px 0px
+
   display: flex
   flex-wrap: wrap
-  margin-top: map-get($var-height, header)
 
   +ele('container')
     width: 100%
+
     display: flex
     flex-wrap: wrap
-    justify-content: space-around
+    justify-content: space-between
     align-items: baseline
+
     overflow: hidden
 
     +ele('element')
-      position: relative
-      align-items: center
-      width: 28%
+      width: 200px
+
       margin-bottom: 20px
+
+      position: relative
+
       cursor: pointer
+
       overflow: hidden
+
       &:hover
-        .list__content
-          &:before
-            background-color: transparent
+        .hs-list__content__preview__data
+          height: 50%
 
   +ele('label')
+    width: 100%
+
     display: flex
     justify-content: space-between
-    width: 100%
 
     +ele('title')
       width: 70%
+
       padding: 5px 5px
-      border-radius: 3px 3px 0px 0px
-      border-style: solid solid none solid
-      border-width: 2px
-      border-color: map-get($colorsHS, gray)
-      box-sizing: border-box
-      text-transform: uppercase
+
       font-size: 13px
       font-weight: 500
+      text-transform: uppercase
       text-indent: 10px
-      color: map-get($colorsHS, white)
-      background-color: lighten(map-get($colorsHS, gray), 10)
+
+      color: map-get($_color-main, violet-L2)
+      background-color: map-get($_color-main, violet-H1)
 
   +ele('content')
     width: 100%
-    border: solid 2px map-get($colorsHS, gray)
+    height: 220px
+
+    position: relative
+
+    border: solid 2px map-get($_color-main, violet-H1)
     box-sizing: border-box
-    &:before
-      z-index: map-get($var-z-index, list)
-      position: absolute
-      content: ''
+
+    overflow: hidden
+    +ele('preview')
       width: 100%
       height: 100%
-      background-color: rgba(darken(map-get($colorsHS, gray), 10), .5)
-      transition: all 300ms ease-in-out
 
-    +ele('preview')
-      position: relative
-      width: 100%
       display: flex
-      flex-wrap: wrap
-      align-items: center
-
-      +ele('author')
-        position: absolute
-        bottom: 0
-        right: 0
-        display: flex
-        justify-content: center
-        align-items: center
-        width: 50%
-        padding: 2px 5px
-        box-sizing: border-box
-        font-size: 13px
-        font-style: italic
-        text-align: center
-        text-transform: capitalize
-        color: map-get($colorsHS, white)
-        background-color: rgba(darken(map-get($colorsHS, white), 80), .7)
+      justify-content: center
 
       +ele('picture')
-        max-width: 100%
+        height: 100%
 
-    +ele('information')
-      width: 100%
-      background-color: lighten(map-get($colorsHS, gray), 65)
-
-      +ele('text')
+      +ele('data')
         width: 100%
-        font-size: 13px
-        font-weight: 300
-        padding: 3px 5px
-        box-sizing: border-box
-        text-align: center
+        height: 25%
 
-        +mod('title')
-          font-weight: 500
-          text-transform: uppercase
+        position: absolute
+        bottom: 0
+        left: 0
 
-        +mod('paragraph')
+        transition: height 200ms ease
+
+        & > svg
+          display: flex
+
+        & > svg > path
+          stroke: map-get($_color-main, violet-H1)
+          fill: map-get($_color-main, violet-L2)
+          vertical-align: middle
+
+        +ele('author')
+          width: 50%
+
+          position: absolute
+          top: 10px
+          right: 0
+
+          padding: 2px 5px
+
+          display: flex
+          justify-content: center
+          align-items: center
+
+          box-sizing: border-box
+
+          font-size: 13px
           font-style: italic
-          &:before
-            content: '"'
-            font-weight: bold
-            margin-right: 5px
-          &:after
-            content: '"'
-            font-weight: bold
-            margin-left: 5px
+          text-align: center
+          text-transform: capitalize
 
-        +mod('bold')
-          font-weight: 500
+          color: map-get($_color-main, violet-H1)
+
+        +ele('information')
+          width: 100%
+
+          padding-bottom: 20px
+
+          box-shadow: 0px 0px 0px 2px map-get($_color-main, violet-H1)
+
+          color: map-get($_color-secondary, gray)
+          background-color: map-get($_color-main, violet-L2)
+
+          +ele('text')
+            width: 100%
+
+            padding: 3px 5px
+
+            font-size: 13px
+            font-weight: 300
+            text-align: center
+
+            box-sizing: border-box
+
+            color: map-get($_color-main, violet-H1)
+
+            +mod('title')
+              font-weight: 500
+              text-transform: uppercase
+
+            +mod('paragraph')
+              font-style: italic
+
+              &:before
+                content: '"'
+
+                margin-right: 5px
+
+                font-weight: bold
+
+              &:after
+                content: '"'
+
+                margin-left: 5px
+
+                font-weight: bold
+
+            +mod('bold')
+              font-weight: 500

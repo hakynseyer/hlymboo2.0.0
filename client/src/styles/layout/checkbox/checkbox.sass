@@ -1,36 +1,46 @@
 input[type="checkbox"]
   display: none
 
-.checkbox
+.hs-checkbox
+  width: 100%
+  height: 0px
+
+  margin: 0px
+
   display: flex
   align-items: center
-  height: 0px
-  width: 100%
-  margin: 0px
+
   overflow: hidden
+
   &:last-child
     margin-bottom: 15px
 
   +mod('active')
     height: auto
+
     margin-top: 15px
     padding: 0px 10px
 
   +ele('element')
     order: 2
+
     width: 80%
+
+    padding-left: 10px
+
     font-size: 15px
     font-weight: 300
-    padding-left: 10px
-    transition: all 100ms ease-in-out
 
   +ele('square')
     order: 1
-    display: inline-block
+
     width: 20px
     height: 20px
-    border: solid 2px map-get($colorsHS, gray)
+
+    display: inline-block
+
+    border: solid 2px map-get($_color-secondary, gray)
     box-sizing: border-box
 
     +mod('chosen')
-      background-color: map-get($colorsHS, gray)
+      background-color: map-get($_color-secondary, gray)

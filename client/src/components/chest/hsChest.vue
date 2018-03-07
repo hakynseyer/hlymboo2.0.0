@@ -1,12 +1,12 @@
 <template lang="pug">
   div(
-    :class="{'form__box__body__group--free-height': reactiveDataChest || activeChest, 'form__box__body__group--error': validateErrors}"
-    class="form__box__body__group")
+    :class="{'hs-frm__box__body__group--free-height': reactiveDataChest || activeChest, 'hs-frm__box__body__group--error': validateErrors}"
+    class="hs-frm__box__body__group")
 
     label(
       :for="configChest.titleChest"
-      :class="{'label--active': activeChest, 'label--error': validateErrors}"
-      class="label"
+      :class="{'hs-label--active': activeChest, 'hs-label--error': validateErrors}"
+      class="hs-label"
       @click="stateChest()") {{configChest.titleChest}}
 
     hidden-message-inputs(
@@ -14,27 +14,27 @@
       :hiddenMessage="configChest.hiddenMessage")
 
     div(
-      :class="{'chest--active': activeChest}"
-      class="chest")
+      :class="{'hs-chest--active': activeChest}"
+      class="hs-chest")
 
       input(
         v-show="showInput"
         :ref="configChest.idInput"
         :id="configChest.titleChest"
         :value="reactiveDataChest"
-        class="chest__input"
+        class="hs-chest__input"
         @keyup="sendChest($event, 'input')"
         @blur="sendTouch()")
 
       div(
         v-show="!showInput"
-        class="chest__select")
+        class="hs-chest__select")
 
         template(v-if="configChest.typeSelect === 'array'")
-          div(class="chest__select select__container")
+          div(class="hs-chest__select hs-select__container")
             select(
               :ref="configChest.idSelect"
-              class="select select--active"
+              class="hs-select hs-select--active"
               @keyup="nextInput($event.code)"
               @change="sendChest($event, 'select')"
               @blur="sendTouch()")
@@ -44,18 +44,18 @@
             icon(
               name="sort-desc"
               scale="1.5"
-              class="select__arrow")
+              class="hs-select__arrow")
 
       button(
         type="button"
-        :class="{'chest__button--coincidence': coincidence}"
-        class="chest__button"
+        :class="{'hs-chest__button--coincidence': coincidence}"
+        class="hs-chest__button"
         @click="statusButton(false)")
 
         icon(
           :name="icon"
-          scale="1.5"
-          class="chest__button--icon")
+          scale="1.3"
+          class="hs-chest__button--icon")
 
     hs-error(:errors="errorChest")
 </template>

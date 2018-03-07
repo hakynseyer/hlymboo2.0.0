@@ -10,6 +10,7 @@
 
 <script>
 import {boards} from '../../../../lang/client'
+import {_hsMenuHyzherIndex} from '@/components/_support/_hsMenuHyzherIndex'
 
 import hsBoardMenu from '@/components/board/hsBoardMenu'
 
@@ -21,7 +22,7 @@ export default {
     hsBoardMenu
   },
 
-  mixins: [boards('image', 'hsBoardMenu')],
+  mixins: [boards('image', 'hsBoardMenu'), _hsMenuHyzherIndex],
 
   beforeRouteEnter (to, from, next) {
     next(vm => {

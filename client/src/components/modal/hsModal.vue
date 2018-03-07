@@ -3,30 +3,30 @@
     div(
       :ref="configModal.id"
       v-show="showModal"
-      class="modal")
+      class="hs-modal")
       div(
         v-if="!configModal.disableExit"
-        class="modal__exit"
+        class="hs-modal__exit"
         @click="closeModal")
         icon(
           name="times-circle"
           scale="3"
-          class="modal__exit__icon")
+          class="hs-modal__exit__icon")
       div(
-        :class="{'modal__head--center': configModal.head.headAlign === 'center'}"
-        class="modal__head modal__head--color-white")
+        :class="{'hs-modal__head--center': configModal.head.headAlign === 'center'}"
+        class="hs-modal__head hs-modal__head--color-default")
         div(
           v-if="configModal.head.title"
-          class="modal__head__titles")
-          h2(class="modal__head__titles__main") {{configModal.head.title}}
+          class="hs-modal__head__titles")
+          h2(class="hs-modal__head__titles__main") {{configModal.head.title}}
           h3(
             v-show="configModal.head.subtitle"
-            class="modal__head__titles__secondary") {{configModal.head.subtitle}}
-      div(class="modal__body")
+            class="hs-modal__head__titles__secondary") {{configModal.head.subtitle}}
+      div(class="hs-modal__body")
         slot(name="modalBody")
         div(
           v-if="configModal.timer.time"
-          class="modal__body__timer")
+          class="hs-modal__body__timer")
           span(v-if="!configModal.timer.redirect") {{fixMsgRedirectDefault}}
           span(v-else) {{timer.msgRedirect}}
 </template>

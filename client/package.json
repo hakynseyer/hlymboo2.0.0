@@ -19,6 +19,7 @@
     "vue": "^2.5.2",
     "vue-awesome": "^2.3.4",
     "vue-router": "^3.0.1",
+    "vue-scroll-stop": "^0.1.5",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.4.2",
     "vuex-router-sync": "^5.0.0"

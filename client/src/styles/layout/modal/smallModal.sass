@@ -1,39 +1,42 @@
-.small_modal
-  z-index: map-get($var-z-index, smallModal)
-  position: fixed
-  bottom: 0
-  left: map-get($var-width, mother-Asides)
-  width: map-get($var-width, mother-Section)/3
+.hs-small_modal
+  width: 100%
   height: 80px
+
+  padding: 5px
+
   display: flex
   flex-direction: column
   justify-content: space-between
-  padding: 5px
+
   box-sizing: border-box
-  border-radius: 0px 3px 0px 0px
-  color: map-get($colorsHS, white)
+
+  color: map-get($_color-main, violet-L2)
+
   overflow: hidden
 
   +mod('normal')
-    background-color: map-get($colorsHS, purple)
+    background-color: map-get($_color-main, violet-H1)
 
   +mod('success')
-    background-color: map-get($colorsHS, green)
+    background-color: map-get($_color-secondary, green)
 
   +mod('error')
-    background-color: map-get($colorsHS, red)
+    background-color: map-get($_color-secondary, red)
 
   +ele('title')
+    padding-bottom: 5px
+
+    border-bottom: dashed 1px map-get($_color-main, violet-L2)
+
     font-size: 15px
     text-indent: 10px
-    padding-bottom: 5px
-    border-bottom: dashed 1px map-get($colorsHS, white)
 
   +ele('body')
-    font-size: 13px
-    font-weight: 300
     margin-top: 5px
     padding: 0px 5px 5px 5px
+
+    font-size: 13px
+    font-weight: 300
     text-align: center
 
     & > p

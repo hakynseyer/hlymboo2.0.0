@@ -5,15 +5,15 @@
       slot="modalBody")
       div(
         v-if="configAlertModal.body"
-        :class="{'modal__body__alert--normal': typeModal === 'normal', 'modal__body__alert--error': typeModal === 'error', 'modal__body__alert--success': typeModal === 'success'}"
-        class="modal__body__alert")
-        h2(class="modal__body__alert__head") {{configAlertModal.body.head}}
+        :class="{'hs-modal__body__alert--normal': typeModal === 'normal', 'hs-modal__body__alert--error': typeModal === 'error', 'hs-modal__body__alert--success': typeModal === 'success'}"
+        class="hs-modal__body__alert")
+        h2(class="hs-modal__body__alert__head") {{configAlertModal.body.head}}
         div(
           v-html="configAlertModal.body.body"
-          class="modal__body__alert__body")
+          class="hs-modal__body__alert__body")
         div(
           v-html="configAlertModal.body.footer"
-          class="modal__body__alert__footer")
+          class="hs-modal__body__alert__footer")
 </template>
 
 <script>

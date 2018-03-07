@@ -1,35 +1,51 @@
-.error
+.hs-error
   width: 100%
-  font-size: 13px
+
   padding: 10px 0px
-  color: darken(map-get($colorsHS, red), 15%)
+
+  font-size: 13px
+
+  color: map-get($_color-secondary, red)
 
   +mod('simple')
-    font-size: 15px
     width: 90%
+
     padding: 20px 10px
-    background-color: map-get($var-color-gray, form-group)
-    border: dashed 2px map-get($colorsHS, red)
+
+    font-size: 15px
+
+    border: dashed 2px map-get($_color-secondary, red)
 
   +ele('message')
+    width: 100%
+
     display: flex
     flex-wrap: wrap
     align-items: center
-    width: 100%
+
     b
-      flex-basis: auto
       margin-right: 10px
+
+      flex-basis: auto
+
     p
       width: 100%
+
       margin: 0
       padding: 5px 0px 0px 0px
+
       text-indent: 15px
 
     &:before
       content: ''
-      display: inline-block
-      margin-right: 10px
+
       width: 5px
       height: 5px
+
+      margin-right: 10px
+
+      display: inline-block
+
       border-radius: 50%
-      background-color: darken(map-get($colorsHS, red), 15%)
+
+      background-color: map-get($_color-secondary, red)

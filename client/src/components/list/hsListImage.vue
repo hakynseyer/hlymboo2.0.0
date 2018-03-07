@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  article(class="hs-art--list")
     hs-filter(
       :configFilter="lang.hsFilter.image.configFilter"
       @filterData="filterData"
@@ -9,19 +9,25 @@
 
     hs-list(:configList="lang.hsList.image.configList")
       template(slot="labelCard" slot-scope="props")
-        div(class="list__label")
-          div(class="list__label__title") {{props.data.title | cutTitle}}
+        div(class="hs-list__label")
+          div(class="hs-list__label__title") {{props.data.title | cutTitle}}
       template(slot="contentCard" slot-scope="props")
-        div(class="list__content")
-          div(class="list__content__preview")
-            div(class="list__content__preview__author") {{props.data.User.alias}}
+        div(class="hs-list__content")
+          div(class="hs-list__content__preview")
             img(
               :src="fixImage(props.data.User, props.data.route)"
-              class="list__content__preview__picture")
-          div(class="list__content__information")
-            div(class="list__content__information__text list__content__information__text--title") {{props.data.chest}}
-            div(class="list__content__information__text list__content__information__text--paragraph") {{props.data.copyright | cutCopyright}}
-            div(class="list__content__information__text list__content__information__text--bold") {{props.data.updatedAt | fixDate}}
+              class="hs-list__content__preview__picture")
+            div(class="hs-list__content__preview__data")
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 300 50">
+                <path d=" M 306.854 1.068 L 194.687 1.068 L -9.646 83.068 L -9.646 131.03 L 306.854 131.03 L 306.854 1.068 Z " vector-effect="non-scaling-stroke" stroke-width="2"/>
+              </svg>
+
+              div(class="hs-list__content__preview__data__author") {{props.data.User.alias}}
+
+              div(class="hs-list__content__preview__data__information")
+                div(class="hs-list__content__preview__data__information__text hs-list__content__preview__data__information__text--title") {{props.data.chest}}
+                div(class="hs-list__content__preview__data__information__text hs-list__content__preview__data__information__text--paragraph") {{props.data.copyright | cutCopyright}}
+                div(class="hs-list__content__preview__data__information__text hs-list__content__preview__data__information__text--bold") {{props.data.updatedAt | fixDate}}
 
     hs-pagination(
       :configPagination="lang.hsPagination.image.configPagination"

@@ -1,16 +1,8 @@
-.header
-  +ele('logo')
-    width: map-get($var-width, mother-Asides)
-    height: map-get($var-height, header)
+.hs-hdr
+  +ele('right')
+    width: 100%
+    height: 100%
+
     display: flex
     justify-content: center
     align-items: center
-    padding: 0px map-get($var-padding-LR, asides)
-    box-sizing: border-box
-    background-color: map-get($colorsHS, gray)
-
-    +ele('main')
-      font-size: 25px
-      letter-spacing: 2px
-      text-decoration: none
-      color: map-get($colorsHS, white)

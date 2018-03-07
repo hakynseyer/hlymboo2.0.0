@@ -1,50 +1,76 @@
 label
   width: 100%
   height: 50px
+
   display: flex
   justify-content: space-between
   align-items: center
+
   font-size: 16px
-  cursor: pointer
+
   transition: all 150ms linear
+
+  cursor: pointer
+
+  color: map-get($_color-main, violet-H1)
 
 // Falta el modificador label--error
 
-.label
+.hs-label
   +mod('active')
-    font-size: 13px
+    height: 15px
+
     margin-top: 5px
+
     display: flex
     justify-content: space-between
-    height: 15px
+
+    font-size: 13px
     font-weight: 300
+
     cursor: default
+
     overflow: hidden
 
   +ele('status')
     position: absolute
     top: 0
     right: 0
+
     margin: 5px 5px 0px 0px
-    color: lighten(map-get($colorsHS, gray), 10)
+
     cursor: pointer
 
-    +ele('icon')
+    +ele('icon-success')
       height: 10px
 
+      color: map-get($_color-secondary, green)
+
+    +ele('icon-error')
+      height: 10px
+
+      color: map-get($_color-secondary, red)
+
     +ele('msg')
-      z-index: map-get($var-z-index, inputLabel)
+      z-index: map-get($_var-zIndex, frm-label)
+
+      width: 50%
+      height: 100%
+
+      padding: 5px
+
       position: absolute
       bottom: 0
       left: 0
-      box-sizing: border-box
-      padding: 5px
-      font-size: 13px
-      height: 100%
-      width: 50%
+
       display: flex
       justify-content: center
       align-items: center
+
+      box-sizing: border-box
+
+      font-size: 13px
       text-align: center
-      background-color: map-get($colorsHS, gray)
-      color: lighten(map-get($colorsHS, gray), 60)
+
+      color: map-get($_color-main, violet-L2)
+      background-color: map-get($_color-main, violet-H1)

@@ -1,10 +1,11 @@
-.chest
+.hs-chest
   width: 100%
   height: 0px
+
   margin: 10px 0px
+
   display: flex
   justify-content: space-between
-  transition: all 100ms ease-in-out
 
   +mod('active')
     height: 30px
@@ -12,7 +13,9 @@
   +ele('input')
     width: 85%
     height: 100%
+
     padding-right: 10px
+
     box-sizing: border-box
 
   +ele('select')
@@ -21,11 +24,13 @@
 
   +ele('button')
     width: 15%
-    background-color: map-get($colorsHS, gray)
+    height: 100%
+
+    background-color: map-get($_color-main, violet-H1)
 
     +mod('icon')
-      color: map-get($colorsHS, white)
+      color: map-get($_color-main, violet-L2)
 
     +mod('coincidence')
-      background-color: map-get($colorsHS, green)
+      background-color: map-get($_color-secondary, green)
 

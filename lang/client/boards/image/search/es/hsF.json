@@ -7,8 +7,7 @@
         "orderButton": "idOrderButton"
       },
       "select": [
-        {"name": "Baul", "key": "chest", "optionData": []},
-        {"name": "Copy", "key": "copyright", "optionData": ["hlymboo", "HLoo"]}
+        {"name": "Baul", "key": "chest", "optionData": []}
       ],
       "text": {
         "placeholder": "Titulo, Baul...",
