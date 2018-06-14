@@ -116,7 +116,9 @@ export default {
       })
 
       this.$router.push({name: route})
+
       this.$busForm.$emit('hsBoardMenu_pocket', false)
+      this.$busForm.$emit('searchImage_imageChosen', {clear: true, data: null})
     },
 
     clearActives (ranks, pages) {

@@ -12,6 +12,7 @@ import login from '@/pages/login'
 import image from '@/pages/image'
 import imageUploadBasic from '@/pages/image/uploadBasic'
 import imageSearch from '@/pages/image/search'
+import imageEditBasic from '@/pages/image/editBasic'
 
 Vue.use(Router)
 
@@ -61,6 +62,11 @@ export default new Router({
           path: '/image/search',
           name: 'imageSearch',
           component: imageSearch
+        },
+        {
+          path: '/image/edit_basic',
+          name: 'imageEditBasic',
+          component: imageEditBasic
         }
       ]
     },

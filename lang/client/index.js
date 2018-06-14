@@ -28,6 +28,7 @@ import {Menu} from './components/menu'
 import {Image} from './components/image'
 import {Filter} from './components/filter'
 import {Pagination} from './components/pagination'
+import {Board} from './components/board'
 
 const components = (resource, component) => {
   let langData = {}
@@ -50,6 +51,9 @@ const components = (resource, component) => {
       break
     case 'Pagination':
       langData = Pagination(component)
+      break
+    case 'Board':
+      langData = Board(component)
       break
   }
 

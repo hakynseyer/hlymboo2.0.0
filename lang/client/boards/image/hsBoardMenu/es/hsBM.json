@@ -20,9 +20,7 @@
       "key": "Search",
       "icon": "search",
       "children": [
-        {"title": null, "icon": "camera", "key": "editImageBasic"},
-        {"title": null, "icon": "camera", "key": "editImageBasic"},
-        {"title": null, "icon": "camera", "key": "editImageBasic"}
+        {"title": "modificador 1", "icon": "edit", "key": "EditBasic"}
       ]
     }
   }

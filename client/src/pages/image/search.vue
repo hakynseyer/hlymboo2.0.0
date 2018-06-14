@@ -15,8 +15,19 @@ export default {
   mounted () {
     this.$busForm.$on('searchImage_imageChosen', data => {
       if (typeof (data) === 'object') {
-        if (!data.clear) this.imageChosen = data.data
-        else this.imageChosen = {}
+        if (!data.clear) {
+          this.imageChosen = data.data
+
+          this.$busForm.$emit('hsBoardMenu_pocketInformation', {
+            title: data.data.title,
+            created: data.data.createdAt,
+            updated: data.data.updatedAt
+          })
+        } else {
+          this.imageChosen = {}
+
+          this.$busForm.$emit('hsBoardMenu_pocketInformation', {clear: true})
+        }
       }
     })
   },

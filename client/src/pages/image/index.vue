@@ -42,11 +42,7 @@ export default {
     actionBoardMenu (element) {
       console.log(element)
 
-      switch (element) {
-        case 'Search':
-          this.$busForm.$emit('searchImage_imageChosen', {clear: true, data: null})
-          break
-      }
+      this.$busForm.$emit('searchImage_imageChosen', {clear: true, data: null})
 
       this.$router.push({name: `image${element}`})
 

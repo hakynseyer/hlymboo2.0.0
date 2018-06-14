@@ -9,8 +9,8 @@
     "seed": "node ./seed"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Joaquin Reyes Sanchez <joaquin.seyer21@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.1",
